@@ -1,0 +1,45 @@
+
+/* === CONOCIDOS.CSS === */
+.meteorite-section {
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+  border-bottom: 1px solid #222;
+  padding-bottom: 3rem;
+}
+
+.meteorite-section h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #1e90ff;
+  text-transform: uppercase;
+}
+
+.meteorite-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.model-container {
+  flex: 1 1 45%;
+  min-height: 300px;
+  background-color: #000;
+  border: 1px solid #333;
+  border-radius: 12px;
+}
+
+.data-container {
+  flex: 1 1 45%;
+  background-color: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.data-container p { line-height: 1.6; margin: 0.4rem 0; }
+
+@media (max-width: 900px) {
+  .meteorite-column { flex-direction: column; }
+}

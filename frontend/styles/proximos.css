@@ -1,0 +1,113 @@
+/* === PROXIMOS.CSS (versión ampliada y clara) === */
+
+#proximos {
+  background-color: transparent !important;
+}
+
+.meteorite-next {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* === Tarjeta principal === */
+.meteorite-card-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background: rgba(15, 15, 15, 0.6); /* gris oscuro con transparencia */
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(30, 144, 255, 0.15);
+  backdrop-filter: blur(6px); /* efecto vidrio */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 220px;
+}
+
+.meteorite-card-next:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(30, 144, 255, 0.35);
+}
+
+/* === Zona modelo (izquierda) === */
+.model-container-next {
+  flex: 0 0 40%;
+  min-height: 220px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #111;
+}
+
+.model-container-next canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* === Zona datos (derecha) === */
+.data-container-next {
+  flex: 1;
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data-container-next h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  color: #1e90ff;
+  margin: 0 0 0.8rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.data-container-next p {
+  margin: 0.4rem 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #eaeaea;
+}
+
+/* === Etiquetas de riesgo === */
+.alerta-baja,
+.alerta-media,
+.alerta-alta {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 0.6rem;
+}
+
+.alerta-baja { color: #00ff7f; }
+.alerta-media { color: #ffd700; }
+.alerta-alta { color: #ff4d4d; }
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .meteorite-card-next {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .model-container-next {
+    border-right: none;
+    border-bottom: 1px solid #111;
+    min-height: 180px;
+  }
+
+  .data-container-next {
+    padding: 1.2rem;
+  }
+
+  .data-container-next h3 {
+    font-size: 1.2rem;
+  }
+
+  .data-container-next p {
+    font-size: 0.95rem;
+  }
+}

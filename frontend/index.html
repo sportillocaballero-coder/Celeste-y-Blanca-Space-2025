@@ -7,7 +7,9 @@
 
   <!-- Fuentes y estilos -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/proximos.css">
+  <link rel="stylesheet" href="styles/conocidos.css">
 </head>
 
 <body>
@@ -43,55 +45,126 @@
     </section>
 
     <!-- Meteoritos Próximos -->
-    <section id="proximos">
-      <h2 class="section-title">Meteoritos Próximos a la Tierra</h2>
-      <p class="lead">Datos de los cuerpos más cercanos detectados en el presente mes:</p>
+<section id="proximos">
+  <h2 class="section-title">🌍 Meteoritos Próximos a la Tierra</h2>
+  <p class="lead">Datos actualizados de los cuerpos celestes más cercanos detectados durante el presente mes.</p>
 
-      <div class="meteorite-card">
+  <div class="meteorite-next">
+    <div class="meteorite-card-next">
+      <div class="model-container-next">
+        <canvas id="model-proximo1"></canvas>
+      </div>
+      <div class="data-container-next">
         <h3>🪨 2025 QZ1</h3>
         <p><strong>Distancia mínima:</strong> 4.5 millones km</p>
         <p><strong>Velocidad:</strong> 26.000 km/h</p>
         <p><strong>Composición:</strong> Rocosa con núcleo metálico</p>
         <p><strong>Fecha de máxima aproximación:</strong> 8 de octubre 2025</p>
+        <p class="alerta-baja">🟢 Riesgo de impacto: Muy bajo</p>
       </div>
+    </div>
 
-      <div class="meteorite-card">
+    <div class="meteorite-card-next">
+      <div class="model-container-next">
+        <canvas id="model-proximo2"></canvas>
+      </div>
+      <div class="data-container-next">
         <h3>☄️ 2025 XR7</h3>
         <p><strong>Distancia mínima:</strong> 2.9 millones km</p>
         <p><strong>Velocidad:</strong> 35.000 km/h</p>
         <p><strong>Composición:</strong> Mixta (níquel y silicatos)</p>
         <p><strong>Fecha de máxima aproximación:</strong> 20 de octubre 2025</p>
+        <p class="alerta-media">🟡 Riesgo de impacto: Bajo</p>
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
+    
     <!-- Meteoritos Conocidos -->
-    <section id="conocidos">
-      <h2 class="section-title">Meteoritos Históricamente Conocidos</h2>
-      <p class="lead">Listado de meteoritos más relevantes documentados por observatorios internacionales.</p>
+<section id="conocidos">
+  <h2 class="section-title">Meteoritos Históricamente Conocidos</h2>
+  <p class="lead">Listado de meteoritos más relevantes documentados por observatorios internacionales.</p>
 
-      <div class="meteorite-grid">
-        <div class="meteorite-card">
-          <h3>Chelyabinsk</h3>
-          <p>Rusia, 2013 — Evento atmosférico con onda expansiva que causó más de 1500 heridos leves.</p>
-        </div>
-        <div class="meteorite-card">
-          <h3>Tunguska</h3>
-          <p>Siberia, 1908 — Explosión aérea que devastó 2000 km² de bosque.</p>
-        </div>
-        <div class="meteorite-card">
-          <h3>Campo del Cielo</h3>
-          <p>Argentina, 1576 — Impacto múltiple de meteoritos metálicos de hierro y níquel.</p>
-        </div>
-        <div class="meteorite-card">
-          <h3>Vredefort</h3>
-          <p>Sudáfrica — El cráter más grande del planeta (300 km de diámetro, hace 2.000 millones de años).</p>
-        </div>
-        <div class="meteorite-card">
-          <h3>Chicxulub</h3>
-          <p>México — Impacto que provocó la extinción masiva de los dinosaurios hace 66 millones de años.</p>
-        </div>
+  <!-- === CHELYABINSK === -->
+  <div class="meteorite-section">
+    <h3>☄️ Chelyabinsk (2013, Rusia)</h3>
+    <div class="meteorite-column">
+      <div class="model-container">
+        <!-- Espacio reservado para el modelo 3D -->
+        <canvas id="model-chelyabinsk"></canvas>
       </div>
-    </section>
+      <div class="data-container">
+        <p><strong>Evento:</strong> Explosión atmosférica con onda expansiva que causó más de 1500 heridos leves.</p>
+        <p><strong>Composición:</strong> Condrita ordinaria (tipo LL5).</p>
+        <p><strong>Diámetro estimado:</strong> 20 m.</p>
+        <p><strong>Velocidad de entrada:</strong> 19 km/s.</p>
+        <p><strong>Energía liberada:</strong> ~500 kilotones de TNT.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- === TUNGUSKA === -->
+  <div class="meteorite-section">
+    <h3>☄️ Tunguska (1908, Siberia)</h3>
+    <div class="meteorite-column">
+      <div class="model-container">
+        <canvas id="model-tunguska"></canvas>
+      </div>
+      <div class="data-container">
+        <p><strong>Evento:</strong> Explosión aérea que devastó más de 2000 km² de bosque.</p>
+        <p><strong>Composición:</strong> Probablemente cuerpo cometario rico en hielo.</p>
+        <p><strong>Altura de explosión:</strong> 5–10 km.</p>
+        <p><strong>Potencia estimada:</strong> 10–15 megatones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- === CAMPO DEL CIELO === -->
+  <div class="meteorite-section">
+    <h3>☄️ Campo del Cielo (Argentina, 1576)</h3>
+    <div class="meteorite-column">
+      <div class="model-container">
+        <canvas id="model-campo"></canvas>
+      </div>
+      <div class="data-container">
+        <p><strong>Evento:</strong> Impacto múltiple de meteoritos metálicos hallados en Chaco y Santiago del Estero.</p>
+        <p><strong>Composición:</strong> Hierro (93%), níquel (6.7%), cobalto (0.3%).</p>
+        <p><strong>Peso total recuperado:</strong> más de 100 toneladas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- === VREDEFORT === -->
+  <div class="meteorite-section">
+    <h3>☄️ Vredefort (Sudáfrica)</h3>
+    <div class="meteorite-column">
+      <div class="model-container">
+        <canvas id="model-vredefort"></canvas>
+      </div>
+      <div class="data-container">
+        <p><strong>Evento:</strong> Cráter más grande conocido en la Tierra (~300 km de diámetro).</p>
+        <p><strong>Edad estimada:</strong> 2.000 millones de años.</p>
+        <p><strong>Composición del impacto:</strong> Roca densa y silicatos fundidos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- === CHICXULUB === -->
+  <div class="meteorite-section">
+    <h3>☄️ Chicxulub (México)</h3>
+    <div class="meteorite-column">
+      <div class="model-container">
+        <canvas id="model-chicxulub"></canvas>
+      </div>
+      <div class="data-container">
+        <p><strong>Evento:</strong> Impacto responsable de la extinción masiva de los dinosaurios.</p>
+        <p><strong>Diámetro estimado del cráter:</strong> 180 km.</p>
+        <p><strong>Edad:</strong> 66 millones de años.</p>
+        <p><strong>Composición:</strong> Condrita carbonácea.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Alertas -->
     <section id="alertas">

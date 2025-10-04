@@ -1,0 +1,38 @@
+/* === GAMECARD.CSS === */
+#game-area, #scoreboard {
+  margin-top: 2rem;
+  background-color: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+#start-btn {
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+#start-btn:hover { background-color: #005fcc; }
+
+.game-screen {
+  background-color: #000;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructions {
+  color: #b5b5b5;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameCard | Celeste & Blanca Space</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/gamecard.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-container">
+      <img src="assets/images/logo-CyB.png" alt="Logo Celeste y Blanca Space" class="logo">
+      <h1 class="site-title">CELESTE & BLANCA SPACE</h1>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#proximos">Meteoritos próximos</a>
+      <a href="index.html#conocidos">Meteoritos conocidos</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="index.html#alertas">Alertas</a>
+      <a href="index.html#mitigacion">Mitigación</a>
+      <a href="gamecard.html" class="active">GameCard</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+
+    <button class="alert-button">Activar alertas</button>
+  </header>
+
+  <!-- MAIN -->
+  <main class="content-wrap">
+    <section class="hero-section">
+      <h1 class="hero-title">GameCard</h1>
+      <p class="lead">¡Bienvenido al módulo interactivo de Celeste & Blanca Space! Próximamente podrás jugar, aprender y sumar puntos descubriendo los secretos del espacio.</p>
+
+      <!-- Contenedor del juego -->
+      <div id="game-area">
+        <h2 class="section-title">Zona de juego</h2>
+        <div class="game-screen">
+          <p>El juego se cargará aquí pronto...</p>
+        </div>
+        <button id="start-btn">Iniciar juego</button>
+      </div>
+
+      <!-- Panel de puntajes / instrucciones -->
+      <div id="scoreboard">
+        <h2 class="section-title">Puntajes</h2>
+        <p><strong>Puntos actuales:</strong> <span id="score">0</span></p>
+        <p class="instructions">🧠 Consejo: próximamente vas a poder ganar puntos respondiendo preguntas sobre meteoritos, asteroides y defensa planetaria.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/gamecard.js"></script>
+</body>
+</html>
