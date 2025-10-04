@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Celeste & Blanca Space</title>
 
-  <!-- Google Fonts -->
+  <!-- Fuentes y estilos -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- HEADER -->
   <header class="site-header">
@@ -22,10 +22,10 @@
       <a href="#inicio">Inicio</a>
       <a href="#proximos">Meteoritos próximos</a>
       <a href="#conocidos">Meteoritos conocidos</a>
-      <a href="#noticias">Noticias</a>
+      <a href="noticias.html">Noticias</a> <!-- página aparte -->
       <a href="#alertas">Alertas</a>
       <a href="#mitigacion">Mitigación</a>
-      <a href="#gamecard">GameCard</a>
+      <a href="gamecard.html">GameCard</a> <!-- página aparte -->
       <a href="#contacto">Contacto</a>
     </nav>
 
@@ -34,21 +34,92 @@
 
   <!-- MAIN -->
   <main class="content-wrap">
+    <!-- Inicio -->
     <section id="inicio" class="hero-section">
       <h1 class="hero-title">Proyecto ARMET</h1>
       <h2 class="section-title">Monitoreo de Asteroides y Meteoritos</h2>
       <p class="lead">Una plataforma interactiva dedicada al seguimiento y análisis de objetos cercanos a la Tierra (NEOs).</p>
       <p>Nuestro objetivo es brindar información precisa y actualizada sobre meteoritos próximos, generar alertas preventivas y ofrecer herramientas de mitigación para proteger nuestro planeta.</p>
+    </section>
 
-      <h3 class="section-title">Objetivos del proyecto</h3>
-      <ul class="lead">
-        <li>Monitorear en tiempo real la actividad de asteroides cercanos.</li>
-        <li>Generar alertas tempranas ante posibles impactos.</li>
-        <li>Concientizar y educar sobre la prevención de desastres cósmicos.</li>
-      </ul>
+    <!-- Meteoritos Próximos -->
+    <section id="proximos">
+      <h2 class="section-title">Meteoritos Próximos a la Tierra</h2>
+      <p class="lead">Datos de los cuerpos más cercanos detectados en el presente mes:</p>
+
+      <div class="meteorite-card">
+        <h3>🪨 2025 QZ1</h3>
+        <p><strong>Distancia mínima:</strong> 4.5 millones km</p>
+        <p><strong>Velocidad:</strong> 26.000 km/h</p>
+        <p><strong>Composición:</strong> Rocosa con núcleo metálico</p>
+        <p><strong>Fecha de máxima aproximación:</strong> 8 de octubre 2025</p>
+      </div>
+
+      <div class="meteorite-card">
+        <h3>☄️ 2025 XR7</h3>
+        <p><strong>Distancia mínima:</strong> 2.9 millones km</p>
+        <p><strong>Velocidad:</strong> 35.000 km/h</p>
+        <p><strong>Composición:</strong> Mixta (níquel y silicatos)</p>
+        <p><strong>Fecha de máxima aproximación:</strong> 20 de octubre 2025</p>
+      </div>
+    </section>
+
+    <!-- Meteoritos Conocidos -->
+    <section id="conocidos">
+      <h2 class="section-title">Meteoritos Históricamente Conocidos</h2>
+      <p class="lead">Listado de meteoritos más relevantes documentados por observatorios internacionales.</p>
+
+      <div class="meteorite-grid">
+        <div class="meteorite-card">
+          <h3>Chelyabinsk</h3>
+          <p>Rusia, 2013 — Evento atmosférico con onda expansiva que causó más de 1500 heridos leves.</p>
+        </div>
+        <div class="meteorite-card">
+          <h3>Tunguska</h3>
+          <p>Siberia, 1908 — Explosión aérea que devastó 2000 km² de bosque.</p>
+        </div>
+        <div class="meteorite-card">
+          <h3>Campo del Cielo</h3>
+          <p>Argentina, 1576 — Impacto múltiple de meteoritos metálicos de hierro y níquel.</p>
+        </div>
+        <div class="meteorite-card">
+          <h3>Vredefort</h3>
+          <p>Sudáfrica — El cráter más grande del planeta (300 km de diámetro, hace 2.000 millones de años).</p>
+        </div>
+        <div class="meteorite-card">
+          <h3>Chicxulub</h3>
+          <p>México — Impacto que provocó la extinción masiva de los dinosaurios hace 66 millones de años.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alertas -->
+    <section id="alertas">
+      <h2 class="section-title">Alertas Activas</h2>
+      <p class="lead">Nuestro sistema emite notificaciones preventivas en caso de detección de trayectorias de riesgo.</p>
+    </section>
+
+    <!-- Mitigación -->
+    <section id="mitigacion">
+      <h2 class="section-title">Estrategias de Mitigación</h2>
+      <p>Exploramos métodos de desviación y fragmentación para reducir el riesgo de impacto futuro.</p>
     </section>
   </main>
 
-
+  <!-- FOOTER -->
+  <footer id="contacto" class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <p>¿Querés colaborar con el proyecto o enviar información científica?</p>
+        <p><strong>Email:</strong> contacto@celesteblanc.space</p>
+      </div>
+      <div class="footer-section">
+        <h3>Celeste & Blanca Space</h3>
+        <p>Proyecto ARMET - Monitoreo de asteroides y meteoritos</p>
+        <p>&copy; 2025 Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
