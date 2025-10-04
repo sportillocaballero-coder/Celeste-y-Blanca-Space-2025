@@ -1,0 +1,93 @@
+/* === Reset === */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Fondo negro */
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* === Header === */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 100;
+  border-bottom: 1px solid #222;
+  background-color: #000;
+  height: 72px;
+  box-sizing: border-box;
+}
+
+/* === Logo y título === */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* === Navegación === */
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ccc;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #4faaff;
+}
+
+/* === Botón === */
+.alert-button {
+  background-color: #007bff;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.alert-button:hover {
+  background-color: #005fcc;
+}
+
+/* === Responsivo === */
+@media (max-width: 900px) {
+  .navbar {
+    display: none; /* luego agregamos hamburguesa */
+  }
+}
