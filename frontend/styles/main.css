@@ -137,3 +137,14 @@ section:nth-of-type(even) { background-color: #0a0a0a; }
   .footer-content { grid-template-columns: 1fr; text-align: center; }
 }
 
+.lang-switcher {
+  display:flex; align-items:center;
+}
+#langSelect{
+  background:#0f1115; color:#eaeaea;
+  border:1px solid #1f2a44; border-radius:10px;
+  padding:.5rem .8rem; font-weight:600; letter-spacing:.3px;
+  cursor:pointer; outline:none;
+  box-shadow:0 0 10px rgba(30,144,255,.15) inset;
+}
+#langSelect:hover{ border-color:#1e90ff; }
