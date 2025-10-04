@@ -24,4 +24,5 @@ Integra datos reales de la NASA, simulaciones visuales y estrategias de mitigaci
 - **Valentín:** Diseño UI/UX y visualización  
 - **Ludmila:** Validación científica y prototipado  
 - **Santiago:** Desarrollo web, backend y simulaciones
-
+- **Jorge:** Edicion multimedia, SFX
+  
