@@ -245,10 +245,7 @@ section .hero-title {
   border-color: #1e90ff;
 }
 
-
-
-/* Apartado Estilo de Noticias.html */
-#news-container {
+#noticia-dia, #news-container {
   margin-top: 2rem;
 }
 
@@ -260,11 +257,13 @@ section .hero-title {
   margin: 1.5rem 0;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
+
 .news-card:hover {
   transform: translateY(-4px);
   border-color: #1e90ff;
 }
+
 .news-card img {
-  max-width: 70%;
+  max-width: 100%;
   border-radius: 8px;
 }
