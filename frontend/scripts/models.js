@@ -1,27 +1,27 @@
-console.log('🚀 Iniciando carga de modelos 3D...');
+console.log('🚀 Starting 3D models loading...');
 
-// Función para crear modelo 3D básico que siempre funciona
+// Function to create basic 3D model that always works
 function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
-    console.log(`Creando asteroide en canvas: ${canvasId}`);
+    console.log(`Creating asteroid in canvas: ${canvasId}`);
     
     const canvas = document.getElementById(canvasId);
     if (!canvas) {
-        console.error(`Canvas ${canvasId} no encontrado`);
+        console.error(`Canvas ${canvasId} not found`);
         return;
     }
 
-    // Verificar que Three.js esté disponible
+    // Verify that Three.js is available
     if (typeof THREE === 'undefined') {
-        console.error('Three.js no está cargado');
+        console.error('Three.js is not loaded');
         canvas.style.background = 'linear-gradient(45deg, #1a1a2e, #16213e)';
         canvas.style.display = 'flex';
         canvas.style.alignItems = 'center';
         canvas.style.justifyContent = 'center';
-        canvas.innerHTML = '<div style="color: white; text-align: center;">🌌<br>Modelo 3D<br>Loading...</div>';
+        canvas.innerHTML = '<div style="color: white; text-align: center;">🌌<br>3D Model<br>Loading...</div>';
         return;
     }
 
-    // Configurar escena
+    // Configure scene
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ 
@@ -30,7 +30,7 @@ function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
         alpha: true 
     });
 
-    // Configurar tamaño del canvas
+    // Configure canvas size
     const rect = canvas.getBoundingClientRect();
     const width = rect.width || 300;
     const height = rect.height || 250;
@@ -40,9 +40,9 @@ function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
-    console.log(`Canvas ${canvasId} configurado: ${width}x${height}`);
+    console.log(`Canvas ${canvasId} configured: ${width}x${height}`);
 
-    // Luces
+    // Lights
     const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
     scene.add(ambientLight);
 
@@ -50,10 +50,10 @@ function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
     directionalLight.position.set(5, 5, 5);
     scene.add(directionalLight);
 
-    // Crear geometría de asteroide
-    const geometry = new THREE.IcosahedronGeometry(size * 0.8, 1); // Reducir tamaño base
+    // Create asteroid geometry
+    const geometry = new THREE.IcosahedronGeometry(size * 0.8, 1); // Reduce base size
     
-    // Deformar para parecer asteroide irregular
+    // Deform to look like irregular asteroid
     const positions = geometry.attributes.position.array;
     for (let i = 0; i < positions.length; i += 3) {
         const factor = 0.7 + Math.random() * 0.6;
@@ -64,7 +64,7 @@ function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
     geometry.attributes.position.needsUpdate = true;
     geometry.computeVertexNormals();
 
-    // Material del asteroide
+    // Asteroid material
     const material = new THREE.MeshPhongMaterial({
         color: color,
         shininess: 10,
@@ -75,13 +75,13 @@ function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
     const asteroid = new THREE.Mesh(geometry, material);
     scene.add(asteroid);
 
-    // Posicionar cámara más lejos para mejor vista
+    // Position camera farther for better view
     camera.position.set(0, 0, 4);
     camera.lookAt(0, 0, 0);
 
-    console.log(`Asteroide ${canvasId} creado exitosamente`);
+    console.log(`Asteroid ${canvasId} created successfully`);
 
-    // Función de animación
+    // Animation function
     function animate() {
         requestAnimationFrame(animate);
         
@@ -91,10 +91,10 @@ function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
         renderer.render(scene, camera);
     }
 
-    // Iniciar animación
+    // Start animation
     animate();
 
-    // Manejar redimensionamiento de ventana
+    // Handle window resizing
     window.addEventListener('resize', () => {
         const newRect = canvas.getBoundingClientRect();
         const newWidth = newRect.width || 300;
@@ -108,16 +108,16 @@ function createAsteroid(canvasId, color = 0x8B4513, size = 1) {
     return { scene, camera, renderer, asteroid };
 }
 
-// Función para intentar cargar modelo GLB (si existe)
+// Function to try loading GLB model (if exists)
 function tryLoadGLB(canvasId, modelPath, texturePath) {
-    console.log(`Intentando cargar GLB: ${modelPath}`);
+    console.log(`Trying to load GLB: ${modelPath}`);
     
-    // Primero crear asteroide por defecto más pequeño
+    // First create smaller default asteroid
     const fallback = createAsteroid(canvasId, 0x8B4513, 0.8);
     
-    // Verificar si GLTFLoader está disponible
+    // Check if GLTFLoader is available
     if (typeof THREE.GLTFLoader === 'undefined') {
-        console.warn('GLTFLoader no disponible');
+        console.warn('GLTFLoader not available');
         return;
     }
 
@@ -126,34 +126,34 @@ function tryLoadGLB(canvasId, modelPath, texturePath) {
     loader.load(
         modelPath,
         function(gltf) {
-            console.log(`✅ Modelo ${modelPath} cargado exitosamente`);
+            console.log(`✅ Model ${modelPath} loaded successfully`);
             
-            // Remover asteroide fallback
+            // Remove fallback asteroid
             if (fallback && fallback.asteroid) {
                 fallback.scene.remove(fallback.asteroid);
             }
             
             const model = gltf.scene;
             
-            // Calcular el tamaño del modelo y escalarlo apropiadamente
+            // Calculate model size and scale appropriately
             const box = new THREE.Box3().setFromObject(model);
             const size = box.getSize(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.y, size.z);
-            const scale = 2.0 / maxDim; // Escalar para que quepa bien en la vista
+            const scale = 2.0 / maxDim; // Scale to fit well in view
             
             model.scale.setScalar(scale);
             
-            // Centrar el modelo
+            // Center the model
             const center = box.getCenter(new THREE.Vector3());
             model.position.sub(center.multiplyScalar(scale));
             
             fallback.scene.add(model);
             
-            // Ajustar cámara para mejor vista del modelo GLB
+            // Adjust camera for better GLB model view
             fallback.camera.position.set(0, 0, 2);
             fallback.camera.lookAt(0, 0, 0);
             
-            // Aplicar textura si existe
+            // Apply texture if exists
             if (texturePath) {
                 const textureLoader = new THREE.TextureLoader();
                 textureLoader.load(texturePath, function(texture) {
@@ -166,45 +166,45 @@ function tryLoadGLB(canvasId, modelPath, texturePath) {
                 });
             }
             
-            // ⭐ NUEVA ANIMACIÓN PARA EL MODELO GLB
+            // ⭐ NEW ANIMATION FOR GLB MODEL
             function animateGLB() {
                 requestAnimationFrame(animateGLB);
                 
-                // Rotar el modelo GLB cargado
+                // Rotate the loaded GLB model
                 model.rotation.x += 0.005;
                 model.rotation.y += 0.01;
                 
                 fallback.renderer.render(fallback.scene, fallback.camera);
             }
             
-            // Iniciar animación específica para el modelo GLB
+            // Start specific animation for GLB model
             animateGLB();
         },
         function(progress) {
             const percent = (progress.loaded / progress.total * 100);
-            console.log(`Cargando ${modelPath}: ${percent.toFixed(1)}%`);
+            console.log(`Loading ${modelPath}: ${percent.toFixed(1)}%`);
         },
         function(error) {
-            console.warn(`❌ Error cargando ${modelPath}:`, error);
-            console.log('Usando modelo fallback');
+            console.warn(`❌ Error loading ${modelPath}:`, error);
+            console.log('Using fallback model');
         }
     );
 }
 
-// Función principal para inicializar todos los modelos
+// Main function to initialize all models
 function initAllModels() {
-    console.log('🌟 Inicializando todos los modelos 3D...');
+    console.log('🌟 Initializing all 3D models...');
     
-    // Verificar que Three.js esté cargado
+    // Check that Three.js is loaded
     if (typeof THREE === 'undefined') {
-        console.error('❌ Three.js no está disponible');
-        setTimeout(initAllModels, 500); // Reintentar en 500ms
+        console.error('❌ Three.js is not available');
+        setTimeout(initAllModels, 500); // Retry in 500ms
         return;
     }
 
-    console.log('✅ Three.js detectado, creando modelos...');
+    console.log('✅ Three.js detected, creating models...');
 
-    // Modelos próximos
+    // Upcoming models
     tryLoadGLB('model-proximo1', 'assets/models/apophis.glb', 'assets/textures/textura.jpeg');
     tryLoadGLB('model-proximo2', 'assets/models/asteroid_2024_yr4.glb', 'assets/textures/textura.jpeg');
     tryLoadGLB('model-chicxulub', 'assets/models/chucucu.glb', 'assets/textures/textura.jpeg')
@@ -212,32 +212,32 @@ function initAllModels() {
     tryLoadGLB('model-hoba', 'assets/models/hoba.glb', 'assets/textures/textura.jpeg')
     tryLoadGLB('model-bennu', 'assets/models/bennu.glb', 'assets/textures/textura.jpeg')
     tryLoadGLB('model-4vesta', 'assets/models/4vesta.glb', 'assets/textures/textura.jpeg')
-    // Modelos conocidos
+    // Known models
     createAsteroid('model-chelyabinsk', 0x5A5A5A, 0.9);
     createAsteroid('model-hoba', 0x4A4A4A, 2.0);
     createAsteroid('model-bennu', 0xC0C0C0, 0.7);
     createAsteroid('model-4vesta', 0x8B7355, 1.2);
     createAsteroid('model-chicxulub', 0x654321, 1.0);
 
-    console.log('🎉 Todos los modelos han sido inicializados');
+    console.log('🎉 All models have been initialized');
 }
 
-// Esperar a que el DOM y las librerías estén cargadas
+// Wait for DOM and libraries to be loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📄 DOM cargado, esperando Three.js...');
+    console.log('📄 DOM loaded, waiting for Three.js...');
     
-    // Intentar inicializar inmediatamente
+    // Try to initialize immediately
     initAllModels();
     
-    // También intentar después de un breve delay por si acaso
+    // Also try after a brief delay just in case
     setTimeout(initAllModels, 1000);
 });
 
-// Backup: inicializar cuando la ventana termine de cargar
+// Backup: initialize when window finishes loading
 window.addEventListener('load', function() {
-    console.log('🔄 Window load event, verificando modelos...');
+    console.log('🔄 Window load event, checking models...');
     
-    // Solo re-inicializar si no hay modelos visibles
+    // Only re-initialize if no visible models
     const canvas1 = document.getElementById('model-proximo1');
     if (canvas1 && !canvas1.style.background) {
         initAllModels();

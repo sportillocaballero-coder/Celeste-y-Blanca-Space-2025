@@ -1,74 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📅 Calendario script cargado');
+    console.log('📅 Calendar script loaded');
 
-    // Elementos del DOM
+    // DOM elements
     const calendarBtn = document.getElementById('calendar-btn');
     const calendarModal = document.getElementById('calendar-modal');
     const closeCalendar = document.getElementById('close-calendar');
     const addGoogleEvent = document.getElementById('addGoogleEvent');
 
-    // Verificar que existan los elementos
+    // Check that elements exist
     if (!calendarBtn) {
-        console.error('Botón de calendario no encontrado');
+        console.error('Calendar button not found');
         return;
     }
 
     if (!calendarModal) {
-        console.error('Modal de calendario no encontrado');
+        console.error('Calendar modal not found');
         return;
     }
 
-    // Abrir modal
+    // Open modal
     calendarBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('📅 Abriendo calendario');
+        console.log('📅 Opening calendar');
         calendarModal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevenir scroll del fondo
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
     });
 
-    // Cerrar modal
+    // Close modal
     function closeModal() {
         calendarModal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restaurar scroll
+        document.body.style.overflow = 'auto'; // Restore scroll
     }
 
-    // Cerrar con X
+    // Close with X
     if (closeCalendar) {
         closeCalendar.addEventListener('click', closeModal);
     }
 
-    // Cerrar al hacer click fuera del modal
+    // Close when clicking outside the modal
     calendarModal.addEventListener('click', function(e) {
         if (e.target === calendarModal) {
             closeModal();
         }
     });
 
-    // Cerrar con ESC
+    // Close with ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && calendarModal.style.display === 'block') {
             closeModal();
         }
     });
 
-    // Botón de Google Calendar - CORREGIDO
+    // Google Calendar button - FIXED
     if (addGoogleEvent) {
         addGoogleEvent.addEventListener('click', function() {
-            // Crear evento específico para Apophis (próximo evento importante)
+            // Create specific event for Apophis (next important event)
             const eventDetails = {
-                title: '🔴 Apophis - Máximo Acercamiento a la Tierra',
+                title: '🔴 Apophis - Maximum Approach to Earth',
                 startDate: '2029-04-13T10:00:00',
                 endDate: '2029-04-13T23:59:59',
-                description: 'El asteroide 99942 Apophis realizará su máximo acercamiento a la Tierra (31,600 km). Evento monitoreado por NASA CNEOS.',
-                location: 'Órbita terrestre'
+                description: 'Asteroid 99942 Apophis will make its maximum approach to Earth (31,600 km). Event monitored by NASA CNEOS.',
+                location: 'Earth orbit'
             };
 
-            // Formatear fechas para Google Calendar
+            // Format dates for Google Calendar
             const formatDate = (dateStr) => {
                 return new Date(dateStr).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
             };
 
-            // Construir URL de Google Calendar
+            // Build Google Calendar URL
             const googleCalendarUrl = new URL('https://calendar.google.com/calendar/render');
             googleCalendarUrl.searchParams.set('action', 'TEMPLATE');
             googleCalendarUrl.searchParams.set('text', eventDetails.title);
@@ -78,12 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
             googleCalendarUrl.searchParams.set('sf', 'true');
             googleCalendarUrl.searchParams.set('output', 'xml');
 
-            console.log('📅 Abriendo Google Calendar con evento:', googleCalendarUrl.toString());
+            console.log('📅 Opening Google Calendar with event:', googleCalendarUrl.toString());
             window.open(googleCalendarUrl.toString(), '_blank');
         });
     }
 
-    // Función para agregar eventos individuales al calendario
+    // Function to add individual events to calendar
     function addEventToCalendar(eventData) {
         const googleCalendarUrl = new URL('https://calendar.google.com/calendar/render');
         googleCalendarUrl.searchParams.set('action', 'TEMPLATE');
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.open(googleCalendarUrl.toString(), '_blank');
     }
 
-    // Agregar event listeners a cada evento individual
+    // Add event listeners to each individual event
     const eventItems = document.querySelectorAll('.event-item');
     eventItems.forEach((item, index) => {
         item.style.cursor = 'pointer';
@@ -106,54 +106,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let eventData = {};
 
-            // Configurar eventos específicos según el índice - FECHAS ACTUALIZADAS
+            // Configure specific events by index - UPDATED DATES
             switch(index) {
-                case 0: // Gemínidas 2025
+                case 0: // Geminids 2025
                     eventData = {
-                        title: '🌠 Lluvia de Meteoros Gemínidas',
+                        title: '🌠 Geminids Meteor Shower',
                         dates: '20251214T200000Z/20251215T060000Z',
-                        description: 'Lluvia de meteoros Gemínidas, una de las más intensas del año.',
-                        location: 'Cielo nocturno'
+                        description: 'Geminids meteor shower, one of the most intense of the year.',
+                        location: 'Night sky'
                     };
                     break;
-                case 1: // Cuadrántidas 2026
+                case 1: // Quadrantids 2026
                     eventData = {
-                        title: '🌠 Lluvia de Meteoros Cuadrántidas',
+                        title: '🌠 Quadrantids Meteor Shower',
                         dates: '20260103T200000Z/20260104T060000Z',
-                        description: 'Primera lluvia de meteoros del año 2026.',
-                        location: 'Cielo nocturno'
+                        description: 'First meteor shower of the year 2026.',
+                        location: 'Night sky'
                     };
                     break;
-                case 2: // Perseidas 2026
+                case 2: // Perseids 2026
                     eventData = {
-                        title: '🌠 Lluvia de Meteoros Perseidas',
+                        title: '🌠 Perseids Meteor Shower',
                         dates: '20260812T200000Z/20260813T060000Z',
-                        description: 'Pico de actividad de la lluvia de meteoros Perseidas 2026.',
-                        location: 'Cielo nocturno'
+                        description: 'Peak activity of the Perseids meteor shower 2026.',
+                        location: 'Night sky'
                     };
                     break;
                 case 3: // NEO Surveyor 2027
                     eventData = {
-                        title: '🚀 Lanzamiento NEO Surveyor',
+                        title: '🚀 NEO Surveyor Launch',
                         dates: '20270915T120000Z/20270915T140000Z',
-                        description: 'Lanzamiento de la misión NEO Surveyor de NASA para detección de asteroides.',
-                        location: 'Centro espacial NASA'
+                        description: 'Launch of NASA NEO Surveyor mission for asteroid detection.',
+                        location: 'NASA Space Center'
                     };
                     break;
                 case 4: // Apophis 2029
                     eventData = {
-                        title: '🔴 Apophis - Máximo Acercamiento',
+                        title: '🔴 Apophis - Maximum Approach',
                         dates: '20290413T100000Z/20290413T235959Z',
-                        description: 'El asteroide 99942 Apophis realizará su máximo acercamiento a la Tierra (31,600 km).',
-                        location: 'Órbita terrestre'
+                        description: 'Asteroid 99942 Apophis will make its maximum approach to Earth (31,600 km).',
+                        location: 'Earth orbit'
                     };
                     break;
                 case 5: // YR4 2032
                     eventData = {
-                        title: '🟡 Asteroide 2024 YR₄ - Aproximación',
+                        title: '🟡 Asteroid 2024 YR₄ - Approach',
                         dates: '20320701T100000Z/20320701T235959Z',
-                        description: 'Asteroide 2024 YR₄ pasará cerca de la órbita lunar.',
-                        location: 'Órbita lunar'
+                        description: 'Asteroid 2024 YR₄ will pass near lunar orbit.',
+                        location: 'Lunar orbit'
                     };
                     break;
             }
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
             addEventToCalendar(eventData);
         });
 
-        // Agregar indicador visual de que es clickeable
+        // Add visual indicator that it's clickable
         item.addEventListener('mouseenter', function() {
             this.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
         });

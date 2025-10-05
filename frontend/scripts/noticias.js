@@ -1,26 +1,26 @@
 
-/* SCRIPT PARA CARGAR NOTICIAS        */
+/* NEWS LOADING SCRIPT        */
 
 /* 
- * Este script obtiene información de APIs para mostrar:
- * - Imagen astronómica del día (APOD)
- * - Noticias recientes del feed RSS de NASA
- * - Manejo de errores si las APIs no responden
+ * This script gets information from APIs to display:
+ * - Astronomy Picture of the Day (APOD)
+ * - Recent news from NASA RSS feed
+ * - Error handling if APIs don't respond
  */
 
-// Clave de API de NASA para acceder a sus servicios
-const API_KEY = "Ie3jrajsuZ1DfwEZdR91Se2lS5gazb1lvojY0NRe"; // ⚠️WARNING: poné tu API key real de api.nasa.gov
+// NASA API key to access their services
+const API_KEY = "Ie3jrajsuZ1DfwEZdR91Se2lS5gazb1lvojY0NRe"; // ⚠️WARNING: put your real API key from api.nasa.gov
 
-// Elementos del DOM donde se mostrarán las noticias
+// DOM elements where news will be displayed
 const noticiaDia = document.getElementById("noticia-dia");
 const newsContainer = document.getElementById("news-container");
 
 
-/* FUNCIÓN: CARGAR IMAGEN ASTRONÓMICA DEL DÍA                     */
+/* FUNCTION: LOAD ASTRONOMY PICTURE OF THE DAY                     */
 
 /* 
- * Obtiene la imagen destacada del día desde la API APOD de NASA.
- * Puede ser una imagen o un video, y muestra la explicación científica.
+ * Gets the featured image of the day from NASA's APOD API.
+ * Can be an image or video, and shows the scientific explanation.
  */
 async function cargarNoticiaDelDia() {
   try {
@@ -45,25 +45,25 @@ async function cargarNoticiaDelDia() {
           ${mediaHTML}
         </div>
         <div style="flex:1;">
-          <h3>🛰️ Imagen del día: ${data.title}</h3>
+          <h3>🛰️ Picture of the day: ${data.title}</h3>
           <p>${data.explanation}</p>
-          <p><strong>Fecha:</strong> ${data.date}</p>
-          ${data.hdurl ? `<a href="${data.hdurl}" target="_blank">Ver en alta resolución</a>` : ""}
+          <p><strong>Date:</strong> ${data.date}</p>
+          ${data.hdurl ? `<a href="${data.hdurl}" target="_blank">View in high resolution</a>` : ""}
         </div>
       </div>
     `;
   } catch (err) {
-    console.error("Error APOD:", err);
-    noticiaDia.innerHTML = `<p>No se pudo cargar la noticia del día.</p>`;
+    console.error("APOD Error:", err);
+    noticiaDia.innerHTML = `<p>Could not load picture of the day.</p>`;
   }
 }
 
 
-/* FUNCIÓN: CARGAR NOTICIAS RECIENTES DE NASA                     */
+/* FUNCTION: LOAD RECENT NASA NEWS                     */
 
 /* 
- * Obtiene las últimas 5 noticias del feed RSS oficial de NASA.
- * Usa un servicio intermediario (rss2json) para convertir RSS a JSON.
+ * Gets the latest 5 news from NASA's official RSS feed.
+ * Uses an intermediate service (rss2json) to convert RSS to JSON.
  */
 async function cargarNoticiasRecientes() {
   const rssURL = "https://api.rss2json.com/v1/api.json?rss_url=https://www.nasa.gov/rss/dyn/breaking_news.rss";
@@ -73,26 +73,26 @@ async function cargarNoticiasRecientes() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    const noticias = data.items.slice(0, 5); // solo las primeras 5
+    const noticias = data.items.slice(0, 5); // only first 5
     newsContainer.innerHTML = noticias.map(n => `
       <div class="news-card">
         <h3>🪐 ${n.title}</h3>
         ${n.enclosure?.link ? `<img src="${n.enclosure.link}" alt="${n.title}" style="width:60%;border-radius:10px;margin:1rem 0;">` : ""}
         <p>${n.description}</p>
-        <p><strong>Fecha:</strong> ${new Date(n.pubDate).toLocaleDateString("es-AR")}</p>
-        <a href="${n.link}" target="_blank">Leer más en NASA.gov</a>
+        <p><strong>Date:</strong> ${new Date(n.pubDate).toLocaleDateString("en-US")}</p>
+        <a href="${n.link}" target="_blank">Read more on NASA.gov</a>
       </div>
     `).join("");
 
   } catch (err) {
-    console.error("Error noticias recientes:", err);
-    newsContainer.innerHTML = `<p>No se pudieron cargar las noticias recientes.</p>`;
+    console.error("Recent news error:", err);
+    newsContainer.innerHTML = `<p>Could not load recent news.</p>`;
   }
 }
 
 
-/* INICIALIZACIÓN: EJECUTAR AMBAS FUNCIONES AL CARGAR LA PÁGINA   */
+/* INITIALIZATION: EXECUTE BOTH FUNCTIONS WHEN PAGE LOADS   */
 
-// Ejecutar ambas funciones
+// Execute both functions
 cargarNoticiaDelDia();
 cargarNoticiasRecientes();

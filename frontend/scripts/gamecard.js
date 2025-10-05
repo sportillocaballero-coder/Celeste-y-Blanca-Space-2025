@@ -1,36 +1,36 @@
 /* ===========================================================
-   GAMECARD.JS — Mini-juego de defensa planetaria
+   GAMECARD.JS — Planetary defense mini-game
    -----------------------------------------------------------
-   Descripción:
-   - 5 meteoritos de ataque aleatorios
-   - 4 defensas (DART, NEO, 1033, Colaboración)
-   - 3 vidas de la Tierra, gana al superar 5 rondas
-   - Puntaje dinámico (+100 / -50 / +200 combo)
+   Description:
+   - 5 random attack meteorites
+   - 4 defenses (DART, NEO, 1033, Collaboration)
+   - 3 Earth lives, win by surviving 5 rounds
+   - Dynamic scoring (+100 / -50 / +200 combo)
    =========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-btn");
   const gameArea = document.querySelector(".game-screen");
 
-  // ==================== AUDIO DEL JUEGO ====================
+  // ==================== GAME AUDIO ====================
   let bgAudio = null;
 
   /**
-   * Inicializa y reproduce el audio de fondo del juego
-   * @returns {void} No devuelve valor, pero asigna un objeto Audio a bgAudio
+   * Initializes and plays the game's background audio
+   * @returns {void} Returns no value, but assigns an Audio object to bgAudio
    */
   const initAudio = () => {
     bgAudio = new Audio("assets/audio/gamecard.mp3");
     bgAudio.volume = 0.4;
     bgAudio.loop = true;
     bgAudio.play().catch(() => {
-      console.warn("El audio fue bloqueado por el navegador hasta que el usuario interactúe.");
+      console.warn("Audio was blocked by browser until user interacts.");
     });
   };
 
   /**
-   * Detiene y reinicia el audio de fondo del juego
-   * @returns {void} No devuelve valor, modifica el estado del audio
+   * Stops and restarts the game's background audio
+   * @returns {void} Returns no value, modifies audio state
    */
   const stopAudio = () => {
     if (bgAudio) {
@@ -39,25 +39,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // ==================== CONFIGURACIÓN DEL JUEGO ====================
+  // ==================== GAME CONFIGURATION ====================
   const meteors = [
-    { id: "apophis", name: "Apophis", size: "L", speed: 12.6, img: "assets/cards/CB_Card_front--Apophis.png", type: "Silicáceo" },
-    { id: "yr4", name: "2024 YR4", size: "M", speed: 18.0, img: "assets/cards/CB_Card_front--2024YR4.png", type: "Apollo rocoso" },
-    { id: "chicxculub", name: "Chicxculub", size: "S", speed: 19.2, img: "assets/cards/CB_Card_front--Chicxculub-FE.png", type: "Condrita" },
-    { id: "bennu", name: "Bennu", size: "M", speed: 28.0, img: "assets/cards/CB_Card_front--Bennu.png", type: "Carbonáceo" },
-    { id: "vesta", name: "4 Vesta (frag.)", size: "XL", speed: 22.0, img: "assets/cards/CB_Card_front--Vesta.png", type: "Rocoso (V)" },
+    { id: "apophis", name: "Apophis", size: "L", speed: 12.6, img: "assets/cards/CB_Card_front--Apophis.png", type: "Siliceous" },
+    { id: "yr4", name: "2024 YR4", size: "M", speed: 18.0, img: "assets/cards/CB_Card_front--2024YR4.png", type: "Apollo rocky" },
+    { id: "chicxculub", name: "Chicxculub", size: "S", speed: 19.2, img: "assets/cards/CB_Card_front--Chicxculub-FE.png", type: "Chondrite" },
+    { id: "bennu", name: "Bennu", size: "M", speed: 28.0, img: "assets/cards/CB_Card_front--Bennu.png", type: "Carbonaceous" },
+    { id: "vesta", name: "4 Vesta (frag.)", size: "XL", speed: 22.0, img: "assets/cards/CB_Card_front--Vesta.png", type: "Rocky (V)" },
   ];
 
   const defenses = [
-    { id: "dart", name: "DART", kind: "kinetic", img: "assets/cards/CB_Card_front-POCO-DART.png", text: "Eficaz contra S/M." },
-    { id: "neo", name: "NEO Surveyor", kind: "survey", img: "assets/cards/CB_Card_front-POCO-NEO.png", text: "Reduce el tamaño efectivo." },
-    { id: "1033", name: "1033 Gravitacional", kind: "1033", img: "assets/cards/CB_Card_front-POCO-1033.png", text: "Eficaz contra M/L si v ≤ 20." },
-    { id: "collab", name: "Colaboración Internacional", kind: "collab", img: "assets/cards/CB_Card_front-POCO-Collab.png", text: "Permite jugar 2 defensas." },
+    { id: "dart", name: "DART", kind: "kinetic", img: "assets/cards/CB_Card_front-POCO-DART.png", text: "Effective against S/M." },
+    { id: "neo", name: "NEO Surveyor", kind: "survey", img: "assets/cards/CB_Card_front-POCO-NEO.png", text: "Reduces effective size." },
+    { id: "1033", name: "1033 Gravitational", kind: "1033", img: "assets/cards/CB_Card_front-POCO-1033.png", text: "Effective against M/L if v ≤ 20." },
+    { id: "collab", name: "International Collaboration", kind: "collab", img: "assets/cards/CB_Card_front-POCO-Collab.png", text: "Allows playing 2 defenses." },
   ];
 
   const sizeOrder = ["S", "M", "L", "XL"];
 
-  // ==================== VARIABLES DINÁMICAS ====================
+  // ==================== DYNAMIC VARIABLES ====================
   let round = 1;
   let earthHP = 3;
   let score = 0;
@@ -67,17 +67,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let meteor = null;
   let resolved = false;
 
-  // ==================== FUNCIONES PRINCIPALES ====================
+  // ==================== MAIN FUNCTIONS ====================
   /**
-   * Selecciona un meteorito aleatorio del array de meteoritos
-   * @returns {Object} Objeto meteorito con propiedades: id, name, size, speed, img, type
+   * Selects a random meteorite from the meteorites array
+   * @returns {Object} Meteorite object with properties: id, name, size, speed, img, type
    */
   const randomMeteor = () => meteors[Math.floor(Math.random() * meteors.length)];
 
-  // ==================== FUNCIÓN PARA ACTUALIZAR VIDAS ====================
+  // ==================== FUNCTION TO UPDATE LIVES ====================
   /**
-   * Actualiza la visualización de las vidas de la Tierra en el DOM
-   * @returns {void} No devuelve valor, modifica el innerHTML del elemento HP
+   * Updates the display of Earth's lives in the DOM
+   * @returns {void} Returns no value, modifies the innerHTML of the HP element
    */
   const updateHPDisplay = () => {
     const hpElement = document.getElementById("hp");
@@ -87,15 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
-   * Renderiza el tablero completo del juego con todos sus elementos
-   * @returns {void} No devuelve valor, modifica el innerHTML del gameArea y llama a otras funciones de renderizado
+   * Renders the complete game board with all its elements
+   * @returns {void} Returns no value, modifies the innerHTML of gameArea and calls other rendering functions
    */
   const renderBoard = () => {
     gameArea.innerHTML = `
       <div class="status-bar">
-        <p>🌍 Vidas: <span id="hp">${"❤".repeat(earthHP)}${"♡".repeat(3 - earthHP)}</span></p>
-        <p>🌀 Ronda: ${round}/5</p>
-        <p>🏆 Puntos: <span id="score">${score}</span></p>
+        <p>🌍 Lives: <span id="hp">${"❤".repeat(earthHP)}${"♡".repeat(3 - earthHP)}</span></p>
+        <p>🌀 Round: ${round}/5</p>
+        <p>🏆 Points: <span id="score">${score}</span></p>
       </div>
 
       <div class="meteor-zone">
@@ -104,19 +104,19 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="card-info">
             <h3>${meteor.name}</h3>
             <p>${meteor.type}</p>
-            <p>Tamaño: ${meteor.size}</p>
-            <p>Velocidad: ${meteor.speed} km/s</p>
+            <p>Size: ${meteor.size}</p>
+            <p>Speed: ${meteor.speed} km/s</p>
           </div>
         </div>
       </div>
 
-      <h3 class="defense-title">Seleccioná tu defensa</h3>
+      <h3 class="defense-title">Select your defense</h3>
       <div class="defense-grid"></div>
 
       <div class="controls">
-        <button id="resolve-btn" class="btn">Resolver ronda</button>
-        <button id="next-btn" class="btn disabled">Siguiente</button>
-        <button id="reset-btn" class="btn hidden">Reiniciar</button>
+        <button id="resolve-btn" class="btn">Resolve round</button>
+        <button id="next-btn" class="btn disabled">Next</button>
+        <button id="reset-btn" class="btn hidden">Reset</button>
       </div>
 
       <div class="result-text" id="result-text"></div>
@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
-   * Renderiza las cartas de defensa en la grilla
-   * @returns {void} No devuelve valor, crea elementos DOM y los añade a la grilla de defensas
+   * Renders defense cards in the grid
+   * @returns {void} Returns no value, creates DOM elements and adds them to the defense grid
    */
   const renderDefenses = () => {
     const grid = document.querySelector(".defense-grid");
@@ -149,8 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
-   * Adjunta event listeners a los elementos interactivos del juego
-   * @returns {void} No devuelve valor, configura los manejadores de eventos
+   * Attaches event listeners to interactive game elements
+   * @returns {void} Returns no value, configures event handlers
    */
   const attachEvents = () => {
     document.querySelectorAll(".defense-card").forEach((card) => {
@@ -162,11 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("reset-btn").addEventListener("click", resetGame);
   };
 
-  // ==================== SELECCIÓN DE DEFENSAS ====================
+  // ==================== DEFENSE SELECTION ====================
   /**
-   * Maneja la selección y deselección de cartas de defensa
-   * @param {HTMLElement} cardEl - Elemento DOM de la carta clickeada
-   * @returns {void} No devuelve valor, modifica el array 'selected' y las clases CSS de la carta
+   * Handles selection and deselection of defense cards
+   * @param {HTMLElement} cardEl - DOM element of the clicked card
+   * @returns {void} Returns no value, modifies the 'selected' array and card CSS classes
    */
   const selectDefense = (cardEl) => {
     if (resolved) return;
@@ -186,12 +186,12 @@ document.addEventListener("DOMContentLoaded", () => {
     cardEl.classList.add("selected");
   };
 
-  // ==================== LÓGICA DE RESULTADOS CORREGIDA ====================
+  // ==================== CORRECTED RESULTS LOGIC ====================
   /**
-   * Calcula el tamaño efectivo del meteorito considerando el efecto del NEO Surveyor
-   * @param {string} baseSize - Tamaño original del meteorito (S, M, L, XL)
-   * @param {boolean} hasSurvey - Si se está usando NEO Surveyor
-   * @returns {string} Tamaño efectivo del meteorito después de aplicar NEO Surveyor
+   * Calculates the effective size of the meteorite considering NEO Surveyor effect
+   * @param {string} baseSize - Original meteorite size (S, M, L, XL)
+   * @param {boolean} hasSurvey - Whether NEO Surveyor is being used
+   * @returns {string} Effective meteorite size after applying NEO Surveyor
    */
   const effectiveSize = (baseSize, hasSurvey) => {
     if (!hasSurvey) return baseSize;
@@ -200,8 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
-   * Resuelve la ronda actual aplicando la lógica de combate entre defensas y meteorito
-   * @returns {void} No devuelve valor, pero modifica el estado del juego (puntuación, vidas, etc.)
+   * Resolves the current round applying combat logic between defenses and meteorite
+   * @returns {void} Returns no value, but modifies game state (score, lives, etc.)
    */
   const resolveRound = () => {
     if (resolved || selected.length === 0) return;
@@ -214,24 +214,24 @@ document.addEventListener("DOMContentLoaded", () => {
     let success = false;
     let comboBonus = false;
 
-    // Reglas principales
+    // Main rules
     if (usingDart && (effSize === "S" || effSize === "M")) success = true;
     if (!success && using1033 && (effSize === "M" || effSize === "L") && meteor.speed <= 20) success = true;
 
-    // Colaboración especial
+    // Special collaboration
     if (!success && selected.includes("collab") && usingSurvey && (usingDart || using1033)) {
       success = Math.random() < 0.6;
       comboBonus = success;
     }
 
-    // Resultado - VALIDACIÓN CORREGIDA
+    // Result - CORRECTED VALIDATION
     if (success) {
-      resultText.textContent = "✅ ¡Defensa exitosa! La Tierra está a salvo.";
+      resultText.textContent = "✅ Successful defense! Earth is safe.";
       wins++;
       score += 100 + (comboBonus ? 200 : 0);
       animateSuccess();
     } else {
-      resultText.textContent = "💥 Impacto fallido. La Tierra sufre daños.";
+      resultText.textContent = "💥 Failed impact. Earth suffers damage.";
       earthHP = Math.max(0, earthHP - 1);
       score = Math.max(0, score - 50);
       animateFail();
@@ -242,15 +242,15 @@ document.addEventListener("DOMContentLoaded", () => {
     resolved = true;
     document.getElementById("resolve-btn").classList.add("disabled");
     
-    // CORREGIDO: Siempre habilitar "Siguiente" después de resolver
+    // CORRECTED: Always enable "Next" after resolving
     document.getElementById("next-btn").classList.remove("disabled");
 
     checkGameOver();
   };
 
   /**
-   * Ejecuta animación de éxito cuando la defensa es exitosa
-   * @returns {void} No devuelve valor, añade y remueve clase CSS de animación
+   * Executes success animation when defense is successful
+   * @returns {void} Returns no value, adds and removes CSS animation class
    */
   const animateSuccess = () => {
     const meteorEl = document.getElementById("meteor");
@@ -259,8 +259,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
-   * Ejecuta animación de fallo cuando la defensa falla
-   * @returns {void} No devuelve valor, añade y remueve clase CSS de animación
+   * Executes failure animation when defense fails
+   * @returns {void} Returns no value, adds and removes CSS animation class
    */
   const animateFail = () => {
     const meteorEl = document.getElementById("meteor");
@@ -268,10 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => meteorEl.classList.remove("shake"), 1000);
   };
 
-  // ==================== CONTROL DE FLUJO CORREGIDO ====================
+  // ==================== CORRECTED FLOW CONTROL ====================
   /**
-   * Avanza a la siguiente ronda del juego
-   * @returns {void} No devuelve valor, reinicia variables de ronda y renderiza nuevo estado
+   * Advances to the next game round
+   * @returns {void} Returns no value, resets round variables and renders new state
    */
   const nextRound = () => {
     if (!resolved) return;
@@ -289,8 +289,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
-   * Verifica si el juego ha terminado (victoria o derrota) y actualiza la interfaz
-   * @returns {void} No devuelve valor, modifica elementos DOM y detiene audio según el resultado
+   * Checks if the game has ended (victory or defeat) and updates the interface
+   * @returns {void} Returns no value, modifies DOM elements and stops audio according to result
    */
   const checkGameOver = () => {
     const resetBtn = document.getElementById("reset-btn");
@@ -298,21 +298,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultText = document.getElementById("result-text");
 
     if (earthHP <= 0) {
-      resultText.textContent = "☠️ Fin del juego — La Tierra fue impactada.";
+      resultText.textContent = "☠️ Game over — Earth was impacted.";
       nextBtn.classList.add("disabled");
       resetBtn.classList.remove("hidden");
-      stopAudio(); // Detener música al perder
+      stopAudio(); // Stop music when losing
     } else if (wins >= 5) {
-      resultText.textContent = "🌎 ¡Victoria! Defendiste la Tierra 5 rondas.";
+      resultText.textContent = "🌎 Victory! You defended Earth for 5 rounds.";
       nextBtn.classList.add("disabled");
       resetBtn.classList.remove("hidden");
-      stopAudio(); // Detener música al ganar
+      stopAudio(); // Stop music when winning
     }
   };
 
   /**
-   * Reinicia completamente el juego a su estado inicial
-   * @returns {void} No devuelve valor, resetea todas las variables de estado y reinicia el audio
+   * Completely resets the game to its initial state
+   * @returns {void} Returns no value, resets all state variables and restarts audio
    */
   const resetGame = () => {
     round = 1;
@@ -324,14 +324,14 @@ document.addEventListener("DOMContentLoaded", () => {
     resolved = false;
     meteor = randomMeteor();
     updateScore();
-    stopAudio(); // Detener música anterior
-    initAudio(); // Reiniciar música
+    stopAudio(); // Stop previous music
+    initAudio(); // Restart music
     renderBoard();
   };
 
   /**
-   * Actualiza la visualización del puntaje en el DOM
-   * @returns {void} No devuelve valor, modifica el textContent del elemento score
+   * Updates the score display in the DOM
+   * @returns {void} Returns no value, modifies the textContent of the score element
    */
   const updateScore = () => {
     const scoreElement = document.getElementById("score");
@@ -340,12 +340,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // ==================== INICIO DEL JUEGO CORREGIDO ====================
+  // ==================== CORRECTED GAME START ====================
   startBtn.addEventListener("click", () => {
-    // Iniciar audio del juego
+    // Start game audio
     initAudio();
     
-    // Iniciar la primera ronda
+    // Start first round
     meteor = randomMeteor();
     startBtn.style.display = "none";
     renderBoard();

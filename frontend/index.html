@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <!-- Meta tags básicos -->
+  <!-- Basic meta tags -->
   <meta charset="UTF-8" />
-  <meta name="description" content="Proyecto ARMET - Plataforma interactiva para el monitoreo de asteroides y meteoritos cercanos a la Tierra" />
-  <meta name="keywords" content="asteroides, meteoritos, NEO, NASA, espacio, monitoreo" />
+  <meta name="description" content="ARMET Project - Interactive platform for monitoring asteroids and meteorites near Earth" />
+  <meta name="keywords" content="asteroids, meteorites, NEO, NASA, space, monitoring" />
   <title>Celeste & Blanca Space - ARMET</title>
 
-  <!-- Fuentes de Google Fonts para tipografía -->
+  <!-- Google Fonts for typography -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   
-  <!-- Hojas de estilo CSS -->
+  <!-- CSS stylesheets -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/proximos.css">
   <link rel="stylesheet" href="styles/conocidos.css">
@@ -22,27 +22,27 @@
   <!-- HEADER -->
   
   <header class="site-header" role="banner">
-    <!-- Logo y título -->
+    <!-- Logo and title -->
     <div class="logo-container">
-      <img src="assets/images/logo-CyB.png" alt="Logo Celeste y Blanca Space" class="logo">
+      <img src="assets/images/logo-CyB.png" alt="Celeste y Blanca Space Logo" class="logo">
       <h1 class="site-title">CELESTE & BLANCA SPACE</h1>
     </div>
 
-    <!-- Navegación principal -->
-    <nav class="navbar" role="navigation" aria-label="Navegación principal">
-      <a href="#inicio" aria-label="Ir a la sección de inicio">Inicio</a>
-      <a href="#proximos" aria-label="Ver meteoritos próximos">Meteoritos próximos</a>
-      <a href="#conocidos" aria-label="Ver meteoritos conocidos">Meteoritos conocidos</a>
-      <a href="noticias.html" aria-label="Ir a página de noticias">Noticias</a>
-      <a href="#mitigacion" aria-label="Ver estrategias de mitigación">Mitigación</a>
-      <a href="gamecard.html" aria-label="Ir al juego GameCard">GameCard</a>
-      <a href="#contacto" aria-label="Ir a información de contacto">Contacto</a>
-      <a id="calendar-btn" class="calendar-link">🗓️ Calendario Astronómico</a>
+    <!-- Main navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <a href="#inicio" aria-label="Go to home section">Home</a>
+      <a href="#proximos" aria-label="View upcoming meteorites">Upcoming Meteorites</a>
+      <a href="#conocidos" aria-label="View known meteorites">Known Meteorites</a>
+      <a href="noticias.html" aria-label="Go to news page">News</a>
+      <a href="#mitigacion" aria-label="View mitigation strategies">Mitigation</a>
+      <a href="gamecard.html" aria-label="Go to GameCard game">GameCard</a>
+      <a href="#contacto" aria-label="Go to contact information">Contact</a>
+      <a id="calendar-btn" class="calendar-link">🗓️ Astronomical Calendar</a>
     </nav>
 
-    <!-- Selector de idioma -->
+    <!-- I don't know why but without this the page doesn't hold.... -->
     <div class="lang-switcher">
-      <select id="langSelect" aria-label="Seleccionar idioma">
+      <select id="langSelect" aria-label="Select language">
         <option value="es-AR">ES</option>
         <option value="en-US">EN</option>
         <option value="pt-BR">PT</option>
@@ -50,466 +50,466 @@
     </div>
   </header>
 
-  <!-- MAIN: Contenido principal de la aplicación -->
+  <!-- MAIN -->
   <main class="content-wrap" role="main">
     
    
-    <!-- SECCIÓN INICIO: Hero section con información del proyecto -->
+    <!-- HOME SECTION: Hero section with information -->
    
   <section id="inicio" class="hero-section">
     <link rel="stylesheet" href="video.css">
-    <!-- 🎥 Video de fondo -->
+    <!-- Background video -->
     <video autoplay muted loop id="bg-video">
       <source src="assets/video/Portada1.mp4" type="video/mp4">
-      Tu navegador no soporta el video.
+      Your browser does not support video.
     </video>
 
-    <!-- 🎵 Audio ambiental -->
+    <!-- Audio -->
     <audio id="ambient-audio" loop preload="auto">
       <source src="assets/audio/ArMet Spatial Ambient Sound.wav" type="audio/wav">
-      Tu navegador no soporta el audio.
+      Your browser does not support audio.
     </audio>
 
-    <!-- Contenido principal -->
+    <!-- Main content -->
       <div class="hero-content">
        <h1 class="hero-title">ARMET</h1>
        <h2 class="section-title">Active Research for Meteor Targeting </h2>
-       <p class="lead">Somos Celeste y Blanca Space. Proporcionamos una herremienta web (visual) y educativa capaz de informar, concientizar y preparar ante posibles amenazas de asteroides cercano </p>
+       <p class="lead">We are Celeste y Blanca Space. We provide a web (visual) and educational tool capable of informing, raising awareness and preparing for possible threats from nearby asteroids </p>
        
-       <!-- Control de audio -->
-       <button id="audio-toggle" class="audio-control" aria-label="Reproducir/pausar audio ambiental">
-         🔊 Audio Ambiental
+       <!-- Audio control -->
+       <button id="audio-toggle" class="audio-control" aria-label="Play/pause ambient audio">
+         🔊 Ambient Audio
        </button>
       </div>
   </section>
     <p></p>
     
-    <!-- SECCIÓN METEORITOS PRÓXIMOS: Datos en tiempo real de NEOs -->
+    <!-- UPCOMING METEORITES SECTION: Real-time NEO data -->
     
     <section id="proximos" aria-labelledby="proximos-title">
-      <h2 id="proximos-title" class="section-title">🌍 Meteoritos Próximos a la Tierra</h2>
+      <h2 id="proximos-title" class="section-title">🌍 Meteorites Near Earth</h2>
       <p class="lead">
-        Datos actualizados de los cuerpos celestes más cercanos detectados durante el presente.
+        Updated data of the closest celestial bodies detected during the present.
       </p>
 
-      <!-- Contenedor de tarjetas de meteoritos próximos -->
-      <div class="meteorite-next" role="region" aria-label="Lista de meteoritos próximos">
+      <!-- Container for upcoming meteorite cards -->
+      <div class="meteorite-next" role="region" aria-label="List of upcoming meteorites">
         
-        <!-- Tarjeta de meteorito 1 -->
+        <!-- Meteorite card 1 -->
         <article class="meteorite-card-next">
           <div class="model-container-next">
-            <!-- Canvas para modelo 3D del meteorito -->
-            <canvas id="model-proximo1" aria-label="Modelo 3D del meteorito 2025 QZ1"></canvas>
+        <!-- Canvas for 3D meteorite model -->
+            <canvas id="model-proximo1" aria-label="3D model of meteorite 2025 QZ1"></canvas>
           </div>
             <div class="data-container-next">
               <h3>☄️ 99942 Apophis</h3>
               <dl>
-                <dt>Distancia mínima:</dt>
-                <dd>31.600 km (sobre la superficie terrestre)</dd>
+                <dt>Minimum distance:</dt>
+                <dd>31,600 km (above Earth's surface)</dd>
 
-                <dt>Velocidad relativa:</dt>
-                <dd>≈(por definir)</dd>
+                <dt>Relative velocity:</dt>
+                <dd>≈(to be defined)</dd>
 
-                <dt>Tamaño estimado:</dt>
-                <dd>≈ 340 m de diámetro</dd>
+                <dt>Estimated size:</dt>
+                <dd>≈ 340 m diameter</dd>
 
-                <dt>Masa aproximada:</dt>
-                <dd>≈(por definir) </dd>
+                <dt>Approximate mass:</dt>
+                <dd>≈(to be defined) </dd>
 
-                <dt>Composición:</dt>
-                <dd>Silíceo (olivino, piroxeno, hierro y níquel)</dd>
+                <dt>Composition:</dt>
+                <dd>Silicate (olivine, pyroxene, iron and nickel)</dd>
 
-                <dt>Fecha de máxima aproximación:</dt>
-                <dd>2029 32.000km</dd>
+                <dt>Date of maximum approach:</dt>
+                <dd>2029 32,000km</dd>
               </dl>
 
-              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo (0 en la escala de Turín)</p>
+              <p class="alerta-baja" role="alert">🟢 Impact risk: Very low (0 on Turin scale)</p>
             </div>
         </article>
 
-        <!-- Tarjeta de meteorito 2 -->
+        <!-- Meteorite card 2 -->
         <article class="meteorite-card-next">
           <div class="model-container-next">
-            <!-- Canvas para modelo 3D del meteorito -->
-            <canvas id="model-proximo2" aria-label="Modelo 3D del meteorito Asteroid 2024 yr4"></canvas>
+          <!-- Canvas for 3D meteorite model -->
+            <canvas id="model-proximo2" aria-label="3D model of Asteroid 2024 yr4"></canvas>
           </div>
             <div class="data-container-next">
-              <h3>☄️ Asteroide 2024 YR₄</h3>
+              <h3>☄️ Asteroid 2024 YR₄</h3>
               <dl>
-                <dt>Distancia mínima:</dt>
-                <dd>≈ 384.000 km (aproximadamente la distancia a la Luna)</dd>
+                <dt>Minimum distance:</dt>
+                <dd>≈ 384,000 km (approximately Moon's distance)</dd>
 
-                <dt>Velocidad relativa:</dt>
-                <dd> (por definir)</dd>
+               <dt>Relative velocity:</dt>
+                <dd> (to be defined)</dd>
 
-                <dt>Tamaño estimado:</dt>
-                <dd>≈ 40–90 m de diámetro</dd>
+                <dt>Estimated size:</dt>
+                <dd>≈ 40–90 m diameter</dd>
 
-                <dt>Masa aproximada:</dt>
-                <dd>No determinada con precisión (estimada en millones de toneladas)</dd>
+                <dt>Approximate mass:</dt>
+                <dd>Not precisely determined (estimated in millions of tons)</dd>
 
-                <dt>Tipo y composición:</dt>
-                <dd>Asteroide tipo Apollo, rocoso (silicatos con trazas metálicas)</dd>
+                <dt>Type and composition:</dt>
+                <dd>Apollo type asteroid, rocky (silicates with metallic traces)</dd>
 
-                <dt>Fecha de máxima aproximación:</dt>
-                <dd>2032 (pasará cerca de la órbita lunar)</dd>
+                <dt>Date of maximum approach:</dt>
+                <dd>2032 (will pass near lunar orbit)</dd>
               </dl>
 
-              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo (monitoreado por NASA)</p>
+              <p class="alerta-baja" role="alert">🟢 Impact risk: Very low (monitored by NASA)</p>
             </div>
         </article>
       </div>
     </section>
     
     
-    <!-- SECCIÓN METEORITOS CONOCIDOS: Base de datos histórica -->
+    <!-- KNOWN METEORITES SECTION -->
    
     <section id="conocidos" aria-labelledby="conocidos-title">
-      <h2 id="conocidos-title" class="section-title">⭐ Meteoritos Históricamente Conocidos</h2>
+      <h2 id="conocidos-title" class="section-title">⭐ Historically Known Meteorites</h2>
       <p class="lead">
-        Listado de meteoritos más relevantes documentados por observatorios internacionales.
+        List of the most relevant meteorites documented by international observatories.
       </p>
 
-      <!-- Meteorito Chicxulub -->
+      <!-- Chicxulub Meteorite -->
       <article class="meteorite-section">
-        <h3>☄️ Chicxulub (México)</h3>
+        <h3>☄️ Chicxulub (Mexico)</h3>
         <div class="meteorite-column">
           <div class="model-container">
-            <canvas id="model-chicxulub" aria-label="Modelo 3D del cráter Chicxulub"></canvas>
+            <canvas id="model-chicxulub" aria-label="3D model of Chicxulub crater"></canvas>
           </div>
             <div class="data-container">
-              <h3>☄️ Chicxulub (México)</h3>
+              <h3>☄️ Chicxulub (Mexico)</h3>
               <dl>
-                <dt>Ubicación:</dt>
-                <dd>Península de Yucatán, México</dd>
+                <dt>Location:</dt>
+                <dd>Yucatan Peninsula, Mexico</dd>
 
-                <dt>Edad geológica:</dt>
-                <dd>≈ 66 millones de años</dd>
+                <dt>Geological age:</dt>
+                <dd>≈ 66 million years</dd>
 
-                <dt>Tamaño del asteroide:</dt>
-                <dd>Entre 10 y 15 km de diámetro</dd>
+                <dt>Asteroid size:</dt>
+                <dd>Between 10 and 15 km in diameter</dd>
 
-                <dt>Diámetro del cráter:</dt>
+                <dt>Crater diameter:</dt>
                 <dd>≈ 180 km</dd>
 
-                <dt>Energía liberada:</dt>
-                <dd>Equivalente a varios miles de millones de bombas atómicas de Hiroshima</dd>
+                <dt>Energy released:</dt>
+                <dd>Equivalent to several billion Hiroshima atomic bombs</dd>
 
-                <dt>Consecuencias del impacto:</dt>
+                <dt>Impact consequences:</dt>
                 <dd>
-                  Provocó incendios globales, tsunamis y un drástico cambio climático
-                  que causó la extinción del 75 % de las especies, incluidos los dinosaurios.
+                  Caused global fires, tsunamis and drastic climate change
+                  that caused the extinction of 75% of species, including dinosaurs.
                 </dd>
               </dl>
-              <p class="alerta-alta" role="alert">🔴 Evento de extinción masiva (Cretácico–Paleógeno)</p>
+              <p class="alerta-alta" role="alert">🔴 Mass extinction event (Cretaceous–Paleogene)</p>
             </div>
         </div>
       </article>
 
-      <!-- Meteorito Hoba -->
+      <!-- Hoba Meteorite -->
       <article class="meteorite-section">
         <h3>☄️ Hoba</h3>
         <div class="meteorite-column">
           <div class="model-container">
-            <canvas id="model-hoba" aria-label="Modelo 3D del meteorito hoba"></canvas>
+            <canvas id="model-hoba" aria-label="3D model of Hoba meteorite"></canvas>
           </div>
             <div class="data-container">
-              <h3>🪨 Meteorito Hoba (Namibia)</h3>
+              <h3>🪨 Hoba Meteorite (Namibia)</h3>
               <dl>
-                <dt>Ubicación:</dt>
-                <dd>Cerca de Grootfontein, Namibia</dd>
+                <dt>Location:</dt>
+                <dd>Near Grootfontein, Namibia</dd>
 
-                <dt>Descubrimiento:</dt>
+                <dt>Discovery:</dt>
                 <dd>1920</dd>
 
-                <dt>Tipo:</dt>
-                <dd>Siderito (hierro–níquel)</dd>
+                <dt>Type:</dt>
+                <dd>Siderite (iron–nickel)</dd>
 
-                <dt>Tamaño:</dt>
-                <dd>≈ 2.7 metros de ancho</dd>
+                <dt>Size:</dt>
+                <dd>≈ 2.7 meters wide</dd>
 
-                <dt>Peso estimado:</dt>
-                <dd>≈ 60 toneladas</dd>
+                <dt>Estimated weight:</dt>
+                <dd>≈ 60 tons</dd>
 
-                <dt>Características destacadas:</dt>
+                <dt>Notable features:</dt>
                 <dd>
-                  Es el meteorito más grande hallado intacto en la Tierra.  
-                  No dejó cráter visible al impactar, posiblemente por su baja velocidad de caída.
+                  It is the largest meteorite found intact on Earth.
+                  It left no visible crater upon impact, possibly due to its low fall velocity.
                 </dd>
               </dl>
-              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Nulo (meteorito ya encontrado en superficie)</p>
+              <p class="alerta-baja" role="alert">🟢 Impact risk: None (meteorite already found on surface)</p>
             </div>
         </div>
       </article>
 
-      <!-- Meteorito Bennu -->
+      <!-- Bennu Meteorite -->
       <article class="meteorite-section">
         <h3>☄️ Bennu</h3>
         <div class="meteorite-column">
           <div class="model-container">
-            <canvas id="model-bennu" aria-label="Modelo 3D del meteorito Bennu"></canvas>
+            <canvas id="model-bennu" aria-label="3D model of Bennu meteorite"></canvas>
           </div>
           <div class="data-container">
             <div class="data-container">
-              <h3>☄️ Asteroide Bennu (101955)</h3>
+              <h3>☄️ Asteroid Bennu (101955)</h3>
               <dl>
-                <dt>Ubicación:</dt>
-                <dd>Órbita cercana a la Tierra (NEA, Near-Earth Asteroid)</dd>
+                <dt>Location:</dt>
+                <dd>Near-Earth orbit (NEA, Near-Earth Asteroid)</dd>
 
-                <dt>Descubrimiento:</dt>
+                <dt>Discovery:</dt>
                 <dd>1999</dd>
 
-                <dt>Tipo:</dt>
-                <dd>Siderito (rocoso–metálico)</dd>
+                <dt>Type:</dt>
+                <dd>Siderite (rocky–metallic)</dd>
 
-                <dt>Tamaño:</dt>
-                <dd>≈ 482 metros de diámetro</dd>
+                <dt>Size:</dt>
+                <dd>≈ 482 meters in diameter</dd>
 
-                <dt>Misión espacial:</dt>
+                <dt>Space mission:</dt>
                 <dd>
-                  Objetivo de la misión <strong>OSIRIS-REx</strong> (NASA), que recolectó y trajo muestras a la Tierra en 2023.
+                  Target of NASA's <strong>OSIRIS-REx</strong> mission, which collected and brought samples to Earth in 2023.
                 </dd>
 
-                <dt>Características destacadas:</dt>
+                <dt>Notable features:</dt>
                 <dd>
-                  Asteroide de forma casi esférica y superficie rocosa.  
-                  Es estudiado por su valor científico y su baja probabilidad de impacto futuro,
-                  especialmente hacia finales del siglo XXI.
+                  Nearly spherical asteroid with rocky surface.
+                  It is studied for its scientific value and low probability of future impact,
+                  especially towards the end of the 21st century.
                 </dd>
               </dl>
-              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo (monitoreado por NASA)</p>
+              <p class="alerta-baja" role="alert">🟢 Impact risk: Very low (monitored by NASA)</p>
             </div>
 
         </div>
       </article>
 
-      <!-- Meteorito 4 Vesta -->
+      <!-- 4 Vesta Meteorite -->
       <article class="meteorite-section">
         <h3>☄️ 4 Vesta</h3>
         <div class="meteorite-column">
           <div class="model-container">
-            <canvas id="model-4vesta" aria-label="Modelo 3D del asteroide 4 Vesta"></canvas>
+            <canvas id="model-4vesta" aria-label="3D model of asteroid 4 Vesta"></canvas>
           </div>
             <div class="data-container">
-              <h3>🪐 Asteroide (4) Vesta</h3>
+              <h3>🪐 Asteroid (4) Vesta</h3>
               <dl>
-                <dt>Ubicación:</dt>
-                <dd>Cinturón principal de asteroides (entre Marte y Júpiter)</dd>
+                <dt>Location:</dt>
+                <dd>Main asteroid belt (between Mars and Jupiter)</dd>
 
-                <dt>Descubrimiento:</dt>
-                <dd>1807 por Heinrich Olbers</dd>
+                <dt>Discovery:</dt>
+                <dd>1807 by Heinrich Olbers</dd>
 
-                <dt>Tipo:</dt>
-                <dd>Rocoso (tipo V)</dd>
+                <dt>Type:</dt>
+                <dd>Rocky (type V)</dd>
 
-                <dt>Dimensión:</dt>
-                <dd>≈ 525 km de diámetro</dd>
+                <dt>Dimension:</dt>
+                <dd>≈ 525 km in diameter</dd>
 
-                <dt>Características destacadas:</dt>
+                <dt>Notable features:</dt>
                 <dd>
-                  Uno de los cuerpos más grandes del cinturón de asteroides.  
-                  Fuente de los meteoritos HED (howarditas, eucritas y diogenitas)  
-                  y visitado por la sonda <strong>DAWN</strong> de la NASA (2011–2012).
+                  One of the largest bodies in the asteroid belt.
+                  Source of HED meteorites (howardites, eucrites and diogenites)
+                  and visited by NASA's <strong>DAWN</strong> probe (2011–2012).
                 </dd>
               </dl>
-              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Nulo (órbita estable en el cinturón de asteroides)</p>
+              <p class="alerta-baja" role="alert">🟢 Impact risk: None (stable orbit in asteroid belt)</p>
             </div>
         </div>
       </article>
 
-      <!-- Meteorito Chelyabinsk -->
+      <!-- Chelyabinsk Meteorite -->
       <article class="meteorite-section">
-        <h3>☄️ Chelyabinsk (2013, Rusia)</h3>
+        <h3>☄️ Chelyabinsk (2013, Russia)</h3>
         <div class="meteorite-column">
           <div class="model-container">
-            <canvas id="model-chelyabinsk" aria-label="Modelo 3D del meteorito Chelyabinsk"></canvas>
+            <canvas id="model-chelyabinsk" aria-label="3D model of Chelyabinsk meteorite"></canvas>
           </div>
             <div class="data-container">
-              <h3>☄️ Meteorito Chelyabinsk (Rusia)</h3>
+              <h3>☄️ Chelyabinsk Meteorite (Russia)</h3>
               <dl>
-                <dt>Ubicación:</dt>
-                <dd>Región de Chelyabinsk, Rusia</dd>
+                <dt>Location:</dt>
+                <dd>Chelyabinsk region, Russia</dd>
 
-                <dt>Descubrimiento / Evento:</dt>
-                <dd>15 de febrero de 2013</dd>
+                <dt>Discovery / Event:</dt>
+                <dd>February 15, 2013</dd>
 
-                <dt>Tipo:</dt>
-                <dd>Condrita ordinaria (LL5)</dd>
+                <dt>Type:</dt>
+                <dd>Ordinary chondrite (LL5)</dd>
 
-                <dt>Dimensión:</dt>
-                <dd>≈ 20 metros de diámetro</dd>
+                <dt>Dimension:</dt>
+                <dd>≈ 20 meters in diameter</dd>
 
-                <dt>Características destacadas:</dt>
+                <dt>Notable features:</dt>
                 <dd>
-                  Explotó en la atmósfera terrestre liberando una gran cantidad de energía.  
-                  La onda expansiva dañó miles de edificios y causó heridas a más de 1.000 personas.  
-                  Fue uno de los eventos de impacto más documentados de la era moderna.
+                  Exploded in Earth's atmosphere releasing a large amount of energy.
+                  The shock wave damaged thousands of buildings and injured over 1,000 people.
+                  It was one of the most documented impact events of the modern era.
                 </dd>
               </dl>
-              <p class="alerta-media" role="alert">🟡 Riesgo de impacto: Bajo (evento atmosférico ya ocurrido)</p>
+              <p class="alerta-media" role="alert">🟡 Impact risk: Low (atmospheric event already occurred)</p>
             </div>
         </div>
       </article>
     </section>
 
     
-    <!-- SECCIÓN MITIGACIÓN: Estrategias de defensa planetaria -->
+    <!-- MITIGATION SECTION: Planetary defense strategies -->
     
       <section id="mitigacion" class="hero-section">
         <link rel="stylesheet" href="styles/video.css">
         <video autoplay muted loop id="bg-video-mitigacion">
           <source src="assets/video/1851190-uhd_3840_2160_25fps.mp4" type="video/mp4">
-          Tu navegador no soporta el video.
+          Your browser does not support video.
         </video>
 
-        <!-- Contenido textual -->
+        <!-- Text content -->
         <div class="hero-content">
-          <h1 class="hero-title">Mitigación</h1>
+          <h1 class="hero-title">Mitigation</h1>
           <p class="lead">
-            La NASA lidera los esfuerzos globales para proteger a la Tierra de posibles impactos de asteroides.
-            En 2016 creó la <strong>Oficina de Defensa Planetaria</strong>, encargada de detectar, seguir y, si es necesario, desviar objetos peligrosos que puedan acercarse demasiado a nuestro planeta.
+            NASA leads global efforts to protect Earth from possible asteroid impacts.
+            In 2016 it created the <strong>Planetary Defense Office</strong>, responsible for detecting, tracking and, if necessary, deflecting dangerous objects that may come too close to our planet.
           </p>
 
-          <h2> ¿Qué son los objetos cercanos a la Tierra (NEO)?</h2>
+          <h2> What are Near-Earth Objects (NEO)?</h2>
           <p>
-            Son asteroides o cometas que orbitan el Sol y que, en ciertas trayectorias, pueden pasar cerca o incluso chocar contra la Tierra.
+            They are asteroids or comets that orbit the Sun and that, in certain trajectories, can pass close to or even collide with Earth.
           </p>
 
-          <h2> ¿Qué hace la NASA para prevenir impactos?</h2>
+          <h2> What does NASA do to prevent impacts?</h2>
           <ul>
-            <li><strong>Detectar y seguir asteroides:</strong> Usa telescopios, radares y misiones espaciales como <em>NEO Surveyor</em> para encontrarlos, medir su tamaño y conocer su trayectoria.</li>
-            <li><strong>Desarrollar formas de desviarlos:</strong> Crea simulaciones y tecnología para modificar su rumbo, como demostró la misión <strong>DART</strong>.</li>
-            <li><strong>Prepararse para emergencias:</strong> Coordina con agencias como <em>FEMA</em> para definir protocolos de respuesta ante posibles amenazas.</li>
-            <li><strong>Colaborar con el mundo:</strong> Trabaja junto a otras agencias espaciales internacionales y educa al público sobre los riesgos y las soluciones posibles.</li>
+            <li><strong>Detect and track asteroids:</strong> Uses telescopes, radars and space missions like <em>NEO Surveyor</em> to find them, measure their size and know their trajectory.</li>
+            <li><strong>Develop ways to deflect them:</strong> Creates simulations and technology to modify their course, as demonstrated by the <strong>DART</strong> mission.</li>
+            <li><strong>Prepare for emergencies:</strong> Coordinates with agencies like <em>FEMA</em> to define response protocols for potential threats.</li>
+            <li><strong>Collaborate with the world:</strong> Works with other international space agencies and educates the public about risks and possible solutions.</li>
           </ul>
 
-          <h2> Caso real: la misión DART</h2>
+          <h2> Real case: the DART mission</h2>
           <p>
-            En 2022, la NASA lanzó la misión <strong>DART</strong>, la primera prueba real para comprobar si es posible desviar un asteroide impactando una nave contra él.
-            El objetivo fue <strong>Dimorphos</strong>, un pequeño asteroide que orbita a <strong>Didymos</strong>.  
-            La nave impactó con éxito y logró modificar su órbita, demostrando que, con tiempo suficiente, se puede evitar una catástrofe.
+            In 2022, NASA launched the <strong>DART</strong> mission, the first real test to check if it's possible to deflect an asteroid by impacting a spacecraft against it.
+            The target was <strong>Dimorphos</strong>, a small asteroid that orbits <strong>Didymos</strong>.
+            The spacecraft successfully impacted and managed to modify its orbit, demonstrating that, with sufficient time, a catastrophe can be avoided.
           </p>
 
-          <h3> Tecnología destacada en DART</h3>
+          <h3> Featured technology in DART</h3>
           <ul>
-            <li><strong>SMART Nav:</strong> sistema de navegación autónoma que guió la nave y corrigió su rumbo en tiempo real.</li>
-            <li><strong>DRACO:</strong> cámara óptica de alta precisión para identificar el blanco antes del impacto.</li>
-            <li><strong>Propulsión iónica NEXT-C:</strong> motor eficiente diseñado para misiones prolongadas.</li>
+            <li><strong>SMART Nav:</strong> autonomous navigation system that guided the spacecraft and corrected its course in real time.</li>
+            <li><strong>DRACO:</strong> high-precision optical camera to identify the target before impact.</li>
+            <li><strong>NEXT-C ion propulsion:</strong> efficient engine designed for prolonged missions.</li>
           </ul>
 
           <p class="lead">
-            Estas tecnologías marcan el comienzo de una nueva era en la <strong>defensa planetaria</strong>, mostrando que la humanidad puede prepararse y actuar ante amenazas cósmicas reales.
+            These technologies mark the beginning of a new era in <strong>planetary defense</strong>, showing that humanity can prepare and act against real cosmic threats.
           </p>
         </div>
       </section>
   </main>
 
-  <!-- Modal de calendario -->
+  <!-- Calendar modal -->
   <div id="calendar-modal" class="calendar-modal">
     <div class="calendar-content">
       <span id="close-calendar">&times;</span>
-      <h2>📅 Próximos Eventos Astronómicos</h2>
+      <h2>📅 Upcoming Astronomical Events</h2>
 
-      <!-- Contenido del calendario astronómico -->
+      <!-- Astronomical calendar content -->
       <div class="astronomy-events">
-        <h3>🌟 Próximos Eventos Astronómicos</h3>
+        <h3>🌟 Upcoming Astronomical Events</h3>
         
         <div class="event-item">
-          <div class="event-date">14-15 Diciembre 2025</div>
-          <div class="event-desc">Lluvia de meteoros Gemínidas - Pico de actividad</div>
-          <div class="event-type">🌠 Lluvia meteórica</div>
+          <div class="event-date">December 14-15, 2025</div>
+          <div class="event-desc">Geminids meteor shower - Peak activity</div>
+          <div class="event-type">🌠 Meteor shower</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">3-4 Enero 2026</div>
-          <div class="event-desc">Lluvia de meteoros Cuadrántidas</div>
-          <div class="event-type">🌠 Lluvia meteórica</div>
+          <div class="event-date">January 3-4, 2026</div>
+          <div class="event-desc">Quadrantids meteor shower</div>
+          <div class="event-type">🌠 Meteor shower</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">12-13 Agosto 2026</div>
-          <div class="event-desc">Lluvia de meteoros Perseidas - Pico de actividad</div>
-          <div class="event-type">🌠 Lluvia meteórica</div>
+          <div class="event-date">August 12-13, 2026</div>
+          <div class="event-desc">Perseids meteor shower - Peak activity</div>
+          <div class="event-type">🌠 Meteor shower</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">Septiembre 2027</div>
-          <div class="event-desc">Lanzamiento misión NEO Surveyor (NASA)</div>
-          <div class="event-type">🚀 Misión espacial</div>
+          <div class="event-date">September 2027</div>
+          <div class="event-desc">NEO Surveyor mission launch (NASA)</div>
+          <div class="event-type">🚀 Space mission</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">13 Abril 2029</div>
-          <div class="event-desc">Apophis - Máximo acercamiento a la Tierra (31,600 km)</div>
-          <div class="event-type">🔴 NEO Crítico</div>
+          <div class="event-date">April 13, 2029</div>
+          <div class="event-desc">Apophis - Maximum approach to Earth (31,600 km)</div>
+          <div class="event-type">🔴 Critical NEO</div>
         </div>
 
         <div class="event-item">
           <div class="event-date">2032</div>
-          <div class="event-desc">Asteroide 2024 YR₄ - Aproximación lunar</div>
-          <div class="event-type">🟡 NEO Monitoreado</div>
+          <div class="event-desc">Asteroid 2024 YR₄ - Lunar approach</div>
+          <div class="event-type">🟡 Monitored NEO</div>
         </div>
       </div>
 
-      <!-- Enlaces externos -->
+      <!-- External links -->
       <div class="external-links">
-        <h3>🔗 Recursos Externos</h3>
-        <a href="https://cneos.jpl.nasa.gov/" target="_blank" class="link-btn">NASA CNEOS - Objetos Cercanos</a>
-        <a href="https://www.iau.org/public/themes/calendars/" target="_blank" class="link-btn">Calendario Astronómico IAU</a>
-        <a href="https://spaceweather.com/" target="_blank" class="link-btn">Space Weather - Eventos en Vivo</a>
+        <h3>🔗 External Resources</h3>
+        <a href="https://cneos.jpl.nasa.gov/" target="_blank" class="link-btn">NASA CNEOS - Near Objects</a>
+        <a href="https://www.iau.org/public/themes/calendars/" target="_blank" class="link-btn">IAU Astronomical Calendar</a>
+        <a href="https://spaceweather.com/" target="_blank" class="link-btn">Space Weather - Live Events</a>
       </div>
 
-      <button id="addGoogleEvent">➕ Agregar al Google Calendar</button>
+      <button id="addGoogleEvent">➕ Add to Google Calendar</button>
     </div>
   </div>
-  <!-- FOOTER: Información de contacto y copyright -->
+  <!-- FOOTER -->
   
   <footer id="contacto" class="site-footer" role="contentinfo">
     <div class="footer-content">
-      <!-- Sección de contacto -->
+      <!-- Contact section -->
       <div class="footer-section">
-        <h3>Contacto</h3>
-        <p>¿Querés colaborar con el proyecto o enviar información científica?</p>
+        <h3>Contact</h3>
+        <p>Want to collaborate with the project or send scientific information?</p>
         <p>
           <strong>Email:</strong> 
           <a href="mailto:contacto@celesteblanc.space">contacto@celesteblanc.space</a>
         </p>
       </div>
       
-      <!-- Información del proyecto -->
+      <!-- Project information -->
       <div class="footer-section">
         <h3>Celeste & Blanca Space</h3>
-        <p>Proyecto ARMET - NASA Space Apps Challenge</p>
+        <p>ARMET Project - NASA Space Apps Challenge</p>
         
       </div>
     </div>
   </footer>
 
-  <!-- Three.js desde CDN confiable -->
+  <!-- Three.js-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
-  <!-- Tu script principal -->
+  <!-- Models script -->
   <script src="scripts/models.js"></script>
 
-  <!-- Para el calendario  -->
+  <!-- For the calendar -->
   <script src="scripts/calendar.js"></script>
 
-  <!-- Script para control de audio - MEJORADO -->
+  <!-- Script for audio control -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const audio = document.getElementById('ambient-audio');
       const toggleBtn = document.getElementById('audio-toggle');
       let isPlaying = false;
 
-      // Verificar si el audio se puede cargar
+      // Check if audio can be loaded
       audio.addEventListener('loadeddata', function() {
-        console.log('✅ Audio cargado correctamente');
+        console.log('✅ Audio loaded correctly');
       });
 
       audio.addEventListener('error', function(e) {
-        console.error('❌ Error cargando audio:', e);
-        toggleBtn.textContent = '❌ Audio no disponible';
+        console.error('❌ Error loading audio:', e);
+        toggleBtn.textContent = '❌ Audio not available';
         toggleBtn.disabled = true;
       });
 
@@ -519,24 +519,24 @@
         if (!isPlaying) {
           audio.play().then(() => {
             isPlaying = true;
-            toggleBtn.textContent = '🔇 Pausar Audio';
-            toggleBtn.setAttribute('aria-label', 'Pausar audio ambiental');
-            console.log('🎵 Audio iniciado');
+            toggleBtn.textContent = '🔇 Pause Audio';
+            toggleBtn.setAttribute('aria-label', 'Pause ambient audio');
+            console.log('🎵 Audio started');
           }).catch(error => {
-            console.log('Error al reproducir audio:', error);
-            toggleBtn.textContent = '❌ Error de audio';
+            console.log('Error playing audio:', error);
+            toggleBtn.textContent = '❌ Audio error';
           });
         } else {
           audio.pause();
           isPlaying = false;
-          toggleBtn.textContent = '🔊 Audio Ambiental';
-          toggleBtn.setAttribute('aria-label', 'Reproducir audio ambiental');
-          console.log('🔇 Audio pausado');
+          toggleBtn.textContent = '🔊 Ambient Audio';
+          toggleBtn.setAttribute('aria-label', 'Play ambient audio');
+          console.log('🔇 Audio paused');
         }
       });
 
-      // Controlar volumen
-      audio.volume = 0.3; // 30% del volumen 
+      // Control volume
+      audio.volume = 0.3; // 30% volume 
     });
   </script>
 </body>

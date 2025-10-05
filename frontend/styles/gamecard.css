@@ -59,9 +59,9 @@
 
 /* Estilo para consejos e instrucciones del juego */
 .instructions {
-  color: #b5b5b5;              /* Color gris claro para texto secundario */
-  font-size: 0.9rem;           /* Tamaño ligeramente menor que el texto normal */
-  margin-top: 0.5rem;          /* Pequeño espacio arriba para separar */
+  color: #b5b5b5;           
+  font-size: 0.9rem;        
+  margin-top: 0.5rem;         
 }
 
 /* ===========================================================

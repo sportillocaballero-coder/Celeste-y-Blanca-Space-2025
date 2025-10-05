@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <!-- Meta tags-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Noticias astronómicas actualizadas - Proyecto ARMET Celeste & Blanca Space">
-  <meta name="keywords" content="noticias, astronomía, NASA, meteoritos, espacio">
-  <title>Noticias Astronómicas | Celeste & Blanca Space</title>
+  <meta name="description" content="Updated astronomical news - ARMET Project Celeste & Blanca Space">
+  <meta name="keywords" content="news, astronomy, NASA, meteorites, space">
+  <title>Astronomical News | Celeste & Blanca Space</title>
 
-  <!-- Fuentes de Google Fonts para la tipografía -->
+  <!-- Google Fonts for typography -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   
-  <!-- Hojas de estilo CSS -->
+  <!-- CSS stylesheets -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/noticias.css">
   <link rel="stylesheet" href="styles/calendar.css">
@@ -19,31 +19,31 @@
 
 <body>
  
-  <!-- HEADER: Navegación principal y branding del sitio -->
+  <!-- HEADER-->
   
   <header class="site-header" role="banner">
-    <!-- Logo y título principal -->
+    <!-- Logo and title  -->
     <div class="logo-container">
-      <img src="assets/images/logo-CyB.png" alt="Logo Celeste y Blanca Space" class="logo">
+      <img src="assets/images/logo-CyB.png" alt="Celeste y Blanca Space Logo" class="logo">
       <h1 class="site-title">CELESTE & BLANCA SPACE</h1>
     </div>
 
-    <!-- Navegación principal del sitio -->
-    <nav class="navbar" role="navigation" aria-label="Navegación principal">
-      <a href="index.html" aria-label="Ir a la página de inicio">Inicio</a>
-      <a href="index.html#proximos" aria-label="Ver meteoritos próximos">Meteoritos próximos</a>
-      <a href="index.html#conocidos" aria-label="Ver meteoritos conocidos">Meteoritos conocidos</a>
-      <a href="noticias.html" class="active" aria-current="page" aria-label="Noticias astronómicas (página actual)">Noticias</a>
-      <a href="index.html#alertas" aria-label="Ver alertas activas">Alertas</a>
-      <a href="index.html#mitigacion" aria-label="Ver estrategias de mitigación">Mitigación</a>
-      <a href="gamecard.html" aria-label="Ir al juego GameCard">GameCard</a>
-      <a href="index.html#contacto" aria-label="Ir a información de contacto">Contacto</a>
-      <a id="calendar-btn" class="calendar-link">🗓️ Calendario Astronómico</a>
+    <!-- Main site navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <a href="index.html" aria-label="Go to homepage">Home</a>
+      <a href="index.html#proximos" aria-label="View upcoming meteorites">Upcoming Meteorites</a>
+      <a href="index.html#conocidos" aria-label="View known meteorites">Known Meteorites</a>
+      <a href="noticias.html" class="active" aria-current="page" aria-label="Astronomical news (current page)">News</a>
+      <a href="index.html#alertas" aria-label="View active alerts">Alerts</a>
+      <a href="index.html#mitigacion" aria-label="View mitigation strategies">Mitigation</a>
+      <a href="gamecard.html" aria-label="Go to GameCard game">GameCard</a>
+      <a href="index.html#contacto" aria-label="Go to contact information">Contact</a>
+      <a id="calendar-btn" class="calendar-link">🗓️ Astronomical Calendar</a>
     </nav>
 
-    <!-- Selector de idioma -->
+    <!-- Page pillar haha -->
     <div class="lang-switcher">
-      <select id="langSelect" aria-label="Seleccionar idioma">
+      <select id="langSelect" aria-label="Select language">
         <option value="es-AR">ES</option>
         <option value="en-US">EN</option>
         <option value="pt-BR">PT</option>
@@ -57,37 +57,37 @@
   <main class="content-wrap" role="main">
     
    
-    <!-- SECCIÓN HERO: Introducción a las noticias -->
+    <!-- HERO SECTION -->
     
     <section class="hero-section" aria-labelledby="hero-title">
-      <h1 id="hero-title" class="hero-title">Noticias Astronómicas</h1>
+      <h1 id="hero-title" class="hero-title">Astronomical News</h1>
       <p class="lead">
-        Actualizaciones en tiempo real y la imagen destacada del día.
+        Real-time updates and today's featured image.
       </p>
 
       
-      <!-- NOTICIA DEL DÍA: Contenido destacado -->
+      <!-- NEWS OF THE DAY -->
       
       <section id="noticia-dia" aria-labelledby="noticia-dia-title" aria-live="polite">
-        <h2 id="noticia-dia-title" class="sr-only">Noticia destacada del día</h2>
-        <div role="status" aria-label="Cargando noticia del día">
-          <p>Cargando la noticia del día...</p>
+        <h2 id="noticia-dia-title" class="sr-only">Featured news of the day</h2>
+        <div role="status" aria-label="Loading news of the day">
+          <p>Loading today's news...</p>
         </div>
       </section>
 
       
-      <!-- ÚLTIMAS NOTICIASs -->
+      <!-- LATEST NEWS -->
       
       <section aria-labelledby="ultimas-noticias-title">
-        <h2 id="ultimas-noticias-title" class="section-title">Últimas noticias</h2>
+        <h2 id="ultimas-noticias-title" class="section-title">Latest news</h2>
         
-        <!-- Contenedor dinámico para noticias cargadas via JavaScript -->
+        <!-- Dynamic container for news loaded via JavaScript -->
         <div id="news-container" 
              role="region" 
              aria-labelledby="ultimas-noticias-title"
              aria-live="polite">
-          <div role="status" aria-label="Cargando noticias recientes">
-            <p>Cargando noticias recientes...</p>
+          <div role="status" aria-label="Loading recent news">
+            <p>Loading recent news...</p>
           </div>
         </div>
       </section>
@@ -95,92 +95,92 @@
   </main>
 
   
-  <!-- FOOTER: Información de contacto y copyright -->
+  <!-- FOOTER-->
   
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
-      <!-- Sección de contacto -->
+      <!-- Contact section -->
       <div class="footer-section">
-        <h3>Contacto</h3>
-        <p>¿Querés colaborar con el proyecto o enviar información científica?</p>
+        <h3>Contact</h3>
+        <p>Want to collaborate with the project or send scientific information?</p>
         <p>
           <strong>Email:</strong> 
           <a href="mailto:contacto@celesteblanc.space">contacto@celesteblanc.space</a>
         </p>
       </div>
       
-      <!-- Información del proyecto -->
+      <!-- Project information -->
       <div class="footer-section">
         <h3>Celeste & Blanca Space</h3>
-        <p>Proyecto ARMET - Monitoreo de asteroides y meteoritos</p>
-        <p>&copy; 2025 Todos los derechos reservados</p>
+        <p>ARMET Project - Asteroid and meteorite monitoring</p>
+        <p>&copy; 2025 All rights reserved</p>
       </div>
     </div>
   </footer>
 
   
-  <!-- Script para cargar y mostrar noticias astronómicas -->
+  <!-- Script to load and display astronomical news -->
   <script src="scripts/noticias.js"></script>
 
-  <!-- Para el calendario -->
+  <!-- For the calendar -->
   <script src="scripts/calendar.js"></script>
 
-  <!-- Modal de calendario -->
+  <!-- Calendar -->
   <div id="calendar-modal" class="calendar-modal">
     <div class="calendar-content">
       <span id="close-calendar">&times;</span>
-      <h2>📅 Próximos Eventos Astronómicos</h2>
+      <h2>📅 Upcoming Astronomical Events</h2>
 
-      <!-- Contenido del calendario astronómico -->
+      <!-- Astronomical calendar content -->
       <div class="astronomy-events">
-        <h3>🌟 Próximos Eventos Astronómicos</h3>
+        <h3>🌟 Upcoming Astronomical Events</h3>
         
         <div class="event-item">
-          <div class="event-date">14-15 Diciembre 2025</div>
-          <div class="event-desc">Lluvia de meteoros Gemínidas - Pico de actividad</div>
-          <div class="event-type">🌠 Lluvia meteórica</div>
+          <div class="event-date">December 14-15, 2025</div>
+          <div class="event-desc">Geminids meteor shower - Peak activity</div>
+          <div class="event-type">🌠 Meteor shower</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">3-4 Enero 2026</div>
-          <div class="event-desc">Lluvia de meteoros Cuadrántidas</div>
-          <div class="event-type">🌠 Lluvia meteórica</div>
+          <div class="event-date">January 3-4, 2026</div>
+          <div class="event-desc">Quadrantids meteor shower</div>
+          <div class="event-type">🌠 Meteor shower</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">12-13 Agosto 2026</div>
-          <div class="event-desc">Lluvia de meteoros Perseidas - Pico de actividad</div>
-          <div class="event-type">🌠 Lluvia meteórica</div>
+          <div class="event-date">August 12-13, 2026</div>
+          <div class="event-desc">Perseids meteor shower - Peak activity</div>
+          <div class="event-type">🌠 Meteor shower</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">Septiembre 2027</div>
-          <div class="event-desc">Lanzamiento misión NEO Surveyor (NASA)</div>
-          <div class="event-type">🚀 Misión espacial</div>
+          <div class="event-date">September 2027</div>
+          <div class="event-desc">NEO Surveyor mission launch (NASA)</div>
+          <div class="event-type">🚀 Space mission</div>
         </div>
 
         <div class="event-item">
-          <div class="event-date">13 Abril 2029</div>
-          <div class="event-desc">Apophis - Máximo acercamiento a la Tierra (31,600 km)</div>
-          <div class="event-type">🔴 NEO Crítico</div>
+          <div class="event-date">April 13, 2029</div>
+          <div class="event-desc">Apophis - Maximum approach to Earth (31,600 km)</div>
+          <div class="event-type">🔴 Critical NEO</div>
         </div>
 
         <div class="event-item">
           <div class="event-date">2032</div>
-          <div class="event-desc">Asteroide 2024 YR₄ - Aproximación lunar</div>
-          <div class="event-type">🟡 NEO Monitoreado</div>
+          <div class="event-desc">Asteroid 2024 YR₄ - Lunar approach</div>
+          <div class="event-type">🟡 Monitored NEO</div>
         </div>
       </div>
 
-      <!-- Enlaces externos -->
+      <!-- External links -->
       <div class="external-links">
-        <h3>🔗 Recursos Externos</h3>
-        <a href="https://cneos.jpl.nasa.gov/" target="_blank" class="link-btn">NASA CNEOS - Objetos Cercanos</a>
-        <a href="https://www.iau.org/public/themes/calendars/" target="_blank" class="link-btn">Calendario Astronómico IAU</a>
-        <a href="https://spaceweather.com/" target="_blank" class="link-btn">Space Weather - Eventos en Vivo</a>
+        <h3>🔗 External Resources</h3>
+        <a href="https://cneos.jpl.nasa.gov/" target="_blank" class="link-btn">NASA CNEOS - Near Objects</a>
+        <a href="https://www.iau.org/public/themes/calendars/" target="_blank" class="link-btn">IAU Astronomical Calendar</a>
+        <a href="https://spaceweather.com/" target="_blank" class="link-btn">Space Weather - Live Events</a>
       </div>
 
-      <button id="addGoogleEvent">➕ Agregar al Google Calendar</button>
+      <button id="addGoogleEvent">➕ Add to Google Calendar</button>
     </div>
   </div>
 </body>
