@@ -236,19 +236,3 @@ body {
 .explode {
   animation: explode 0.8s ease;
 }
-
-/* === Responsividad === */
-@media (max-width: 600px) {
-  .meteor-card {
-    width: 150px;
-  }
-
-  .card img {
-    height: 120px;
-  }
-
-  .btn {
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-  }
-}

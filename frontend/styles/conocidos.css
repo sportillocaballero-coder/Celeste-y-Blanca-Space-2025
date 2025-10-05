@@ -56,7 +56,3 @@
 /* Estilo de párrafos dentro del contenedor de datos */
 .data-container p { line-height: 1.6; margin: 0.4rem 0; }
 
-/* Diseño responsive: apila columnas verticalmente en móviles */
-@media (max-width: 900px) {
-  .meteorite-column { flex-direction: column; }
-}

@@ -313,57 +313,6 @@ section:nth-of-type(even) {
   padding-left: 2.5rem;       /* Pequeña indentación al hacer hover*/ 
 }
 
-
-/* DISEÑO RESPONSIVE PARA DISPOSITIVOS MÓVILES */
-
-
-/* Adaptaciones para pantallas menores a 900px */
-@media (max-width: 900px) {
-  /* Oculta la navegación desktop en dispositivos */
-  .navbar { 
-    display: none;         
-  }
-  
-  /* Muestra el botón hamburguesa  */
-  .hamburger-btn {
-    display: flex;            
-  }
-  
-  /* Footer en una sola columna para móviles */
-  .footer-content { 
-    grid-template-columns: 1fr;
-    text-align: center;        
-  }
-  
-  /* Ajustes adicionales para el header en móvil */
-  .site-header {
-    padding: 1rem 1.5rem;     /* Reduce el padding  */
-  }
-  
-  /* Ajuste del título  */
-  .site-title {
-    font-size: 1rem;          
-  }
-  
-  /* Ajuste del logo en móviles */
-  .logo {
-    height: 40px;             
-  }
-}
-
-/* Para pantallas muy pequeñas (menos de 480px) */
-@media (max-width: 480px) {
-  /* Ajustes adicionales para teléfonos pequeños */
-  .mobile-nav a {
-    padding: 0.8rem 1.5rem;   /* Reduce el padding en pantallas muy pequeñas */
-    font-size: 0.9rem;        /* Tamaño de fuente ligeramente menor */
-  }
-  
-  .content-wrap {
-    padding-inline: 1rem;     /* Menos padding lateral en móviles pequeños */
-  }
-}
-
 /* === ALERTAS: gradiente casi negro (deep space) === */
 #alertas {
   position: relative;

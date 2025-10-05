@@ -49,19 +49,6 @@ body, html {
   overflow-x: hidden;
 }
 
-
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero-content {
-    max-width: 90%;
-    margin-left: 2rem;
-    padding-bottom: 3rem;
-  }
-}
-
-
-
 /* === MITIGACIÓN (mismo formato que INICIO) === */
 #mitigacion {
   position: relative;
