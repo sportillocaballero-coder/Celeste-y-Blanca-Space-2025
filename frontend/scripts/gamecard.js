@@ -13,7 +13,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-btn");
   const gameArea = document.querySelector(".game-screen");
-  const scoreDisplay = document.getElementById("score");
 
   // ==================== AUDIO DEL JUEGO ====================
   let bgAudio = null;
@@ -78,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="status-bar">
         <p>🌍 Vidas: <span id="hp">${"❤".repeat(earthHP)}${"♡".repeat(3 - earthHP)}</span></p>
         <p>🌀 Ronda: ${round}/5</p>
+        <p>🏆 Puntos: <span id="score">${score}</span></p>
       </div>
 
       <div class="meteor-zone">
@@ -191,20 +191,18 @@ document.addEventListener("DOMContentLoaded", () => {
       animateSuccess();
     } else {
       resultText.textContent = "💥 Impacto fallido. La Tierra sufre daños.";
-      earthHP = Math.max(0, earthHP - 1); // Asegurar que no sea negativo
-      score = Math.max(0, score - 50); // Asegurar que no sea negativo
+      earthHP = Math.max(0, earthHP - 1);
+      score = Math.max(0, score - 50);
       animateFail();
     }
 
     updateScore();
-    updateHPDisplay(); // Actualizar display de vidas inmediatamente
+    updateHPDisplay();
     resolved = true;
     document.getElementById("resolve-btn").classList.add("disabled");
     
-    // Solo habilitar "Siguiente" si el juego no ha terminado
-    if (earthHP > 0 && wins < 5) {
-      document.getElementById("next-btn").classList.remove("disabled");
-    }
+    // CORREGIDO: Siempre habilitar "Siguiente" después de resolver
+    document.getElementById("next-btn").classList.remove("disabled");
 
     checkGameOver();
   };
@@ -271,7 +269,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const updateScore = () => {
-    scoreDisplay.textContent = score;
+    const scoreElement = document.getElementById("score");
+    if (scoreElement) {
+      scoreElement.textContent = score;
+    }
   };
 
   // ==================== INICIO DEL JUEGO CORREGIDO ====================
