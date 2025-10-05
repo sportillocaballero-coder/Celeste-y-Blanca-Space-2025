@@ -14,6 +14,7 @@
   <!-- Estilos CSS del sitio -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/gamecard.css">
+  <link rel="stylesheet" href="styles/calendar.css">
 </head>
 
 <body>
@@ -33,10 +34,10 @@
       <a href="index.html#proximos" aria-label="Ver meteoritos que se acercan">Meteoritos próximos</a>
       <a href="index.html#conocidos" aria-label="Ver meteoritos famosos de la historia">Meteoritos conocidos</a>
       <a href="noticias.html" aria-label="Leer noticias del espacio">Noticias</a>
-      <a href="index.html#alertas" aria-label="Ver alertas de peligro">Alertas</a>
       <a href="index.html#mitigacion" aria-label="Aprender sobre protección planetaria">Mitigación</a>
       <a href="gamecard.html" class="active" aria-current="page" aria-label="Juego educativo (página actual)">GameCard</a>
       <a href="index.html#contacto" aria-label="Información de contacto">Contacto</a>
+      <a id="calendar-btn" class="calendar-link">🗓️ Calendario Astronómico</a>
     </nav>
 
     <!-- Selector para cambiar idioma -->
@@ -135,5 +136,67 @@
  
   <!-- Script que controla la lógica del juego -->
   <script src="scripts/gamecard.js"></script>
+  
+  <!-- Para el calendario -->
+  <script src="scripts/calendar.js"></script>
+
+  <!-- Modal de calendario -->
+  <div id="calendar-modal" class="calendar-modal">
+    <div class="calendar-content">
+      <span id="close-calendar">&times;</span>
+      <h2>📅 Próximos Eventos Astronómicos</h2>
+
+      <!-- Contenido del calendario astronómico -->
+      <div class="astronomy-events">
+        <h3>🌟 Próximos Eventos Astronómicos</h3>
+        
+        <div class="event-item">
+          <div class="event-date">14-15 Diciembre 2025</div>
+          <div class="event-desc">Lluvia de meteoros Gemínidas - Pico de actividad</div>
+          <div class="event-type">🌠 Lluvia meteórica</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">3-4 Enero 2026</div>
+          <div class="event-desc">Lluvia de meteoros Cuadrántidas</div>
+          <div class="event-type">🌠 Lluvia meteórica</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">12-13 Agosto 2026</div>
+          <div class="event-desc">Lluvia de meteoros Perseidas - Pico de actividad</div>
+          <div class="event-type">🌠 Lluvia meteórica</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">Septiembre 2027</div>
+          <div class="event-desc">Lanzamiento misión NEO Surveyor (NASA)</div>
+          <div class="event-type">🚀 Misión espacial</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">13 Abril 2029</div>
+          <div class="event-desc">Apophis - Máximo acercamiento a la Tierra (31,600 km)</div>
+          <div class="event-type">🔴 NEO Crítico</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">2032</div>
+          <div class="event-desc">Asteroide 2024 YR₄ - Aproximación lunar</div>
+          <div class="event-type">🟡 NEO Monitoreado</div>
+        </div>
+      </div>
+
+      <!-- Enlaces externos -->
+      <div class="external-links">
+        <h3>🔗 Recursos Externos</h3>
+        <a href="https://cneos.jpl.nasa.gov/" target="_blank" class="link-btn">NASA CNEOS - Objetos Cercanos</a>
+        <a href="https://www.iau.org/public/themes/calendars/" target="_blank" class="link-btn">Calendario Astronómico IAU</a>
+        <a href="https://spaceweather.com/" target="_blank" class="link-btn">Space Weather - Eventos en Vivo</a>
+      </div>
+
+      <button id="addGoogleEvent">➕ Agregar al Google Calendar</button>
+    </div>
+  </div>
 </body>
 </html>
