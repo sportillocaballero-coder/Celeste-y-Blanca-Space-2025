@@ -64,11 +64,22 @@
       Tu navegador no soporta el video.
     </video>
 
+    <!-- 🎵 Audio ambiental -->
+    <audio id="ambient-audio" loop preload="auto">
+      <source src="assets/audio/ArMet Spatial Ambient Sound.wav" type="audio/wav">
+      Tu navegador no soporta el audio.
+    </audio>
+
     <!-- Contenido principal -->
       <div class="hero-content">
        <h1 class="hero-title">ARMET</h1>
        <h2 class="section-title">Active Research for Meteor Targeting </h2>
        <p class="lead">Somos Celeste y Blanca Space. Proporcionamos una herremienta web (visual) y educativa capaz de informar, concientizar y preparar ante posibles amenazas de asteroides cercano </p>
+       
+       <!-- Control de audio -->
+       <button id="audio-toggle" class="audio-control" aria-label="Reproducir/pausar audio ambiental">
+         🔊 Audio Ambiental
+       </button>
       </div>
   </section>
     <p></p>
@@ -483,5 +494,50 @@
 
   <!-- Para el calendario  -->
   <script src="scripts/calendar.js"></script>
+
+  <!-- Script para control de audio - MEJORADO -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('ambient-audio');
+      const toggleBtn = document.getElementById('audio-toggle');
+      let isPlaying = false;
+
+      // Verificar si el audio se puede cargar
+      audio.addEventListener('loadeddata', function() {
+        console.log('✅ Audio cargado correctamente');
+      });
+
+      audio.addEventListener('error', function(e) {
+        console.error('❌ Error cargando audio:', e);
+        toggleBtn.textContent = '❌ Audio no disponible';
+        toggleBtn.disabled = true;
+      });
+
+      toggleBtn.addEventListener('click', function() {
+        if (toggleBtn.disabled) return;
+
+        if (!isPlaying) {
+          audio.play().then(() => {
+            isPlaying = true;
+            toggleBtn.textContent = '🔇 Pausar Audio';
+            toggleBtn.setAttribute('aria-label', 'Pausar audio ambiental');
+            console.log('🎵 Audio iniciado');
+          }).catch(error => {
+            console.log('Error al reproducir audio:', error);
+            toggleBtn.textContent = '❌ Error de audio';
+          });
+        } else {
+          audio.pause();
+          isPlaying = false;
+          toggleBtn.textContent = '🔊 Audio Ambiental';
+          toggleBtn.setAttribute('aria-label', 'Reproducir audio ambiental');
+          console.log('🔇 Audio pausado');
+        }
+      });
+
+      // Controlar volumen
+      audio.volume = 0.3; // 30% del volumen máximo
+    });
+  </script>
 </body>
 </html>

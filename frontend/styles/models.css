@@ -13,7 +13,7 @@
     border: 2px solid #333;
 }
 
-/* Contenedores de modelos 3D conocidos - DISEÑO CUADRADO SIMPLE */
+/* Contenedores de modelos 3D conocidos */
 .model-container {
     width: 280px;
     height: 280px;
@@ -25,19 +25,11 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    
-    /* Fondo minimalista */
     background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-    
-    /* Borde sutil */
     border: 1px solid #444;
-    
-    /* Sombra suave */
     box-shadow: 
         0 4px 15px rgba(0, 0, 0, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    
-    /* Transición suave */
     transition: all 0.3s ease;
 }
 
@@ -53,7 +45,7 @@
     z-index: 10;
 }
 
-/* Efecto hover minimalista */
+/* Efecto hover */
 .model-container:hover {
     transform: translateY(-2px);
     box-shadow: 
@@ -62,11 +54,19 @@
     border-color: #555;
 }
 
-/* Ajustar layout para centrar mejor los cuadrados */
+/* Layout para meteoritos conocidos */
 .meteorite-column {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
+}
+
+.meteorite-column .model-container {
+    flex-shrink: 0;
+}
+
+.meteorite-column .data-container {
+    flex: 1;
 }
 
 .meteorite-column .model-container {

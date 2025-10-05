@@ -149,26 +149,3 @@ body {
 .news-card a:hover {
   text-decoration: underline;
 }
-
-/* === Responsive === */
-@media (max-width: 768px) {
-  #noticia-dia {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #noticia-dia img {
-    width: 100%;
-    height: auto;
-  }
-
-  .news-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .news-card img {
-    width: 100%;
-    height: 160px;
-  }
-}
