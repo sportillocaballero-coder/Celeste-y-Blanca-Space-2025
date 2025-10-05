@@ -1,16 +1,45 @@
-/* === NOTICIAS.CSS === */
-#noticia-dia, #news-container { margin-top: 2rem; }
 
+/* ESTILOS PARA LA PÁGINA DE NOTICIAS ASTRONÓMICAS                */
+
+/* 
+ * Este archivo contiene los estilos específicos para la página de noticias.
+ * Incluye el diseño de:
+ * - Sección de noticia destacada del día
+ * - Contenedor de noticias recientes
+ * - cards individuales de noticias con efectos hover
+ */
+
+
+/* ESPACIADO DE SECCIONES PRINCIPALES */
+
+
+/* Agrega espacio superior a las dos secciones principales de noticias */
+#noticia-dia, #news-container { 
+  margin-top: 2rem;          
+}
+
+
+/* DISEÑO DE CARDS DE NOTICIAS INDIVIDUALES */
+
+
+/* Estilo principal para cada tarjeta de noticia */
 .news-card {
-  background-color: #111;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 1rem 0;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  background-color: #111;     
+  border: 1px solid #222;     
+  border-radius: 12px;        
+  padding: 1.5rem;            
+  margin: 1rem 0;            
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Animación suave */
 }
+
+/* Efecto cuando el usuario pasa el mouse sobre una tarjeta */
 .news-card:hover {
-  transform: translateY(-4px);
-  border-color: #1e90ff;
+  transform: translateY(-4px); /* Levanta la tarjeta */
+  border-color: #1e90ff;      /* Cambia el borde  */
 }
-.news-card img { max-width: 100%; border-radius: 8px; }
+
+/* Estilo para imágenes dentro de las cards de noticias */
+.news-card img { 
+  max-width: 100%;            /* La imagen no puede ser más ancha que su contenedor */
+  border-radius: 8px;         
+}

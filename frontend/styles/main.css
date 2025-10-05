@@ -1,150 +1,359 @@
-/* === MAIN.CSS === */
-/* === Reset & Base === */
+/* HOJA DE ESTILOS PRINCIPAL            *
+/* 
+ * Este es el archivo CSS principal que define el diseño base de todo el sitio.
+ * Incluye:
+ * - Reset y configuración base del navegador
+ * - Estilos del header con navegación fija
+ * - Tipografía y colores 
+ * - Footer
+ * - Diseño responsive
+ * - Selector de idiomas TODO
+ */
+/* RESET Y CONFIGURACIÓN BASE DEL NAVEGADOR *
+
+/* Configuración */
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  color: #eaeaea;
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+  margin: 0;                    
+  padding: 0;                   
+  background-color: #000;      
+  color: #eaeaea;              
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif; 
 }
 
+/* Configuración del elemento*/
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;     
 }
 
+/* Contenedor princip */
 main {
-  margin-top: 110px;
-  padding: 2rem;
+  margin-top: 110px;           
+  padding: 2rem;               /* Espacio interno general */
 }
+
 
 .content-wrap {
-  padding-inline: clamp(1rem, 4vw, 3rem);
+  padding-inline: clamp(1rem, 4vw, 3rem); /* Padding lateral que se adapta */
 }
+/* HEADER *
 
-/* === Header === */
+/* Header, permanece visible */
 .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem;
-  background-color: #000;
-  border-bottom: 1px solid #222;
-  z-index: 100;
-  height: 100px;
+  position: fixed;             /* Se mantiene en la misma posición al hacer scroll */
+  top: 0;                      
+  left: 0;                     
+  width: 100%;                 
+  display: flex;               
+  align-items: center;         
+  justify-content: space-between; 
+  padding: 1.5rem;             
+  background-color: #000;      
+  border-bottom: 1px solid #222; 
+  z-index: 100;                
+  height: 100px;               /* Altura fija */
+}
+/* LOGO Y TÍTULO DEL SITIO *
+
+/* Contenedor que agrupa logo y el, título */
+.logo-container { 
+  display: flex;               
+  align-items: center;       
+  gap: 15px;                   
 }
 
-/* Logo y título */
-.logo-container { display: flex; align-items: center; gap: 15px; }
-.logo { height: 50px; width: auto; }
+/* Imagen del logo */
+.logo { 
+  height: 50px;                
+  width: auto;                 
+}
+
+/* Título principal */
 .site-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #fff;
-  letter-spacing: 1px;
+  font-family: 'Space Grotesk', sans-serif; 
+  font-weight: 700;            
+  font-size: 1.1rem;          
+  color: #fff;              
+  letter-spacing: 1px;         
 }
+/* BARRA DE NAVEGACIÓN *
 
-/* === Navbar === */
+/* Contenedor de los enlaces */
 .navbar {
-  display: flex;
-  gap: 1.2rem;
+  display: flex;              
+  gap: 1.2rem;                 
 }
 
+/* Estilo de cada enlace de navegación */
 .navbar a {
-  text-decoration: none;
-  color: #b5b5b5;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
+  text-decoration: none;       /* Quita el subrayado */
+  color: #b5b5b5;             
+  text-transform: uppercase;   
+  font-size: 0.8rem;          
+  letter-spacing: 0.5px;      
+  transition: color 0.3s ease; 
 }
 
-.navbar a:hover { color: #1e90ff; }
-
-/* === Botón alerta === */
-.alert-button {
-  background-color: #1e90ff;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.7rem 0.9rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* Efecto hover en enlaces de navegación */
+.navbar a:hover { 
+  color: #1e90ff;             
 }
-.alert-button:hover { background-color: #ff0000; transform: scale(1.05); }
 
-/* === Tipografía === */
+/* SISTEMA DE TIPOGRAFÍA *
+
+/* Títulos principales y de sección */
 .hero-title, .section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif; 
+  font-weight: 700;            
+  line-height: 1.2;           
+  margin-bottom: 0.5rem;       
 }
-.hero-title { font-size: clamp(2rem, 4vw, 4rem); }
-.section-title { font-size: clamp(1.5rem, 2.2vw, 2.25rem); margin-top: 2rem; }
 
-.lead { font-size: 1.1rem; line-height: 1.7; color: #eaeaea; max-width: 72ch; }
-p { color: #b5b5b5; line-height: 1.6; }
+/* Título principal de la página (hero) */
+.hero-title { 
+  font-size: clamp(2rem, 4vw, 4rem); /* Tamaño responsive */
+}
 
-/* === Footer === */
+/* Títulos de sección */
+.section-title { 
+  font-size: clamp(1.5rem, 2.2vw, 2.25rem); /* Tamaño responsive subtitulos */
+  margin-top: 2rem;            
+}
+
+/* Texto destacado (lead paragraph) */
+.lead { 
+  font-size: 1.1rem;           
+  line-height: 1.7;            
+  color: #eaeaea;              
+  max-width: 72ch;            
+}
+
+/* Párrafos normales */
+p { 
+  color: #b5b5b5;            
+  line-height: 1.6;          }
+
+/* FOOTER: *
+
+/* Contenedor principal del footer */
 .site-footer {
-  background-color: #111;
-  border-top: 1px solid #333;
-  padding: 3rem 0 2rem;
-  margin-top: 4rem;
+  background-color: #111;     
+  border-top: 1px solid #333; 
+  padding: 3rem 0 2rem;        
+  margin-top: 4rem;           
 }
+
+/* Contenido interno del footer */
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  max-width: 1200px;          
+  margin: 0 auto;              
+  padding: 0 2rem;            
+  display: grid;               /* Grid para organizar columnas */
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  gap: 2rem;                  
 }
+
+/* Títulos dentro del footer */
 .footer-section h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #fff;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-family: 'Space Grotesk', sans-serif; 
+  color: #fff;                
+  font-size: 1.2rem;          
+  margin-bottom: 1rem;       
 }
-.footer-section p { color: #b5b5b5; line-height: 1.6; margin-bottom: 0.5rem; }
-.footer-section strong { color: #1e90ff; }
 
-/* === Secciones === */
+/* Párrafos dentro del footer */
+.footer-section p { 
+  color: #b5b5b5;             
+  line-height: 1.6;          
+  margin-bottom: 0.5rem;      
+}
+
+/* Texto destacado en el footer */
+.footer-section strong { 
+  color: #1e90ff;           
+}
+
+/* DISEÑO DE SECCIONES PRINCIPALES *
+
+/* Configuración base para todas las secciones */
 section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 0;
-  border-bottom: 1px solid #111;
-}
-section:nth-of-type(odd) { background-color: #000; }
-section:nth-of-type(even) { background-color: #0a0a0a; }
-
-.hero-section { padding-top: 8rem; }
-
-/* === Responsive === */
-@media (max-width: 900px) {
-  .navbar { display: none; }
-  .footer-content { grid-template-columns: 1fr; text-align: center; }
+  min-height: 100vh;           
+  display: flex;             
+  flex-direction: column;      
+  justify-content: center;     /* Centra contenido vertical */
+  padding: 4rem 0;            
+  border-bottom: 1px solid #111; 
 }
 
+/* Secciones impares con fondo negro */
+section:nth-of-type(odd) { 
+  background-color: #000;     
+}
+
+/* Secciones pares con fondo ligeramente diferente */
+section:nth-of-type(even) { 
+  background-color: #0a0a0a;   /* Gris muy oscuro para crear contraste */
+}
+
+/* Sección hero con espacio extra arriba */
+.hero-section { 
+  padding-top: 8rem;           /* Espacio extra para compensar header fijo */
+}
+
+/* SELECTOR DE IDIOMAS *
+
+/* Contenedor del selector de idioma */
 .lang-switcher {
-  display:flex; align-items:center;
+  display: flex;              
+  align-items: center;         
 }
-#langSelect{
-  background:#0f1115; color:#eaeaea;
-  border:1px solid #1f2a44; border-radius:10px;
-  padding:.5rem .8rem; font-weight:600; letter-spacing:.3px;
-  cursor:pointer; outline:none;
-  box-shadow:0 0 10px rgba(30,144,255,.15) inset;
+
+/* Estilo del dropdown de selección de idioma */
+#langSelect {
+  background: #0f1115;        
+  color: #eaeaea;           
+  border: 1px solid #1f2a44;  
+  border-radius: 10px;         
+  padding: .5rem .8rem;       
+  font-weight: 600;           
+  letter-spacing: .3px;      
+  cursor: pointer;             /* Cursor de mano */
+  outline: none;               /* Sin outline al hacer focus */
+  box-shadow: 0 0 10px rgba(30,144,255,.15) inset; 
 }
-#langSelect:hover{ border-color:#1e90ff; }
+
+/* Efecto hover del selector de idioma */
+#langSelect:hover { 
+  border-color: #1e90ff;      
+}
+
+
+/* MENÚ HAMBURGUESA PARA MÓVILES */
+
+
+/* Botón hamburguesa - oculto por defecto en desktop */
+.hamburger-btn {
+  display: none;               /* Oculto en pantallas grandes */
+  flex-direction: column;      /* Apila las líneas verticalmente */
+  justify-content: space-around; /* Distribuye las líneas uniformemente */
+  width: 30px;                 /* Ancho del botón */
+  height: 25px;                /* Alto del botón */
+  background: transparent;     /* Fondo transparente */
+  border: none;                /* Sin borde */
+  cursor: pointer;             /* Cursor de mano */
+  padding: 0;                  /* Sin padding */
+  z-index: 101;                /* Por encima del header */
+}
+
+/* Líneas del ícono hamburguesa */
+.hamburger-line {
+  width: 100%;                 /* Ocupa todo el ancho del botón */
+  height: 3px;                 /* Grosor de cada línea */
+  background-color: #eaeaea;   /* Color claro para contraste */
+  transition: all 0.3s ease;  /* Animación suave para transformaciones */
+  transform-origin: center;    /* Punto de origen para rotaciones */
+}
+
+/* Animación cuando el menú está abierto */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px); /* Primera línea forma parte de la X */
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;                  /* Línea del medio desaparece */
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px); /* Tercera línea completa la X */
+}
+
+/* Menú de navegación móvil */
+.mobile-nav {
+  display: none;               /* Oculto por defecto */
+  position: fixed;             /* Posición fija en pantalla */
+  top: 100px;                  /* Debajo del header */
+  left: 0;                     /* Pegado al borde izquierdo */
+  width: 100%;                 /* Ocupa todo el ancho */
+  background-color: rgba(0, 0, 0, 0.95); /* Fondo negro semitransparente */
+  backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+  flex-direction: column;      /* Enlaces apilados verticalmente */
+  padding: 2rem 0;             /* Espacio arriba y abajo */
+  z-index: 99;                 /* Por debajo del botón hamburguesa */
+  transform: translateY(-100%); /* Inicialmente fuera de pantalla */
+  transition: transform 0.3s ease; /* Animación suave al aparecer */
+}
+
+/* Estado activo del menú móvil */
+.mobile-nav.active {
+  display: flex;               /* Muestra el menú */
+  transform: translateY(0);    /* Desliza hacia abajo hasta posición normal */
+}
+
+/* Enlaces dentro del menú móvil */
+.mobile-nav a {
+  text-decoration: none;       /* Sin subrayado */
+  color: #eaeaea;             /* Color claro */
+  padding: 1rem 2rem;         /* Espacio interno generoso para facilitar toque */
+  text-transform: uppercase;   /* Texto en mayúsculas */
+  font-size: 1rem;            /* Tamaño más grande para móvil */
+  letter-spacing: 0.5px;      /* Espaciado entre letras */
+  transition: all 0.3s ease;  /* Animación suave */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+}
+
+/* Efecto hover en enlaces móviles */
+.mobile-nav a:hover {
+  color: #1e90ff;             /* Color azul al tocar */
+  background-color: rgba(30, 144, 255, 0.1); /* Fondo azul muy sutil */
+  padding-left: 2.5rem;       /* Pequeña indentación al hacer hover */
+}
+
+
+/* DISEÑO RESPONSIVE PARA DISPOSITIVOS MÓVILES */
+
+
+/* Adaptaciones para pantallas menores a 900px */
+@media (max-width: 900px) {
+  /* Oculta la navegación desktop en dispositivos */
+  .navbar { 
+    display: none;             /* Menú desktop oculto */
+  }
+  
+  /* Muestra el botón hamburguesa  */
+  .hamburger-btn {
+    display: flex;             /* Hace visible el boton */
+  }
+  
+  /* Footer en una sola columna para móviles */
+  .footer-content { 
+    grid-template-columns: 1fr;
+    text-align: center;        
+  }
+  
+  /* Ajustes adicionales para el header en móvil */
+  .site-header {
+    padding: 1rem 1.5rem;     /* Reduce el padding  */
+  }
+  
+  /* Ajuste del título  */
+  .site-title {
+    font-size: 1rem;          
+  }
+  
+  /* Ajuste del logo en móviles */
+  .logo {
+    height: 40px;             
+  }
+}
+
+/* Para pantallas muy pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  /* Ajustes adicionales para teléfonos pequeños */
+  .mobile-nav a {
+    padding: 0.8rem 1.5rem;   /* Reduce el padding en pantallas muy pequeñas */
+    font-size: 0.9rem;        /* Tamaño de fuente ligeramente menor */
+  }
+  
+  .content-wrap {
+    padding-inline: 1rem;     /* Menos padding lateral en móviles pequeños */
+  }
+}

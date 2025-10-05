@@ -1,10 +1,27 @@
-// scripts/noticias.js
+/* ================================================================ */
+/* SCRIPT PARA CARGAR NOTICIAS ASTRONÓMICAS EN TIEMPO REAL        */
+/* ================================================================ */
+/* 
+ * Este script obtiene información de APIs de NASA para mostrar:
+ * - Imagen astronómica del día (APOD)
+ * - Noticias recientes del feed RSS de NASA
+ * - Manejo de errores si las APIs no responden
+ */
 
+// Clave de API de NASA para acceder a sus servicios
 const API_KEY = "Ie3jrajsuZ1DfwEZdR91Se2lS5gazb1lvojY0NRe"; // ⚠️ poné tu API key real de api.nasa.gov
+
+// Elementos del DOM donde se mostrarán las noticias
 const noticiaDia = document.getElementById("noticia-dia");
 const newsContainer = document.getElementById("news-container");
 
-// === 1) Noticia del día (APOD) ===
+/* ================================================================ */
+/* FUNCIÓN: CARGAR IMAGEN ASTRONÓMICA DEL DÍA                     */
+/* ================================================================ */
+/* 
+ * Obtiene la imagen destacada del día desde la API APOD de NASA.
+ * Puede ser una imagen o un video, y muestra la explicación científica.
+ */
 async function cargarNoticiaDelDia() {
   try {
     const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`);
@@ -41,7 +58,13 @@ async function cargarNoticiaDelDia() {
   }
 }
 
-// === 2) Noticias en tiempo real (RSS feed NASA) ===
+/* ================================================================ */
+/* FUNCIÓN: CARGAR NOTICIAS RECIENTES DE NASA                     */
+/* ================================================================ */
+/* 
+ * Obtiene las últimas 5 noticias del feed RSS oficial de NASA.
+ * Usa un servicio intermediario (rss2json) para convertir RSS a JSON.
+ */
 async function cargarNoticiasRecientes() {
   const rssURL = "https://api.rss2json.com/v1/api.json?rss_url=https://www.nasa.gov/rss/dyn/breaking_news.rss";
 
@@ -67,6 +90,9 @@ async function cargarNoticiasRecientes() {
   }
 }
 
+/* ================================================================ */
+/* INICIALIZACIÓN: EJECUTAR AMBAS FUNCIONES AL CARGAR LA PÁGINA   */
+/* ================================================================ */
 // Ejecutar ambas funciones
 cargarNoticiaDelDia();
 cargarNoticiasRecientes();

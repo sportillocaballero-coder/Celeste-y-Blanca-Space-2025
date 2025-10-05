@@ -1,199 +1,328 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Meta tags básicos para SEO y responsive design -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Celeste & Blanca Space</title>
+  <meta name="description" content="Proyecto ARMET - Plataforma interactiva para el monitoreo de asteroides y meteoritos cercanos a la Tierra" />
+  <meta name="keywords" content="asteroides, meteoritos, NEO, NASA, espacio, monitoreo" />
+  <title>Celeste & Blanca Space - Proyecto ARMET</title>
 
-  <!-- Fuentes y estilos -->
+  <!-- Fuentes de Google Fonts para tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Hojas de estilo CSS -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/proximos.css">
   <link rel="stylesheet" href="styles/conocidos.css">
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="site-header">
+  <!-- HEADER: Navegación principal del sitio -->
+  
+  <header class="site-header" role="banner">
+    <!-- Logo y título principal -->
     <div class="logo-container">
       <img src="assets/images/logo-CyB.png" alt="Logo Celeste y Blanca Space" class="logo">
       <h1 class="site-title">CELESTE & BLANCA SPACE</h1>
     </div>
 
-    <nav class="navbar">
-      <a href="#inicio">Inicio</a>
-      <a href="#proximos">Meteoritos próximos</a>
-      <a href="#conocidos">Meteoritos conocidos</a>
-      <a href="noticias.html">Noticias</a> <!-- página aparte -->
-      <a href="#alertas">Alertas</a>
-      <a href="#mitigacion">Mitigación</a>
-      <a href="gamecard.html">GameCard</a> <!-- página aparte -->
-      <a href="#contacto">Contacto</a>
+    <!-- Navegación principal del sitio -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+      <a href="#inicio" aria-label="Ir a la sección de inicio">Inicio</a>
+      <a href="#proximos" aria-label="Ver meteoritos próximos">Meteoritos próximos</a>
+      <a href="#conocidos" aria-label="Ver meteoritos conocidos">Meteoritos conocidos</a>
+      <a href="noticias.html" aria-label="Ir a página de noticias">Noticias</a>
+      <a href="#alertas" aria-label="Ver alertas activas">Alertas</a>
+      <a href="#mitigacion" aria-label="Ver estrategias de mitigación">Mitigación</a>
+      <a href="gamecard.html" aria-label="Ir al juego GameCard">GameCard</a>
+      <a href="#contacto" aria-label="Ir a información de contacto">Contacto</a>
     </nav>
 
+    <!-- Botón hamburguesa para móviles -->
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Menú móvil -->
+    <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Navegación móvil">
+      <a href="#inicio" aria-label="Ir a la sección de inicio">Inicio</a>
+      <a href="#proximos" aria-label="Ver meteoritos próximos">Meteoritos próximos</a>
+      <a href="#conocidos" aria-label="Ver meteoritos conocidos">Meteoritos conocidos</a>
+      <a href="noticias.html" aria-label="Ir a página de noticias">Noticias</a>
+      <a href="#alertas" aria-label="Ver alertas activas">Alertas</a>
+      <a href="#mitigacion" aria-label="Ver estrategias de mitigación">Mitigación</a>
+      <a href="gamecard.html" aria-label="Ir al juego GameCard">GameCard</a>
+      <a href="#contacto" aria-label="Ir a información de contacto">Contacto</a>
+    </nav>
+
+    <!-- Selector de idioma -->
     <div class="lang-switcher">
-     <select id="langSelect" aria-label="Seleccionar idioma">
-      <option value="es-AR">ES</option>
-      <option value="en-US">EN</option>
-      <option value="pt-BR">PT</option>
-     </select>
+      <select id="langSelect" aria-label="Seleccionar idioma">
+        <option value="es-AR">ES</option>
+        <option value="en-US">EN</option>
+        <option value="pt-BR">PT</option>
+      </select>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="content-wrap">
-    <!-- Inicio -->
-    <section id="inicio" class="hero-section">
-      <h1 class="hero-title">Proyecto ARMET</h1>
-      <h2 class="section-title">Monitoreo de Asteroides y Meteoritos</h2>
-      <p class="lead">Una plataforma interactiva dedicada al seguimiento y análisis de objetos cercanos a la Tierra (NEOs).</p>
-      <p>Nuestro objetivo es brindar información precisa y actualizada sobre meteoritos próximos, generar alertas preventivas y ofrecer herramientas de mitigación para proteger nuestro planeta.</p>
-    </section>
-
-    <!-- Meteoritos Próximos -->
-<section id="proximos">
-  <h2 class="section-title">🌍 Meteoritos Próximos a la Tierra</h2>
-  <p class="lead">Datos actualizados de los cuerpos celestes más cercanos detectados durante el presente mes.</p>
-
-  <div class="meteorite-next">
-    <div class="meteorite-card-next">
-      <div class="model-container-next">
-        <canvas id="model-proximo1"></canvas>
-      </div>
-      <div class="data-container-next">
-        <h3>🪨 2025 QZ1</h3>
-        <p><strong>Distancia mínima:</strong> 4.5 millones km</p>
-        <p><strong>Velocidad:</strong> 26.000 km/h</p>
-        <p><strong>Composición:</strong> Rocosa con núcleo metálico</p>
-        <p><strong>Fecha de máxima aproximación:</strong> 8 de octubre 2025</p>
-        <p class="alerta-baja">🟢 Riesgo de impacto: Muy bajo</p>
-      </div>
-    </div>
-
-    <div class="meteorite-card-next">
-      <div class="model-container-next">
-        <canvas id="model-proximo2"></canvas>
-      </div>
-      <div class="data-container-next">
-        <h3>☄️ 2025 XR7</h3>
-        <p><strong>Distancia mínima:</strong> 2.9 millones km</p>
-        <p><strong>Velocidad:</strong> 35.000 km/h</p>
-        <p><strong>Composición:</strong> Mixta (níquel y silicatos)</p>
-        <p><strong>Fecha de máxima aproximación:</strong> 20 de octubre 2025</p>
-        <p class="alerta-media">🟡 Riesgo de impacto: Bajo</p>
-      </div>
-    </div>
-  </div>
-</section>
+ 
+  <!-- MAIN: Contenido principal de la aplicación -->
+ 
+  <main class="content-wrap" role="main">
     
-    <!-- Meteoritos Conocidos -->
-<section id="conocidos">
-  <h2 class="section-title">Meteoritos Históricamente Conocidos</h2>
-  <p class="lead">Listado de meteoritos más relevantes documentados por observatorios internacionales.</p>
+   
+    <!-- SECCIÓN INICIO: Hero section con información del proyecto -->
+   
+    <section id="inicio" class="hero-section" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="hero-title">Proyecto ARMET</h1>
+      <h2 class="section-title">Monitoreo de Asteroides y Meteoritos</h2>
+      <p class="lead">
+        Una plataforma interactiva dedicada al seguimiento y análisis de objetos cercanos a la Tierra (NEOs).
+      </p>
+      <p>
+        Nuestro objetivo es brindar información precisa y actualizada sobre meteoritos próximos, 
+        generar alertas preventivas y ofrecer herramientas de mitigación para proteger nuestro planeta.
+      </p>
+    </section>
+    
+    
+    <!-- SECCIÓN METEORITOS PRÓXIMOS: Datos en tiempo real de NEOs -->
+    
+    <section id="proximos" aria-labelledby="proximos-title">
+      <h2 id="proximos-title" class="section-title">🌍 Meteoritos Próximos a la Tierra</h2>
+      <p class="lead">
+        Datos actualizados de los cuerpos celestes más cercanos detectados durante el presente mes.
+      </p>
 
-  <!-- === CHELYABINSK === -->
-  <div class="meteorite-section">
-    <h3>☄️ Chelyabinsk (2013, Rusia)</h3>
-    <div class="meteorite-column">
-      <div class="model-container">
-        <!-- Espacio reservado para el modelo 3D -->
-        <canvas id="model-chelyabinsk"></canvas>
-      </div>
-      <div class="data-container">
-        <p><strong>Evento:</strong> Explosión atmosférica con onda expansiva que causó más de 1500 heridos leves.</p>
-        <p><strong>Composición:</strong> Condrita ordinaria (tipo LL5).</p>
-        <p><strong>Diámetro estimado:</strong> 20 m.</p>
-        <p><strong>Velocidad de entrada:</strong> 19 km/s.</p>
-        <p><strong>Energía liberada:</strong> ~500 kilotones de TNT.</p>
-      </div>
-    </div>
-  </div>
+      <!-- Contenedor de tarjetas de meteoritos próximos -->
+      <div class="meteorite-next" role="region" aria-label="Lista de meteoritos próximos">
+        
+        <!-- Tarjeta de meteorito 1 -->
+        <article class="meteorite-card-next">
+          <div class="model-container-next">
+            <!-- Canvas para modelo 3D del meteorito -->
+            <canvas id="model-proximo1" aria-label="Modelo 3D del meteorito 2025 QZ1"></canvas>
+          </div>
+          <div class="data-container-next">
+            <h3>🪨 2025 QZ1</h3>
+            <dl>
+              <dt>Distancia mínima:</dt>
+              <dd>4.5 millones km</dd>
+              
+              <dt>Velocidad:</dt>
+              <dd>26.000 km/h</dd>
+              
+              <dt>Composición:</dt>
+              <dd>Rocosa con núcleo metálico</dd>
+              
+              <dt>Fecha de máxima aproximación:</dt>
+              <dd>8 de octubre 2025</dd>
+            </dl>
+            <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo</p>
+          </div>
+        </article>
 
-  <!-- === TUNGUSKA === -->
-  <div class="meteorite-section">
-    <h3>☄️ Tunguska (1908, Siberia)</h3>
-    <div class="meteorite-column">
-      <div class="model-container">
-        <canvas id="model-tunguska"></canvas>
+        <!-- Tarjeta de meteorito 2 -->
+        <article class="meteorite-card-next">
+          <div class="model-container-next">
+            <!-- Canvas para modelo 3D del meteorito -->
+            <canvas id="model-proximo2" aria-label="Modelo 3D del meteorito 2025 XR7"></canvas>
+          </div>
+          <div class="data-container-next">
+            <h3>☄️ 2025 XR7</h3>
+            <dl>
+              <dt>Distancia mínima:</dt>
+              <dd>2.9 millones km</dd>
+              
+              <dt>Velocidad:</dt>
+              <dd>35.000 km/h</dd>
+              
+              <dt>Composición:</dt>
+              <dd>Mixta (níquel y silicatos)</dd>
+              
+              <dt>Fecha de máxima aproximación:</dt>
+              <dd>20 de octubre 2025</dd>
+            </dl>
+            <p class="alerta-media" role="alert">🟡 Riesgo de impacto: Bajo</p>
+          </div>
+        </article>
       </div>
-      <div class="data-container">
-        <p><strong>Evento:</strong> Explosión aérea que devastó más de 2000 km² de bosque.</p>
-        <p><strong>Composición:</strong> Probablemente cuerpo cometario rico en hielo.</p>
-        <p><strong>Altura de explosión:</strong> 5–10 km.</p>
-        <p><strong>Potencia estimada:</strong> 10–15 megatones.</p>
-      </div>
-    </div>
-  </div>
+    </section>
+    
+    
+    <!-- SECCIÓN METEORITOS CONOCIDOS: Base de datos histórica -->
+   
+    <section id="conocidos" aria-labelledby="conocidos-title">
+      <h2 id="conocidos-title" class="section-title">Meteoritos Históricamente Conocidos</h2>
+      <p class="lead">
+        Listado de meteoritos más relevantes documentados por observatorios internacionales.
+      </p>
 
-  <!-- === CAMPO DEL CIELO === -->
-  <div class="meteorite-section">
-    <h3>☄️ Campo del Cielo (Argentina, 1576)</h3>
-    <div class="meteorite-column">
-      <div class="model-container">
-        <canvas id="model-campo"></canvas>
-      </div>
-      <div class="data-container">
-        <p><strong>Evento:</strong> Impacto múltiple de meteoritos metálicos hallados en Chaco y Santiago del Estero.</p>
-        <p><strong>Composición:</strong> Hierro (93%), níquel (6.7%), cobalto (0.3%).</p>
-        <p><strong>Peso total recuperado:</strong> más de 100 toneladas.</p>
-      </div>
-    </div>
-  </div>
+      <!-- Meteorito Chelyabinsk -->
+      <article class="meteorite-section">
+        <h3>☄️ Chelyabinsk (2013, Rusia)</h3>
+        <div class="meteorite-column">
+          <div class="model-container">
+            <canvas id="model-chelyabinsk" aria-label="Modelo 3D del meteorito Chelyabinsk"></canvas>
+          </div>
+          <div class="data-container">
+            <dl>
+              <dt>Evento:</dt>
+              <dd>Explosión atmosférica con onda expansiva que causó más de 1500 heridos leves.</dd>
+              
+              <dt>Composición:</dt>
+              <dd>Condrita ordinaria (tipo LL5).</dd>
+              
+              <dt>Diámetro estimado:</dt>
+              <dd>20 m.</dd>
+              
+              <dt>Velocidad de entrada:</dt>
+              <dd>19 km/s.</dd>
+              
+              <dt>Energía liberada:</dt>
+              <dd>~500 kilotones de TNT.</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
 
-  <!-- === VREDEFORT === -->
-  <div class="meteorite-section">
-    <h3>☄️ Vredefort (Sudáfrica)</h3>
-    <div class="meteorite-column">
-      <div class="model-container">
-        <canvas id="model-vredefort"></canvas>
-      </div>
-      <div class="data-container">
-        <p><strong>Evento:</strong> Cráter más grande conocido en la Tierra (~300 km de diámetro).</p>
-        <p><strong>Edad estimada:</strong> 2.000 millones de años.</p>
-        <p><strong>Composición del impacto:</strong> Roca densa y silicatos fundidos.</p>
-      </div>
-    </div>
-  </div>
+      <!-- Meteorito Tunguska -->
+      <article class="meteorite-section">
+        <h3>☄️ Tunguska (1908, Siberia)</h3>
+        <div class="meteorite-column">
+          <div class="model-container">
+            <canvas id="model-tunguska" aria-label="Modelo 3D del meteorito Tunguska"></canvas>
+          </div>
+          <div class="data-container">
+            <dl>
+              <dt>Evento:</dt>
+              <dd>Explosión aérea que devastó más de 2000 km² de bosque.</dd>
+              
+              <dt>Composición:</dt>
+              <dd>Probablemente cuerpo cometario rico en hielo.</dd>
+              
+              <dt>Altura de explosión:</dt>
+              <dd>5–10 km.</dd>
+              
+              <dt>Potencia estimada:</dt>
+              <dd>10–15 megatones.</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
 
-  <!-- === CHICXULUB === -->
-  <div class="meteorite-section">
-    <h3>☄️ Chicxulub (México)</h3>
-    <div class="meteorite-column">
-      <div class="model-container">
-        <canvas id="model-chicxulub"></canvas>
-      </div>
-      <div class="data-container">
-        <p><strong>Evento:</strong> Impacto responsable de la extinción masiva de los dinosaurios.</p>
-        <p><strong>Diámetro estimado del cráter:</strong> 180 km.</p>
-        <p><strong>Edad:</strong> 66 millones de años.</p>
-        <p><strong>Composición:</strong> Condrita carbonácea.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- Meteorito Campo del Cielo -->
+      <article class="meteorite-section">
+        <h3>☄️ Campo del Cielo (Argentina, 1576)</h3>
+        <div class="meteorite-column">
+          <div class="model-container">
+            <canvas id="model-campo" aria-label="Modelo 3D del meteorito Campo del Cielo"></canvas>
+          </div>
+          <div class="data-container">
+            <dl>
+              <dt>Evento:</dt>
+              <dd>Impacto múltiple de meteoritos metálicos hallados en Chaco y Santiago del Estero.</dd>
+              
+              <dt>Composición:</dt>
+              <dd>Hierro (93%), níquel (6.7%), cobalto (0.3%).</dd>
+              
+              <dt>Peso total recuperado:</dt>
+              <dd>más de 100 toneladas.</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
 
-    <!-- Alertas -->
-    <section id="alertas">
-      <h2 class="section-title">Alertas Activas</h2>
-      <p class="lead">Nuestro sistema emite notificaciones preventivas en caso de detección de trayectorias de riesgo.</p>
+      <!-- Meteorito Vredefort -->
+      <article class="meteorite-section">
+        <h3>☄️ Vredefort (Sudáfrica)</h3>
+        <div class="meteorite-column">
+          <div class="model-container">
+            <canvas id="model-vredefort" aria-label="Modelo 3D del cráter Vredefort"></canvas>
+          </div>
+          <div class="data-container">
+            <dl>
+              <dt>Evento:</dt>
+              <dd>Cráter más grande conocido en la Tierra (~300 km de diámetro).</dd>
+              
+              <dt>Edad estimada:</dt>
+              <dd>2.000 millones de años.</dd>
+              
+              <dt>Composición del impacto:</dt>
+              <dd>Roca densa y silicatos fundidos.</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- Meteorito Chicxulub -->
+      <article class="meteorite-section">
+        <h3>☄️ Chicxulub (México)</h3>
+        <div class="meteorite-column">
+          <div class="model-container">
+            <canvas id="model-chicxulub" aria-label="Modelo 3D del cráter Chicxulub"></canvas>
+          </div>
+          <div class="data-container">
+            <dl>
+              <dt>Evento:</dt>
+              <dd>Impacto responsable de la extinción masiva de los dinosaurios.</dd>
+              
+              <dt>Diámetro estimado del cráter:</dt>
+              <dd>180 km.</dd>
+              
+              <dt>Edad:</dt>
+              <dd>66 millones de años.</dd>
+              
+              <dt>Composición:</dt>
+              <dd>Condrita carbonácea.</dd>
+            </dl>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <!-- Mitigación -->
-    <section id="mitigacion">
-      <h2 class="section-title">Estrategias de Mitigación</h2>
-      <p>Exploramos métodos de desviación y fragmentación para reducir el riesgo de impacto futuro.</p>
+    
+    <!-- SECCIÓN ALERTAS: Sistema de notificaciones -->
+    
+    <section id="alertas" aria-labelledby="alertas-title">
+      <h2 id="alertas-title" class="section-title">Alertas Activas</h2>
+      <p class="lead">
+        Nuestro sistema emite notificaciones preventivas en caso de detección de trayectorias de riesgo.
+      </p>
+      <!-- TODO: Implementar sistema de alertas en tiempo real -->
+    </section>
+
+    
+    <!-- SECCIÓN MITIGACIÓN: Estrategias de defensa planetaria -->
+    
+    <section id="mitigacion" aria-labelledby="mitigacion-title">
+      <h2 id="mitigacion-title" class="section-title">Estrategias de Mitigación</h2>
+      <p>
+        Exploramos métodos de desviación y fragmentación para reducir el riesgo de impacto futuro.
+      </p>
+      <!-- TODO: Añadir contenido sobre estrategias de mitigación -->
     </section>
   </main>
 
   
-  <!-- FOOTER -->
-  <footer id="contacto" class="site-footer">
+  <!-- FOOTER: Información de contacto y copyright -->
+  
+  <footer id="contacto" class="site-footer" role="contentinfo">
     <div class="footer-content">
+      <!-- Sección de contacto -->
       <div class="footer-section">
         <h3>Contacto</h3>
         <p>¿Querés colaborar con el proyecto o enviar información científica?</p>
-        <p><strong>Email:</strong> contacto@celesteblanc.space</p>
+        <p>
+          <strong>Email:</strong> 
+          <a href="mailto:contacto@celesteblanc.space">contacto@celesteblanc.space</a>
+        </p>
       </div>
+      
+      <!-- Información del proyecto -->
       <div class="footer-section">
         <h3>Celeste & Blanca Space</h3>
         <p>Proyecto ARMET - Monitoreo de asteroides y meteoritos</p>
@@ -201,5 +330,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- JavaScript para funcionalidad del menú móvil -->
+  <script src="scripts/mobile-menu.js"></script>
 </body>
 </html>

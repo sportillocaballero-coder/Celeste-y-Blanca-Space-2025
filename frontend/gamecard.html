@@ -1,67 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Configuración básica de la página -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GameCard | Celeste & Blanca Space</title>
+  <meta name="description" content="GameCard - Juego educativo sobre asteroides y meteoritos del Proyecto ARMET">
+  <meta name="keywords" content="juego, educativo, asteroides, meteoritos, quiz, espacio">
+  <title>GameCard - Juego Educativo | Celeste & Blanca Space</title>
 
+  <!-- Fuentes de Google para el diseño -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos CSS del sitio -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/gamecard.css">
 </head>
 
 <body>
+  
   <!-- HEADER -->
-  <header class="site-header">
+  
+  <header class="site-header" role="banner">
+    <!-- Logo y nombre del proyecto -->
     <div class="logo-container">
       <img src="assets/images/logo-CyB.png" alt="Logo Celeste y Blanca Space" class="logo">
       <h1 class="site-title">CELESTE & BLANCA SPACE</h1>
     </div>
 
-    <nav class="navbar">
-      <a href="index.html">Inicio</a>
-      <a href="index.html#proximos">Meteoritos próximos</a>
-      <a href="index.html#conocidos">Meteoritos conocidos</a>
-      <a href="noticias.html">Noticias</a>
-      <a href="index.html#alertas">Alertas</a>
-      <a href="index.html#mitigacion">Mitigación</a>
-      <a href="gamecard.html" class="active">GameCard</a>
-      <a href="index.html#contacto">Contacto</a>
+    <!-- Menú principal de navegación -->
+    <nav class="navbar" role="navigation" aria-label="Menú principal">
+      <a href="index.html" aria-label="Ir a la página principal">Inicio</a>
+      <a href="index.html#proximos" aria-label="Ver meteoritos que se acercan">Meteoritos próximos</a>
+      <a href="index.html#conocidos" aria-label="Ver meteoritos famosos de la historia">Meteoritos conocidos</a>
+      <a href="noticias.html" aria-label="Leer noticias del espacio">Noticias</a>
+      <a href="index.html#alertas" aria-label="Ver alertas de peligro">Alertas</a>
+      <a href="index.html#mitigacion" aria-label="Aprender sobre protección planetaria">Mitigación</a>
+      <a href="gamecard.html" class="active" aria-current="page" aria-label="Juego educativo (página actual)">GameCard</a>
+      <a href="index.html#contacto" aria-label="Información de contacto">Contacto</a>
     </nav>
 
+    <!-- Selector para cambiar idioma -->
     <div class="lang-switcher">
-     <select id="langSelect" aria-label="Seleccionar idioma">
-      <option value="es-AR">ES</option>
-      <option value="en-US">EN</option>
-      <option value="pt-BR">PT</option>
-     </select>
+      <select id="langSelect" aria-label="Elegir idioma de la página">
+        <option value="es-AR">ES</option>
+        <option value="en-US">EN</option>
+        <option value="pt-BR">PT</option>
+      </select>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="content-wrap">
-    <section class="hero-section">
-      <h1 class="hero-title">GameCard</h1>
-      <p class="lead">¡Bienvenido al módulo interactivo de Celeste & Blanca Space! Próximamente podrás jugar, aprender y sumar puntos descubriendo los secretos del espacio.</p>
+  
+  <!-- CONTENIDO PRINCIPAL: El juego educativo -->
+  
+  <main class="content-wrap" role="main">
+    
+    <!-- Sección principal del juego -->
+    <section class="hero-section" aria-labelledby="game-title">
+      
+      <!-- Título y descripción del juego -->
+      <h1 id="game-title" class="hero-title">GameCard</h1>
+      <p class="lead">
+        ¡Bienvenido al módulo interactivo de Celeste & Blanca Space! 
+        Próximamente podrás jugar, aprender y sumar puntos descubriendo los secretos del espacio.
+      </p>
 
-      <!-- Contenedor del juego -->
-      <div id="game-area">
-        <h2 class="section-title">Zona de juego</h2>
-        <div class="game-screen">
+      <!-- ======================================================== -->
+      <!-- ÁREA DE JUEGO: Donde se desarrolla la acción -->
+      <!-- ======================================================== -->
+      <section id="game-area" aria-labelledby="game-zone-title">
+        <h2 id="game-zone-title" class="section-title">Zona de juego</h2>
+        
+        <!-- Pantalla donde aparecerá el juego -->
+        <div class="game-screen" role="application" aria-label="Pantalla del juego educativo">
           <p>El juego se cargará aquí pronto...</p>
+          <!-- TODO: Aquí se implementará el juego interactivo -->
         </div>
-        <button id="start-btn">Iniciar juego</button>
-      </div>
+        
+        <!-- Botón para empezar a jugar -->
+        <button id="start-btn" 
+                type="button" 
+                aria-label="Comenzar el juego educativo sobre meteoritos">
+          Iniciar juego
+        </button>
+      </section>
 
-      <!-- Panel de puntajes / instrucciones -->
-      <div id="scoreboard">
-        <h2 class="section-title">Puntajes</h2>
-        <p><strong>Puntos actuales:</strong> <span id="score">0</span></p>
-        <p class="instructions">🧠 Consejo: próximamente vas a poder ganar puntos respondiendo preguntas sobre meteoritos, asteroides y defensa planetaria.</p>
-      </div>
+      
+      <!-- MARCADOR: Puntos e instrucciones del juego -->
+      
+      <section id="scoreboard" aria-labelledby="score-title">
+        <h2 id="score-title" class="section-title">Puntajes</h2>
+        
+        <!-- Contador de puntos del jugador -->
+        <p>
+          <strong>Puntos actuales:</strong> 
+          <span id="score" aria-live="polite" aria-label="Puntuación actual">0</span>
+        </p>
+        
+        <!-- Instrucciones y consejos para el jugador -->
+        <p class="instructions" role="note">
+          🧠 <strong>Consejo:</strong> próximamente vas a poder ganar puntos respondiendo preguntas 
+          sobre meteoritos, asteroides y defensa planetaria.
+        </p>
+        
+        <!-- TODO: Agregar tabla de mejores puntajes -->
+        <!-- TODO: Agregar estadísticas de progreso del jugador -->
+      </section>
     </section>
   </main>
 
+  
+  <!-- FOOTER -->
+  
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+      <!-- Información de contacto -->
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <p>¿Querés colaborar con el proyecto o enviar información científica?</p>
+        <p>
+          <strong>Email:</strong> 
+          <a href="mailto:contacto@celesteblanc.space">contacto@celesteblanc.space</a>
+        </p>
+      </div>
+      
+      <!-- Información del proyecto -->
+      <div class="footer-section">
+        <h3>Celeste & Blanca Space</h3>
+        <p>Proyecto ARMET - Monitoreo de asteroides y meteoritos</p>
+        <p>&copy; 2025 Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+ 
+  <!-- Script que controla la lógica del juego -->
   <script src="scripts/gamecard.js"></script>
 </body>
 </html>

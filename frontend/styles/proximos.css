@@ -1,113 +1,170 @@
-/* === PROXIMOS.CSS (versión ampliada y clara) === */
 
+/* ESTILOS PARA LA SECCIÓN "METEORITOS PRÓXIMOS"                  */
+
+/* 
+ * Este archivo contiene todos los estilos para mostrar las Cards
+ * de meteoritos que se acercan a la Tierra. Incluye:
+ * - Diseño de Cards con efecto vidrio
+ * - Animaciones suaves al pasar el mouse
+ * - Diseño responsive para móviles
+ * - Colores de alerta según el nivel de riesgo
+ */
+
+
+/* Hace que el fondo de la sección sea completamente transparente */
 #proximos {
-  background-color: transparent !important;
+  background-color: transparent !important; /* !important fuerza este estilo */
 }
 
+
+/* CONTENEDOR PRINCIPAL DE LAS CARDS */
+
+
+/* Organiza las Cards una debajo de la otra con espacio entre ellas */
 .meteorite-next {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 2rem;
+  display: flex;              
+  flex-direction: column;     
+  gap: 2rem;                 /* Espacio de 2rem entre cada Card
+ */
+  margin-top: 2rem;          /* Espacio arriba del contenedor */
 }
 
-/* === Tarjeta principal === */
+
+/* DISEÑO DE CADA CARD DE METEORITO */
+
+
+/* Estilo principal de cada Card individual */
 .meteorite-card-next {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  background: rgba(15, 15, 15, 0.6); /* gris oscuro con transparencia */
-  border: 1px solid rgba(30, 144, 255, 0.2);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 0 25px rgba(30, 144, 255, 0.15);
-  backdrop-filter: blur(6px); /* efecto vidrio */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 220px;
+  display: flex;                              /* Flexbox para organizar contenido interno */
+  flex-wrap: wrap;                           /* Permite que el contenido se ajuste en pantallas chiquitas */
+  align-items: stretch;                      /* Ambos lados tengan la misma altura */
+  background: rgba(15, 15, 15, 0.6);        
+  border: 1px solid rgba(30, 144, 255, 0.2); 
+  border-radius: 14px;                       
+  overflow: hidden;                          /* Esconde contenido que se salga de la Card*/
+  box-shadow: 0 0 25px rgba(30, 144, 255, 0.15); 
+  backdrop-filter: blur(6px);                
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+  min-height: 220px;                         
 }
 
+/* Efecto cuando el usuario pasa el cursor */
 .meteorite-card-next:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 35px rgba(30, 144, 255, 0.35);
+  transform: translateY(-4px);               /* Levanta la Card */
+  box-shadow: 0 0 35px rgba(30, 144, 255, 0.35); 
 }
 
-/* === Zona modelo (izquierda) === */
+
+/* LADO IZQUIERDO: CONTENEDOR DEL MODELO 3D */
+
+/* Área donde se muestra el modelo 3D del meteorito */
 .model-container-next {
-  flex: 0 0 40%;
-  min-height: 220px;
-  background-color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-right: 1px solid #111;
+  flex: 0 0 40%;               
+  min-height: 220px;           
+  background-color: #000;       /* Fondo negro para contrastar con el modelo 3D */
+  display: flex;                /* Flexbox para centrar el canvas */
+  align-items: center;          
+  justify-content: center;      
+  border-right: 1px solid #111; 
 }
 
+/* El elemento canvas donde se renderiza el modelo 3D */
 .model-container-next canvas {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 100%;          
+  height: 100%;         
+  object-fit: contain;   
 }
 
-/* === Zona datos (derecha) === */
+
+/* LADO DERECHO: INFORMACIÓN DEL METEORITO */
+
+
+/* Área donde se muestra toda la información textual */
 .data-container-next {
-  flex: 1;
-  padding: 1.5rem 1.8rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1;                     
+  padding: 1.5rem 1.8rem;       
+  display: flex;                
+  flex-direction: column;       
+  justify-content: center;     
 }
 
+/* Título del meteorito (ej: "2025 QZ1") */
 .data-container-next h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.4rem;
-  color: #1e90ff;
-  margin: 0 0 0.8rem 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-family: 'Space Grotesk', sans-serif; 
+  font-size: 1.4rem;            
+  color: #1e90ff;               
+  margin: 0 0 0.8rem 0;         /* Sin margen arriba, 0.8rem abajo */
+  text-transform: uppercase;    
+  letter-spacing: 0.5px;        
 }
 
+/* Párrafos con información del meteorito */
 .data-container-next p {
-  margin: 0.4rem 0;
-  line-height: 1.6;
-  font-size: 1rem;
-  color: #eaeaea;
+  margin: 0.4rem 0;           
+  line-height: 1.6;            
+  font-size: 1rem;            
+  color: #eaeaea;             
 }
 
-/* === Etiquetas de riesgo === */
+
+/* SISTEMA DE COLORES PARA NIVELES DE RIESGO */
+
+
+/* Estilos base para todas las etiquetas de alerta */
 .alerta-baja,
 .alerta-media,
 .alerta-alta {
-  font-weight: 700;
-  font-size: 1rem;
-  margin-top: 0.6rem;
+  font-weight: 700;            
+  font-size: 1rem;             
+  margin-top: 0.6rem;          }
+
+/* Riesgo bajo - */
+.alerta-baja { 
+  color: #00ff7f;             
 }
 
-.alerta-baja { color: #00ff7f; }
-.alerta-media { color: #ffd700; }
-.alerta-alta { color: #ff4d4d; }
+/* Riesgo medio - */
+.alerta-media { 
+  color: #ffd700;             
+}
 
-/* === Responsive === */
+/* Riesgo alto - */
+.alerta-alta { 
+  color: #ff4d4d;            
+}
+
+
+/* DISEÑO RESPONSIVE: ADAPTACIÓN PARA DISPOSITIVOS MÓVILES */
+
+
+/* Cuando la pantalla es menor a 900 píxeles de ancho (tablets y móviles) */
 @media (max-width: 900px) {
+  
+  /* Cambia el diseño de horizontal a vertical */
   .meteorite-card-next {
-    flex-direction: column;
-    min-height: auto;
+    flex-direction: column;     /* Apila modelo y datos verticalmente */
+    min-height: auto;          /* Permite que la altura se ajuste automáticamente */
   }
 
+  /* Ajustes para el contenedor del modelo en móviles */
   .model-container-next {
-    border-right: none;
-    border-bottom: 1px solid #111;
-    min-height: 180px;
+    border-right: none;         /* Quita el borde derecho */
+    border-bottom: 1px solid #111; /* Agrega borde abajo para separar del texto */
+    min-height: 180px;          /* Reduce la altura mínima para móviles */
   }
 
+  /* Ajustes para el área de datos en móviles */
   .data-container-next {
-    padding: 1.2rem;
+    padding: 1.2rem;           /* Reduce el padding para ahorrar espacio */
   }
 
+  /* Reduce el tamaño del título en móviles */
   .data-container-next h3 {
-    font-size: 1.2rem;
+    font-size: 1.2rem;         /* Más pequeño pero aún legible */
   }
 
+  /* Reduce ligeramente el tamaño del texto en móviles */
   .data-container-next p {
-    font-size: 0.95rem;
+    font-size: 0.95rem;        /* Optimizado para pantallas pequeñas */
   }
 }

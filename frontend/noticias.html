@@ -1,60 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Meta tags-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias | Celeste & Blanca Space</title>
+  <meta name="description" content="Noticias astronómicas actualizadas - Proyecto ARMET Celeste & Blanca Space">
+  <meta name="keywords" content="noticias, astronomía, NASA, meteoritos, espacio">
+  <title>Noticias Astronómicas | Celeste & Blanca Space</title>
 
+  <!-- Fuentes de Google Fonts para la tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Hojas de estilo CSS -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/noticias.css">
 </head>
 
 <body>
-  <header class="site-header">
+ 
+  <!-- HEADER: Navegación principal y branding del sitio -->
+  
+  <header class="site-header" role="banner">
+    <!-- Logo y título principal -->
     <div class="logo-container">
       <img src="assets/images/logo-CyB.png" alt="Logo Celeste y Blanca Space" class="logo">
       <h1 class="site-title">CELESTE & BLANCA SPACE</h1>
     </div>
 
-    <nav class="navbar">
-      <a href="index.html">Inicio</a>
-      <a href="index.html#proximos">Meteoritos próximos</a>
-      <a href="index.html#conocidos">Meteoritos conocidos</a>
-      <a href="noticias.html" class="active">Noticias</a>
-      <a href="index.html#alertas">Alertas</a>
-      <a href="index.html#mitigacion">Mitigación</a>
-      <a href="gamecard.html">GameCard</a>
-      <a href="index.html#contacto">Contacto</a>
+    <!-- Navegación principal del sitio -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+      <a href="index.html" aria-label="Ir a la página de inicio">Inicio</a>
+      <a href="index.html#proximos" aria-label="Ver meteoritos próximos">Meteoritos próximos</a>
+      <a href="index.html#conocidos" aria-label="Ver meteoritos conocidos">Meteoritos conocidos</a>
+      <a href="noticias.html" class="active" aria-current="page" aria-label="Noticias astronómicas (página actual)">Noticias</a>
+      <a href="index.html#alertas" aria-label="Ver alertas activas">Alertas</a>
+      <a href="index.html#mitigacion" aria-label="Ver estrategias de mitigación">Mitigación</a>
+      <a href="gamecard.html" aria-label="Ir al juego GameCard">GameCard</a>
+      <a href="index.html#contacto" aria-label="Ir a información de contacto">Contacto</a>
     </nav>
 
+    <!-- Selector de idioma -->
     <div class="lang-switcher">
-    <select id="langSelect" aria-label="Seleccionar idioma">
-      <option value="es-AR">ES</option>
-      <option value="en-US">EN</option>
-      <option value="pt-BR">PT</option>
-    </select>
-</div>
+      <select id="langSelect" aria-label="Seleccionar idioma">
+        <option value="es-AR">ES</option>
+        <option value="en-US">EN</option>
+        <option value="pt-BR">PT</option>
+      </select>
+    </div>
   </header>
 
-  <main class="content-wrap">
-  <section class="hero-section">
-    <h1 class="hero-title">Noticias Astronómicas</h1>
-    <p class="lead">Actualizaciones en tiempo real y la imagen destacada del día.</p>
+  
+  <!-- MAIN -->
+  
+  <main class="content-wrap" role="main">
+    
+   
+    <!-- SECCIÓN HERO: Introducción a las noticias -->
+    
+    <section class="hero-section" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="hero-title">Noticias Astronómicas</h1>
+      <p class="lead">
+        Actualizaciones en tiempo real y la imagen destacada del día.
+      </p>
 
-    <div id="noticia-dia">
-      <p>Cargando la noticia del día...</p>
+      
+      <!-- NOTICIA DEL DÍA: Contenido destacado -->
+      
+      <section id="noticia-dia" aria-labelledby="noticia-dia-title" aria-live="polite">
+        <h2 id="noticia-dia-title" class="sr-only">Noticia destacada del día</h2>
+        <div role="status" aria-label="Cargando noticia del día">
+          <p>Cargando la noticia del día...</p>
+        </div>
+      </section>
+
+      
+      <!-- ÚLTIMAS NOTICIASs -->
+      
+      <section aria-labelledby="ultimas-noticias-title">
+        <h2 id="ultimas-noticias-title" class="section-title">Últimas noticias</h2>
+        
+        <!-- Contenedor dinámico para noticias cargadas via JavaScript -->
+        <div id="news-container" 
+             role="region" 
+             aria-labelledby="ultimas-noticias-title"
+             aria-live="polite">
+          <div role="status" aria-label="Cargando noticias recientes">
+            <p>Cargando noticias recientes...</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  
+  <!-- FOOTER: Información de contacto y copyright -->
+  
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+      <!-- Sección de contacto -->
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <p>¿Querés colaborar con el proyecto o enviar información científica?</p>
+        <p>
+          <strong>Email:</strong> 
+          <a href="mailto:contacto@celesteblanc.space">contacto@celesteblanc.space</a>
+        </p>
+      </div>
+      
+      <!-- Información del proyecto -->
+      <div class="footer-section">
+        <h3>Celeste & Blanca Space</h3>
+        <p>Proyecto ARMET - Monitoreo de asteroides y meteoritos</p>
+        <p>&copy; 2025 Todos los derechos reservados</p>
+      </div>
     </div>
+  </footer>
 
-    <h2 class="section-title">Últimas noticias</h2>
-    <div id="news-container">
-      <p>Cargando noticias recientes...</p>
-    </div>
-  </section>
-</main>
-
-
-
-<script src="scripts/noticias.js"></script>
+  
+  <!-- Script para cargar y mostrar noticias astronómicas -->
+  <script src="scripts/noticias.js"></script>
 </body>
 </html>

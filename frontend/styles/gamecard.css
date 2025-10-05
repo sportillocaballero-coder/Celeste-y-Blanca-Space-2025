@@ -1,38 +1,65 @@
-/* === GAMECARD.CSS === */
+
+/* ESTILOS PARA LA PÁGINA GAMECARD         */
+/* 
+ * Este archivo contiene los estilos específicos para la página del juego .
+ * Incluye el diseño de:
+ * - Área principal del juego donde se desarrolla 
+ * - Marcador de puntuaciones 
+ * - Botones interactivos 
+ * - Pantalla de juego con placeholder
+ * - Instrucciones y consejos para el usuario
+ */
+
+/* CONTENEDORES PRINCIPALES DEL JUEGO */
+
+/* Estilo común para el área de juego y el marcador */
 #game-area, #scoreboard {
-  margin-top: 2rem;
-  background-color: #111;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 1.5rem;
+  margin-top: 2rem;            /* Espacio superior para separar del contenido anterior */
+  background-color: #111;      
+  border: 1px solid #222;      
+  border-radius: 12px;        
+  padding: 1.5rem;             /* Espacio interno en todos los lados */
 }
 
+/* BOTÓN PRINCIPAL DEL JUEGO */
+
+/* Botón para iniciar el juego */
 #start-btn {
-  background-color: #1e90ff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.8rem 1.5rem;
-  cursor: pointer;
-  font-weight: 600;
-  margin-top: 1rem;
-  transition: background 0.3s ease;
+  background-color: #1e90ff;   
+  color: #fff;                 
+  border: none;               
+  padding: 0.8rem 1.5rem;    
+  cursor: pointer;             /* Cursor de mano para indicar que es clickeable */
+  font-weight: 600;            
+  margin-top: 1rem;            
+  transition: background 0.3s ease; 
 }
-#start-btn:hover { background-color: #005fcc; }
 
+/* Efecto hover del botón de inicio */
+#start-btn:hover { 
+  background-color: #005fcc;   
+}
+
+/* PANTALLA DEL JUEGO */
+
+/* Área donde se desarrollará el juego */
 .game-screen {
-  background-color: #000;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 2rem;
-  margin-top: 1rem;
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #000;      
+  border: 1px solid #333;     
+  border-radius: 8px;         
+  padding: 2rem;             
+  margin-top: 1rem;            /* Espacio arriba para separar del título */
+  min-height: 200px;           /* Altura mínima para reservar espacio visual */
+  display: flex;              
+  align-items: center;        
+  justify-content: center;    
 }
 
+/* TEXTO DE INSTRUCCIONES */
+
+/* Estilo para consejos e instrucciones del juego */
 .instructions {
-  color: #b5b5b5;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;}
+  color: #b5b5b5;              /* Color gris claro para texto secundario */
+  font-size: 0.9rem;           /* Tamaño ligeramente menor que el texto normal */
+  margin-top: 0.5rem;          /* Pequeño espacio arriba para separar */
+}
