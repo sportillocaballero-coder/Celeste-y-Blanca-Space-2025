@@ -88,7 +88,7 @@ main {
   text-decoration: none;       /* Quita el subrayado */
   color: #b5b5b5;             
   text-transform: uppercase;   
-  font-size: 0.8rem;          
+  font-size: 1rem;          
   letter-spacing: 0.5px;      
   transition: color 0.3s ease; 
 }
