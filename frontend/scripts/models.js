@@ -207,8 +207,8 @@ function initAllModels() {
     // Upcoming models
     tryLoadGLB('model-proximo1', 'assets/models/apophis.glb', 'assets/textures/textura.jpeg');
     tryLoadGLB('model-proximo2', 'assets/models/asteroid_2024_yr4.glb', 'assets/textures/textura.jpeg');
-    tryLoadGLB('model-chicxulub', 'assets/models/chucucu.glb', 'assets/textures/textura.jpeg')
-    tryLoadGLB('model-chelyabinsk', 'assets/models/Cheliabiskifinal.glb', 'assets/textures/textura.jpeg')
+    tryLoadGLB('model-chicxulub', 'assets/models/chicxulub.glb', 'assets/textures/textura.jpeg')
+    tryLoadGLB('model-chelyabinsk', 'assets/models/Chelyabinsk.glb', 'assets/textures/textura.jpeg')
     tryLoadGLB('model-hoba', 'assets/models/hoba.glb', 'assets/textures/textura.jpeg')
     tryLoadGLB('model-bennu', 'assets/models/bennu.glb', 'assets/textures/textura.jpeg')
     tryLoadGLB('model-4vesta', 'assets/models/4vesta.glb', 'assets/textures/textura.jpeg')
