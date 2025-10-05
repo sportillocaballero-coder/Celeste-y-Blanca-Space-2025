@@ -80,22 +80,28 @@ main {
 /* Contenedor de los enlaces */
 .navbar {
   display: flex;              
-  gap: 1.2rem;                 
+  gap: 2rem;                 
+  align-items: center;
 }
 
 /* Estilo de cada enlace de navegación */
 .navbar a {
   text-decoration: none;       /* Quita el subrayado */
-  color: #b5b5b5;             
+  color: #fff;             
   text-transform: uppercase;   
   font-size: 1rem;          
   letter-spacing: 0.5px;      
-  transition: color 0.3s ease; 
+  transition: all 0.3s ease; 
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 
 /* Efecto hover en enlaces de navegación */
 .navbar a:hover { 
-  color: #1e90ff;             
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 /* SISTEMA DE TIPOGRAFÍA *
