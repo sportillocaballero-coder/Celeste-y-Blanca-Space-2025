@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Meta tags básicos para SEO y responsive design -->
+  <!-- Meta tags básicos para SEO -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Proyecto ARMET - Plataforma interactiva para el monitoreo de asteroides y meteoritos cercanos a la Tierra" />
   <meta name="keywords" content="asteroides, meteoritos, NEO, NASA, espacio, monitoreo" />
   <title>Celeste & Blanca Space - ARMET</title>
@@ -16,6 +15,7 @@
   <link rel="stylesheet" href="styles/proximos.css">
   <link rel="stylesheet" href="styles/conocidos.css">
   <link rel="stylesheet" href="styles/models.css">
+  <link rel="stylesheet" href="styles/calendar.css">
 </head>
 
 <body>
@@ -37,24 +37,7 @@
       <a href="#mitigacion" aria-label="Ver estrategias de mitigación">Mitigación</a>
       <a href="gamecard.html" aria-label="Ir al juego GameCard">GameCard</a>
       <a href="#contacto" aria-label="Ir a información de contacto">Contacto</a>
-    </nav>
-
-    <!-- Botón hamburguesa para móviles -->
-    <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-
-    <!-- Menú móvil -->
-    <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Navegación móvil">
-      <a href="#inicio" aria-label="Ir a la sección de inicio">Inicio</a>
-      <a href="#proximos" aria-label="Ver meteoritos próximos">Meteoritos próximos</a>
-      <a href="#conocidos" aria-label="Ver meteoritos conocidos">Meteoritos conocidos</a>
-      <a href="noticias.html" aria-label="Ir a página de noticias">Noticias</a>
-      <a href="#mitigacion" aria-label="Ver estrategias de mitigación">Mitigación</a>
-      <a href="gamecard.html" aria-label="Ir al juego GameCard">GameCard</a>
-      <a href="#contacto" aria-label="Ir a información de contacto">Contacto</a>
+      <a id="calendar-btn" class="calendar-link">🗓️ Calendario Astronómico</a>
     </nav>
 
     <!-- Selector de idioma -->
@@ -67,9 +50,7 @@
     </div>
   </header>
 
- 
   <!-- MAIN: Contenido principal de la aplicación -->
- 
   <main class="content-wrap" role="main">
     
    
@@ -412,7 +393,64 @@
       </section>
   </main>
 
-  
+  <!-- Modal de calendario -->
+  <div id="calendar-modal" class="calendar-modal">
+    <div class="calendar-content">
+      <span id="close-calendar">&times;</span>
+      <h2>📅 Próximos Eventos Astronómicos</h2>
+
+      <!-- Contenido del calendario astronómico -->
+      <div class="astronomy-events">
+        <h3>🌟 Próximos Eventos Astronómicos</h3>
+        
+        <div class="event-item">
+          <div class="event-date">14-15 Diciembre 2025</div>
+          <div class="event-desc">Lluvia de meteoros Gemínidas - Pico de actividad</div>
+          <div class="event-type">🌠 Lluvia meteórica</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">3-4 Enero 2026</div>
+          <div class="event-desc">Lluvia de meteoros Cuadrántidas</div>
+          <div class="event-type">🌠 Lluvia meteórica</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">12-13 Agosto 2026</div>
+          <div class="event-desc">Lluvia de meteoros Perseidas - Pico de actividad</div>
+          <div class="event-type">🌠 Lluvia meteórica</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">Septiembre 2027</div>
+          <div class="event-desc">Lanzamiento misión NEO Surveyor (NASA)</div>
+          <div class="event-type">🚀 Misión espacial</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">13 Abril 2029</div>
+          <div class="event-desc">Apophis - Máximo acercamiento a la Tierra (31,600 km)</div>
+          <div class="event-type">🔴 NEO Crítico</div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date">2032</div>
+          <div class="event-desc">Asteroide 2024 YR₄ - Aproximación lunar</div>
+          <div class="event-type">🟡 NEO Monitoreado</div>
+        </div>
+      </div>
+
+      <!-- Enlaces externos -->
+      <div class="external-links">
+        <h3>🔗 Recursos Externos</h3>
+        <a href="https://cneos.jpl.nasa.gov/" target="_blank" class="link-btn">NASA CNEOS - Objetos Cercanos</a>
+        <a href="https://www.iau.org/public/themes/calendars/" target="_blank" class="link-btn">Calendario Astronómico IAU</a>
+        <a href="https://spaceweather.com/" target="_blank" class="link-btn">Space Weather - Eventos en Vivo</a>
+      </div>
+
+      <button id="addGoogleEvent">➕ Agregar al Google Calendar</button>
+    </div>
+  </div>
   <!-- FOOTER: Información de contacto y copyright -->
   
   <footer id="contacto" class="site-footer" role="contentinfo">
@@ -436,14 +474,14 @@
     </div>
   </footer>
 
-  <!-- JavaScript para funcionalidad del menú móvil -->
-  <script src="scripts/mobile-menu.js"></script>
-  
   <!-- Three.js desde CDN confiable -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
   <!-- Tu script principal -->
   <script src="scripts/models.js"></script>
+
+  <!-- Para el calendario  -->
+  <script src="scripts/calendar.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
-/* Contenedores de modelos 3D */
-.model-container-next,
-.model-container {
+/* Contenedores de modelos 3D próximos */
+.model-container-next {
     width: 100%;
     height: 250px;
     min-height: 200px;
@@ -14,69 +13,70 @@
     border: 2px solid #333;
 }
 
+/* Contenedores de modelos 3D conocidos - DISEÑO CUADRADO SIMPLE */
+.model-container {
+    width: 280px;
+    height: 280px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+    /* Fondo minimalista */
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    
+    /* Borde sutil */
+    border: 1px solid #444;
+    
+    /* Sombra suave */
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    
+    /* Transición suave */
+    transition: all 0.3s ease;
+}
+
 /* Canvas de modelos 3D */
 .model-container-next canvas,
 .model-container canvas {
     width: 100% !important;
     height: 100% !important;
     display: block;
-    border-radius: 8px;
+    border-radius: 6px;
     background: transparent;
     position: relative;
     z-index: 10;
 }
 
-/* Indicador de carga - solo visible cuando no hay canvas activo */
-.model-container-next.loading::after,
-.model-container.loading::after {
-    content: "🚀 Cargando modelo 3D...";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);   
-    color: #ffffff;
-    font-size: 14px;
-    text-align: center;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.8;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 8px;
-}
-
-/* Ocultar indicador por defecto */
-.model-container-next::after,
-.model-container::after {
-    display: none;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .model-container-next,
-    .model-container {
-        height: 200px;
-        min-height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .model-container-next,
-    .model-container {
-        height: 180px;
-        min-height: 160px;
-    }
-}
-
-/* Hover effect */
-.model-container-next:hover,
+/* Efecto hover minimalista */
 .model-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-color: #555;
+}
+
+/* Ajustar layout para centrar mejor los cuadrados */
+.meteorite-column {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.meteorite-column .model-container {
+    flex-shrink: 0;
+}
+
+.meteorite-column .data-container {
+    flex: 1;
+ border-color: #555;
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
-.model-container:hover {
-    border-color: #555;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
+
