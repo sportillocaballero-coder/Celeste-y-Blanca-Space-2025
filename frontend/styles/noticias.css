@@ -1,7 +1,7 @@
-/* === NOTICIAS.CSS — BASE NEGRA LIMPIA === */
+/* === NOTICIAS.CSS  === */
 
 body {
-  background-color: #000; /* Negro absoluto */
+  background-color: #000; 
   color: #fff;
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -101,7 +101,7 @@ body {
 }
 
 
-/* Tarjetas de noticia */
+/* cards de noticia */
 .news-card {
   background-color: #0a0a0a;
   border: 1px solid #1b1b1b;

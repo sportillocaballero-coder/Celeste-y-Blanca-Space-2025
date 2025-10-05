@@ -320,11 +320,11 @@ section:nth-of-type(even) {
   color: #fff;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 1) 0%,           /* negro puro (funde con el video) */
-    rgba(2, 4, 10, 1) 20%,         /* negruzco con leve tinte azul */
-    rgba(5, 8, 15, 1) 50%,         /* casi negro, mantiene profundidad */
-    rgba(3, 5, 10, 1) 80%,         /* un poco más oscuro hacia el final */
-    rgba(0, 0, 0, 1) 100%          /* cierra completamente negro */
+    rgba(0, 0, 0, 1) 0%,           
+    rgba(2, 4, 10, 1) 20%,        
+    rgba(5, 8, 15, 1) 50%,        
+    rgba(3, 5, 10, 1) 80%,         
+    rgba(0, 0, 0, 1) 100%         
   );
   z-index: 1;
 }

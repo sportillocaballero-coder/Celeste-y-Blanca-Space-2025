@@ -32,7 +32,7 @@
   text-align: left;   /* alineación del texto */
 }
 
-/* Gradiente oscuro para mejorar contraste */
+/* Gradiente oscuro para mejorar */
 #inicio::after {
   content: "";
   position: absolute;
@@ -49,7 +49,7 @@ body, html {
   overflow-x: hidden;
 }
 
-/* === MITIGACIÓN (mismo formato que INICIO) === */
+/* === MITIGACIÓN === */
 #mitigacion {
   position: relative;
   overflow: hidden;
@@ -74,7 +74,7 @@ body, html {
 }
 
 #mitigacion::after {
-  /* gradiente oscuro para resaltar texto */
+  /* gradiente oscuro para resaltar el text */
   content: "";
   position: absolute;
   inset: 0;

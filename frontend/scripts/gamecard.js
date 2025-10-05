@@ -1,8 +1,6 @@
 /* ===========================================================
    GAMECARD.JS — Mini-juego de defensa planetaria
-   Compatible con Celeste & Blanca Space (sin frameworks)
    -----------------------------------------------------------
-   Autor: Santiago / Celeste & Blanca Space Team
    Descripción:
    - 5 meteoritos de ataque aleatorios
    - 4 defensas (DART, NEO, 1033, Colaboración)
@@ -17,6 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==================== AUDIO DEL JUEGO ====================
   let bgAudio = null;
 
+  /**
+   * Inicializa y reproduce el audio de fondo del juego
+   * @returns {void} No devuelve valor, pero asigna un objeto Audio a bgAudio
+   */
   const initAudio = () => {
     bgAudio = new Audio("assets/audio/gamecard.mp3");
     bgAudio.volume = 0.4;
@@ -26,6 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  /**
+   * Detiene y reinicia el audio de fondo del juego
+   * @returns {void} No devuelve valor, modifica el estado del audio
+   */
   const stopAudio = () => {
     if (bgAudio) {
       bgAudio.pause();
@@ -62,9 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let resolved = false;
 
   // ==================== FUNCIONES PRINCIPALES ====================
+  /**
+   * Selecciona un meteorito aleatorio del array de meteoritos
+   * @returns {Object} Objeto meteorito con propiedades: id, name, size, speed, img, type
+   */
   const randomMeteor = () => meteors[Math.floor(Math.random() * meteors.length)];
 
   // ==================== FUNCIÓN PARA ACTUALIZAR VIDAS ====================
+  /**
+   * Actualiza la visualización de las vidas de la Tierra en el DOM
+   * @returns {void} No devuelve valor, modifica el innerHTML del elemento HP
+   */
   const updateHPDisplay = () => {
     const hpElement = document.getElementById("hp");
     if (hpElement) {
@@ -72,6 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  /**
+   * Renderiza el tablero completo del juego con todos sus elementos
+   * @returns {void} No devuelve valor, modifica el innerHTML del gameArea y llama a otras funciones de renderizado
+   */
   const renderBoard = () => {
     gameArea.innerHTML = `
       <div class="status-bar">
@@ -108,6 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
     attachEvents();
   };
 
+  /**
+   * Renderiza las cartas de defensa en la grilla
+   * @returns {void} No devuelve valor, crea elementos DOM y los añade a la grilla de defensas
+   */
   const renderDefenses = () => {
     const grid = document.querySelector(".defense-grid");
     grid.innerHTML = "";
@@ -126,6 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  /**
+   * Adjunta event listeners a los elementos interactivos del juego
+   * @returns {void} No devuelve valor, configura los manejadores de eventos
+   */
   const attachEvents = () => {
     document.querySelectorAll(".defense-card").forEach((card) => {
       card.addEventListener("click", () => selectDefense(card));
@@ -137,6 +163,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ==================== SELECCIÓN DE DEFENSAS ====================
+  /**
+   * Maneja la selección y deselección de cartas de defensa
+   * @param {HTMLElement} cardEl - Elemento DOM de la carta clickeada
+   * @returns {void} No devuelve valor, modifica el array 'selected' y las clases CSS de la carta
+   */
   const selectDefense = (cardEl) => {
     if (resolved) return;
     const id = cardEl.dataset.id;
@@ -156,12 +187,22 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ==================== LÓGICA DE RESULTADOS CORREGIDA ====================
+  /**
+   * Calcula el tamaño efectivo del meteorito considerando el efecto del NEO Surveyor
+   * @param {string} baseSize - Tamaño original del meteorito (S, M, L, XL)
+   * @param {boolean} hasSurvey - Si se está usando NEO Surveyor
+   * @returns {string} Tamaño efectivo del meteorito después de aplicar NEO Surveyor
+   */
   const effectiveSize = (baseSize, hasSurvey) => {
     if (!hasSurvey) return baseSize;
     const idx = sizeOrder.indexOf(baseSize);
     return sizeOrder[Math.max(0, idx - 1)];
   };
 
+  /**
+   * Resuelve la ronda actual aplicando la lógica de combate entre defensas y meteorito
+   * @returns {void} No devuelve valor, pero modifica el estado del juego (puntuación, vidas, etc.)
+   */
   const resolveRound = () => {
     if (resolved || selected.length === 0) return;
 
@@ -207,12 +248,20 @@ document.addEventListener("DOMContentLoaded", () => {
     checkGameOver();
   };
 
+  /**
+   * Ejecuta animación de éxito cuando la defensa es exitosa
+   * @returns {void} No devuelve valor, añade y remueve clase CSS de animación
+   */
   const animateSuccess = () => {
     const meteorEl = document.getElementById("meteor");
     meteorEl.classList.add("explode");
     setTimeout(() => meteorEl.classList.remove("explode"), 1000);
   };
 
+  /**
+   * Ejecuta animación de fallo cuando la defensa falla
+   * @returns {void} No devuelve valor, añade y remueve clase CSS de animación
+   */
   const animateFail = () => {
     const meteorEl = document.getElementById("meteor");
     meteorEl.classList.add("shake");
@@ -220,6 +269,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ==================== CONTROL DE FLUJO CORREGIDO ====================
+  /**
+   * Avanza a la siguiente ronda del juego
+   * @returns {void} No devuelve valor, reinicia variables de ronda y renderiza nuevo estado
+   */
   const nextRound = () => {
     if (!resolved) return;
     if (wins >= 5 || earthHP <= 0) {
@@ -235,6 +288,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBoard();
   };
 
+  /**
+   * Verifica si el juego ha terminado (victoria o derrota) y actualiza la interfaz
+   * @returns {void} No devuelve valor, modifica elementos DOM y detiene audio según el resultado
+   */
   const checkGameOver = () => {
     const resetBtn = document.getElementById("reset-btn");
     const nextBtn = document.getElementById("next-btn");
@@ -253,6 +310,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  /**
+   * Reinicia completamente el juego a su estado inicial
+   * @returns {void} No devuelve valor, resetea todas las variables de estado y reinicia el audio
+   */
   const resetGame = () => {
     round = 1;
     earthHP = 3;
@@ -268,6 +329,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBoard();
   };
 
+  /**
+   * Actualiza la visualización del puntaje en el DOM
+   * @returns {void} No devuelve valor, modifica el textContent del elemento score
+   */
   const updateScore = () => {
     const scoreElement = document.getElementById("score");
     if (scoreElement) {
