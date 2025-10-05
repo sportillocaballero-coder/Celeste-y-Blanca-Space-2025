@@ -76,17 +76,22 @@
    
     <!-- SECCIÓN INICIO: Hero section con información del proyecto -->
    
-    <section id="inicio" class="hero-section" aria-labelledby="hero-title">
-      <h1 id="hero-title" class="hero-title">Proyecto ARMET</h1>
-      <h2 class="section-title">Monitoreo de Asteroides y Meteoritos</h2>
-      <p class="lead">
-        Una plataforma interactiva dedicada al seguimiento y análisis de objetos cercanos a la Tierra (NEOs).
-      </p>
-      <p>
-        Nuestro objetivo es brindar información precisa y actualizada sobre meteoritos próximos, 
-        generar alertas preventivas y ofrecer herramientas de mitigación para proteger nuestro planeta.
-      </p>
-    </section>
+  <section id="inicio" class="hero-section">
+    <link rel="stylesheet" href="video.css">
+    <!-- 🎥 Video de fondo -->
+    <video autoplay muted loop id="bg-video">
+      <source src="assets/video/Portada1.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+
+    <!-- Contenido principal -->
+      <div class="hero-content">
+       <h1 class="hero-title">Proyecto ARMET</h1>
+       <h2 class="section-title">Monitoreo de Asteroides y Meteoritos</h2>
+       <p class="lead">Una plataforma interactiva dedicada al seguimiento y análisis de objetos cercanos a la Tierra (NEOs).</p>
+       <p>Nuestro objetivo es brindar información precisa y actualizada sobre meteoritos próximos, generar alertas preventivas y ofrecer herramientas de mitigación para proteger nuestro planeta.</p>
+      </div>
+  </section>
     
     
     <!-- SECCIÓN METEORITOS PRÓXIMOS: Datos en tiempo real de NEOs -->
@@ -298,12 +303,20 @@
     
     <!-- SECCIÓN MITIGACIÓN: Estrategias de defensa planetaria -->
     
-    <section id="mitigacion" aria-labelledby="mitigacion-title">
-      <h2 id="mitigacion-title" class="section-title">Estrategias de Mitigación</h2>
-      <p>
-        Exploramos métodos de desviación y fragmentación para reducir el riesgo de impacto futuro.
-      </p>
-      <!-- TODO: Añadir contenido sobre estrategias de mitigación -->
+    <section id="mitigacion" class="hero-section">
+      
+      <link rel="stylesheet" href="styles/video.css">
+      <video autoplay muted loop id="bg-video-mitigacion">
+        <source src="assets/video/1851190-uhd_3840_2160_25fps.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+
+      <!-- Contenido textual -->
+      <div class="hero-content">
+        <h1 class="hero-title">Mitigación</h1>
+        <p class="lead">Desarrollamos estrategias y tecnologías para la detección temprana, desviación y neutralización de objetos potencialmente peligrosos.</p>
+        <p>ARMET trabaja en la integración de simulaciones, modelos predictivos y alertas automatizadas que permiten actuar antes del impacto.</p>
+      </div>
     </section>
   </main>
 

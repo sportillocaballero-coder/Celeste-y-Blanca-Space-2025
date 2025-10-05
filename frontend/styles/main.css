@@ -232,54 +232,54 @@ section:nth-of-type(even) {
 
 /* Botón hamburguesa - oculto por defecto en desktop */
 .hamburger-btn {
-  display: none;               /* Oculto en pantallas grandes */
-  flex-direction: column;      /* Apila las líneas verticalmente */
-  justify-content: space-around; /* Distribuye las líneas uniformemente */
-  width: 30px;                 /* Ancho del botón */
-  height: 25px;                /* Alto del botón */
-  background: transparent;     /* Fondo transparente */
-  border: none;                /* Sin borde */
-  cursor: pointer;             /* Cursor de mano */
-  padding: 0;                  /* Sin padding */
-  z-index: 101;                /* Por encima del header */
+  display: none;               
+  flex-direction: column;     
+  justify-content: space-around; 
+  width: 30px;                
+  height: 25px;                
+  background: transparent;     
+  border: none;               
+  cursor: pointer;            
+  padding: 0;               
+  z-index: 101;              
 }
 
 /* Líneas del ícono hamburguesa */
 .hamburger-line {
-  width: 100%;                 /* Ocupa todo el ancho del botón */
-  height: 3px;                 /* Grosor de cada línea */
-  background-color: #eaeaea;   /* Color claro para contraste */
-  transition: all 0.3s ease;  /* Animación suave para transformaciones */
-  transform-origin: center;    /* Punto de origen para rotaciones */
+  width: 100%;                
+  height: 3px;                
+  background-color: #eaeaea;  
+  transition: all 0.3s ease;  
+  transform-origin: center;   
 }
 
 /* Animación cuando el menú está abierto */
 .hamburger-btn.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px); /* Primera línea forma parte de la X */
+  transform: rotate(45deg) translate(6px, 6px); 
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(2) {
-  opacity: 0;                  /* Línea del medio desaparece */
+  opacity: 0;                  
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px); /* Tercera línea completa la X */
+  transform: rotate(-45deg) translate(6px, -6px); 
 }
 
 /* Menú de navegación móvil */
 .mobile-nav {
-  display: none;               /* Oculto por defecto */
-  position: fixed;             /* Posición fija en pantalla */
-  top: 100px;                  /* Debajo del header */
-  left: 0;                     /* Pegado al borde izquierdo */
-  width: 100%;                 /* Ocupa todo el ancho */
-  background-color: rgba(0, 0, 0, 0.95); /* Fondo negro semitransparente */
-  backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
-  flex-direction: column;      /* Enlaces apilados verticalmente */
-  padding: 2rem 0;             /* Espacio arriba y abajo */
-  z-index: 99;                 /* Por debajo del botón hamburguesa */
-  transform: translateY(-100%); /* Inicialmente fuera de pantalla */
-  transition: transform 0.3s ease; /* Animación suave al aparecer */
+  display: none;             
+  position: fixed;             
+  top: 100px;                  
+  left: 0;                     
+  width: 100%;               
+  background-color: rgba(0, 0, 0, 0.95); 
+  backdrop-filter: blur(10px); 
+  flex-direction: column;      
+  padding: 2rem 0;            
+  z-index: 99;              
+  transform: translateY(-100%); 
+  transition: transform 0.3s ease; 
 }
 
 /* Estado activo del menú móvil */
@@ -291,20 +291,20 @@ section:nth-of-type(even) {
 /* Enlaces dentro del menú móvil */
 .mobile-nav a {
   text-decoration: none;       /* Sin subrayado */
-  color: #eaeaea;             /* Color claro */
-  padding: 1rem 2rem;         /* Espacio interno generoso para facilitar toque */
+  color: #eaeaea;             
+  padding: 1rem 2rem;         
   text-transform: uppercase;   /* Texto en mayúsculas */
-  font-size: 1rem;            /* Tamaño más grande para móvil */
-  letter-spacing: 0.5px;      /* Espaciado entre letras */
-  transition: all 0.3s ease;  /* Animación suave */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+  font-size: 1rem;            
+  letter-spacing: 0.5px;      
+  transition: all 0.3s ease;  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria  */
 }
 
 /* Efecto hover en enlaces móviles */
 .mobile-nav a:hover {
-  color: #1e90ff;             /* Color azul al tocar */
-  background-color: rgba(30, 144, 255, 0.1); /* Fondo azul muy sutil */
-  padding-left: 2.5rem;       /* Pequeña indentación al hacer hover */
+  color: #1e90ff;             
+  background-color: rgba(30, 144, 255, 0.1); 
+  padding-left: 2.5rem;       /* Pequeña indentación al hacer hover*/ 
 }
 
 
@@ -315,12 +315,12 @@ section:nth-of-type(even) {
 @media (max-width: 900px) {
   /* Oculta la navegación desktop en dispositivos */
   .navbar { 
-    display: none;             /* Menú desktop oculto */
+    display: none;         
   }
   
   /* Muestra el botón hamburguesa  */
   .hamburger-btn {
-    display: flex;             /* Hace visible el boton */
+    display: flex;            
   }
   
   /* Footer en una sola columna para móviles */
@@ -356,4 +356,48 @@ section:nth-of-type(even) {
   .content-wrap {
     padding-inline: 1rem;     /* Menos padding lateral en móviles pequeños */
   }
+}
+
+/* === ALERTAS: gradiente casi negro (deep space) === */
+#alertas {
+  position: relative;
+  padding: 6rem 5vw;
+  color: #fff;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,           /* negro puro (funde con el video) */
+    rgba(2, 4, 10, 1) 20%,         /* negruzco con leve tinte azul */
+    rgba(5, 8, 15, 1) 50%,         /* casi negro, mantiene profundidad */
+    rgba(3, 5, 10, 1) 80%,         /* un poco más oscuro hacia el final */
+    rgba(0, 0, 0, 1) 100%          /* cierra completamente negro */
+  );
+  z-index: 1;
+}
+
+/* Sombra superior para fusión suave con el video */
+#alertas::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 0;
+}
+
+#alertas .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+#alertas p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
 }
