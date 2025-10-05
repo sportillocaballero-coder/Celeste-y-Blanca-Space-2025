@@ -89,18 +89,17 @@
       <div class="hero-content">
        <h1 class="hero-title">ARMET</h1>
        <h2 class="section-title">Active Research for Meteor Targeting </h2>
-       <p class="lead">Objetivo/misión de la página: Brindamos una herramienta web visual y educativa que informe, concientice y prepare a la sociedad ante posibles amenazas de asteroides cercanos a la Tierra. Algo que no aburra. p>
-       <p>Somos Celeste y Blanca Space. Proporcionamos una herremienta web (visual) y educativa capaz de informar, concientizar y preparar ante posibles amenazas de asteroides cercanos </p>
+       <p class="lead">Somos Celeste y Blanca Space. Proporcionamos una herremienta web (visual) y educativa capaz de informar, concientizar y preparar ante posibles amenazas de asteroides cercano </p>
       </div>
   </section>
-    
+    <p></p>
     
     <!-- SECCIÓN METEORITOS PRÓXIMOS: Datos en tiempo real de NEOs -->
     
     <section id="proximos" aria-labelledby="proximos-title">
       <h2 id="proximos-title" class="section-title">🌍 Meteoritos Próximos a la Tierra</h2>
       <p class="lead">
-        Datos actualizados de los cuerpos celestes más cercanos detectados durante el presente mes.
+        Datos actualizados de los cuerpos celestes más cercanos detectados durante el presente.
       </p>
 
       <!-- Contenedor de tarjetas de meteoritos próximos -->
@@ -112,23 +111,30 @@
             <!-- Canvas para modelo 3D del meteorito -->
             <canvas id="model-proximo1" aria-label="Modelo 3D del meteorito 2025 QZ1"></canvas>
           </div>
-          <div class="data-container-next">
-            <h3>🪨 Apophis</h3>
-            <dl>
-              <dt>Distancia mínima:</dt>
-              <dd>4.5 millones km</dd>
-              
-              <dt>Velocidad:</dt>
-              <dd>26.000 km/h</dd>
-              
-              <dt>Composición:</dt>
-              <dd>Rocosa con núcleo metálico</dd>
-              
-              <dt>Fecha de máxima aproximación:</dt>
-              <dd>8 de octubre 2025</dd>
-            </dl>
-            <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo</p>
-          </div>
+            <div class="data-container-next">
+              <h3>☄️ 99942 Apophis</h3>
+              <dl>
+                <dt>Distancia mínima:</dt>
+                <dd>31.600 km (sobre la superficie terrestre)</dd>
+
+                <dt>Velocidad relativa:</dt>
+                <dd>≈(por definir)</dd>
+
+                <dt>Tamaño estimado:</dt>
+                <dd>≈ 340 m de diámetro</dd>
+
+                <dt>Masa aproximada:</dt>
+                <dd>≈(por definir) </dd>
+
+                <dt>Composición:</dt>
+                <dd>Silíceo (olivino, piroxeno, hierro y níquel)</dd>
+
+                <dt>Fecha de máxima aproximación:</dt>
+                <dd>2029 32.000km</dd>
+              </dl>
+
+              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo (0 en la escala de Turín)</p>
+            </div>
         </article>
 
         <!-- Tarjeta de meteorito 2 -->
@@ -137,23 +143,30 @@
             <!-- Canvas para modelo 3D del meteorito -->
             <canvas id="model-proximo2" aria-label="Modelo 3D del meteorito Asteroid 2024 yr4"></canvas>
           </div>
-          <div class="data-container-next">
-            <h3>☄️ Asteroide yr4</h3>
-            <dl>
-              <dt>Distancia mínima:</dt>
-              <dd>2.9 millones km</dd>
-              
-              <dt>Velocidad:</dt>
-              <dd>35.000 km/h</dd>
-              
-              <dt>Composición:</dt>
-              <dd>Mixta (níquel y silicatos)</dd>
-              
-              <dt>Fecha de máxima aproximación:</dt>
-              <dd>20 de octubre 2025</dd>
-            </dl>
-            <p class="alerta-media" role="alert">🟡 Riesgo de impacto: Bajo</p>
-          </div>
+            <div class="data-container-next">
+              <h3>☄️ Asteroide 2024 YR₄</h3>
+              <dl>
+                <dt>Distancia mínima:</dt>
+                <dd>≈ 384.000 km (aproximadamente la distancia a la Luna)</dd>
+
+                <dt>Velocidad relativa:</dt>
+                <dd> (por definir)</dd>
+
+                <dt>Tamaño estimado:</dt>
+                <dd>≈ 40–90 m de diámetro</dd>
+
+                <dt>Masa aproximada:</dt>
+                <dd>No determinada con precisión (estimada en millones de toneladas)</dd>
+
+                <dt>Tipo y composición:</dt>
+                <dd>Asteroide tipo Apollo, rocoso (silicatos con trazas metálicas)</dd>
+
+                <dt>Fecha de máxima aproximación:</dt>
+                <dd>2032 (pasará cerca de la órbita lunar)</dd>
+              </dl>
+
+              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo (monitoreado por NASA)</p>
+            </div>
         </article>
       </div>
     </section>
@@ -162,7 +175,7 @@
     <!-- SECCIÓN METEORITOS CONOCIDOS: Base de datos histórica -->
    
     <section id="conocidos" aria-labelledby="conocidos-title">
-      <h2 id="conocidos-title" class="section-title">Meteoritos Históricamente Conocidos</h2>
+      <h2 id="conocidos-title" class="section-title">🌍 Meteoritos Históricamente Conocidos</h2>
       <p class="lead">
         Listado de meteoritos más relevantes documentados por observatorios internacionales.
       </p>
@@ -174,21 +187,32 @@
           <div class="model-container">
             <canvas id="model-chicxulub" aria-label="Modelo 3D del cráter Chicxulub"></canvas>
           </div>
-          <div class="data-container">
-            <dl>
-              <dt>Lorem:</dt>
-              <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</dd>
-              
-              <dt>Ipsum:</dt>
-              <dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</dd>
-              
-              <dt>Dolor:</dt>
-              <dd>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</dd>
-              
-              <dt>Consectetur:</dt>
-              <dd>At vero eos et accusamus et iusto odio dignissimos ducimus.</dd>
-            </dl>
-          </div>
+            <div class="data-container">
+              <h3>☄️ Chicxulub (México)</h3>
+              <dl>
+                <dt>Ubicación:</dt>
+                <dd>Península de Yucatán, México</dd>
+
+                <dt>Edad geológica:</dt>
+                <dd>≈ 66 millones de años</dd>
+
+                <dt>Tamaño del asteroide:</dt>
+                <dd>Entre 10 y 15 km de diámetro</dd>
+
+                <dt>Diámetro del cráter:</dt>
+                <dd>≈ 180 km</dd>
+
+                <dt>Energía liberada:</dt>
+                <dd>Equivalente a varios miles de millones de bombas atómicas de Hiroshima</dd>
+
+                <dt>Consecuencias del impacto:</dt>
+                <dd>
+                  Provocó incendios globales, tsunamis y un drástico cambio climático
+                  que causó la extinción del 75 % de las especies, incluidos los dinosaurios.
+                </dd>
+              </dl>
+              <p class="alerta-alta" role="alert">🔴 Evento de extinción masiva (Cretácico–Paleógeno)</p>
+            </div>
         </div>
       </article>
 
@@ -199,21 +223,32 @@
           <div class="model-container">
             <canvas id="model-hoba" aria-label="Modelo 3D del meteorito hoba"></canvas>
           </div>
-          <div class="data-container">
-            <dl>
-              <dt>Lorem:</dt>
-              <dd>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</dd>
-              
-              <dt>Ipsum:</dt>
-              <dd>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.</dd>
-              
-              <dt>Dolor:</dt>
-              <dd>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</dd>
-              
-              <dt>Consectetur:</dt>
-              <dd>Ut enim ad minima veniam, quis nostrum exercitationem ullam.</dd>
-            </dl>
-          </div>
+            <div class="data-container">
+              <h3>🪨 Meteorito Hoba (Namibia)</h3>
+              <dl>
+                <dt>Ubicación:</dt>
+                <dd>Cerca de Grootfontein, Namibia</dd>
+
+                <dt>Descubrimiento:</dt>
+                <dd>1920</dd>
+
+                <dt>Tipo:</dt>
+                <dd>Siderito (hierro–níquel)</dd>
+
+                <dt>Tamaño:</dt>
+                <dd>≈ 2.7 metros de ancho</dd>
+
+                <dt>Peso estimado:</dt>
+                <dd>≈ 60 toneladas</dd>
+
+                <dt>Características destacadas:</dt>
+                <dd>
+                  Es el meteorito más grande hallado intacto en la Tierra.  
+                  No dejó cráter visible al impactar, posiblemente por su baja velocidad de caída.
+                </dd>
+              </dl>
+              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Nulo (meteorito ya encontrado en superficie)</p>
+            </div>
         </div>
       </article>
 
@@ -225,20 +260,36 @@
             <canvas id="model-bennu" aria-label="Modelo 3D del meteorito Bennu"></canvas>
           </div>
           <div class="data-container">
-            <dl>
-              <dt>Lorem:</dt>
-              <dd>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</dd>
-              
-              <dt>Ipsum:</dt>
-              <dd>Fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</dd>
-              
-              <dt>Dolor:</dt>
-              <dd>Sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
-              
-              <dt>Consectetur:</dt>
-              <dd>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
-            </dl>
-          </div>
+            <div class="data-container">
+              <h3>☄️ Asteroide Bennu (101955)</h3>
+              <dl>
+                <dt>Ubicación:</dt>
+                <dd>Órbita cercana a la Tierra (NEA, Near-Earth Asteroid)</dd>
+
+                <dt>Descubrimiento:</dt>
+                <dd>1999</dd>
+
+                <dt>Tipo:</dt>
+                <dd>Siderito (rocoso–metálico)</dd>
+
+                <dt>Tamaño:</dt>
+                <dd>≈ 482 metros de diámetro</dd>
+
+                <dt>Misión espacial:</dt>
+                <dd>
+                  Objetivo de la misión <strong>OSIRIS-REx</strong> (NASA), que recolectó y trajo muestras a la Tierra en 2023.
+                </dd>
+
+                <dt>Características destacadas:</dt>
+                <dd>
+                  Asteroide de forma casi esférica y superficie rocosa.  
+                  Es estudiado por su valor científico y su baja probabilidad de impacto futuro,
+                  especialmente hacia finales del siglo XXI.
+                </dd>
+              </dl>
+              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Muy bajo (monitoreado por NASA)</p>
+            </div>
+
         </div>
       </article>
 
@@ -249,21 +300,30 @@
           <div class="model-container">
             <canvas id="model-4vesta" aria-label="Modelo 3D del asteroide 4 Vesta"></canvas>
           </div>
-          <div class="data-container">
-            <dl>
-              <dt>Lorem:</dt>
-              <dd>Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</dd>
-              
-              <dt>Ipsum:</dt>
-              <dd>Et harum quidem rerum facilis est et expedita distinctio nam libero.</dd>
-              
-              <dt>Dolor:</dt>
-              <dd>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.</dd>
-              
-              <dt>Consectetur:</dt>
-              <dd>Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis.</dd>
-            </dl>
-          </div>
+            <div class="data-container">
+              <h3>🪐 Asteroide (4) Vesta</h3>
+              <dl>
+                <dt>Ubicación:</dt>
+                <dd>Cinturón principal de asteroides (entre Marte y Júpiter)</dd>
+
+                <dt>Descubrimiento:</dt>
+                <dd>1807 por Heinrich Olbers</dd>
+
+                <dt>Tipo:</dt>
+                <dd>Rocoso (tipo V)</dd>
+
+                <dt>Dimensión:</dt>
+                <dd>≈ 525 km de diámetro</dd>
+
+                <dt>Características destacadas:</dt>
+                <dd>
+                  Uno de los cuerpos más grandes del cinturón de asteroides.  
+                  Fuente de los meteoritos HED (howarditas, eucritas y diogenitas)  
+                  y visitado por la sonda <strong>DAWN</strong> de la NASA (2011–2012).
+                </dd>
+              </dl>
+              <p class="alerta-baja" role="alert">🟢 Riesgo de impacto: Nulo (órbita estable en el cinturón de asteroides)</p>
+            </div>
         </div>
       </article>
 
@@ -274,21 +334,30 @@
           <div class="model-container">
             <canvas id="model-chelyabinsk" aria-label="Modelo 3D del meteorito Chelyabinsk"></canvas>
           </div>
-          <div class="data-container">
-            <dl>
-              <dt>Lorem:</dt>
-              <dd>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil.</dd>
-              
-              <dt>Ipsum:</dt>
-              <dd>Impedit quo minus id quod maxime placeat facere possimus omnis.</dd>
-              
-              <dt>Dolor:</dt>
-              <dd>Voluptas assumenda est, omnis dolor repellendus temporibus autem quibusdam.</dd>
-              
-              <dt>Consectetur:</dt>
-              <dd>Et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et.</dd>
-            </dl>
-          </div>
+            <div class="data-container">
+              <h3>☄️ Meteorito Chelyabinsk (Rusia)</h3>
+              <dl>
+                <dt>Ubicación:</dt>
+                <dd>Región de Chelyabinsk, Rusia</dd>
+
+                <dt>Descubrimiento / Evento:</dt>
+                <dd>15 de febrero de 2013</dd>
+
+                <dt>Tipo:</dt>
+                <dd>Condrita ordinaria (LL5)</dd>
+
+                <dt>Dimensión:</dt>
+                <dd>≈ 20 metros de diámetro</dd>
+
+                <dt>Características destacadas:</dt>
+                <dd>
+                  Explotó en la atmósfera terrestre liberando una gran cantidad de energía.  
+                  La onda expansiva dañó miles de edificios y causó heridas a más de 1.000 personas.  
+                  Fue uno de los eventos de impacto más documentados de la era moderna.
+                </dd>
+              </dl>
+              <p class="alerta-media" role="alert">🟡 Riesgo de impacto: Bajo (evento atmosférico ya ocurrido)</p>
+            </div>
         </div>
       </article>
     </section>
