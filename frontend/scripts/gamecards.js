@@ -1,8 +1,8 @@
-/* ================================================================ */
+
 /* SCRIPT PRINCIPAL DEL JUEGO EDUCATIVO GAMECARD                  */
-/* ================================================================ */
+
 /* 
- * Este script maneja la lógica básica del juego educativo sobre meteoritos.
+ * Este script maneja la lógica básica del juego.
  * Incluye:
  * - Sistema de puntuación del jugador
  * - Inicialización del juego
@@ -18,9 +18,9 @@ const scoreDisplay = document.getElementById("score");
 const startBtn = document.getElementById("start-btn");
 const gameScreen = document.querySelector(".game-screen");
 
-/* ================================================================ */
+
 /* FUNCIÓN: INICIAR NUEVA PARTIDA                                 */
-/* ================================================================ */
+
 /* 
  * Reinicia el juego a su estado inicial y prepara la pantalla
  * para comenzar una nueva sesión de juego.
@@ -31,9 +31,9 @@ function iniciarJuego() {
   gameScreen.innerHTML = "<p>🚀 Juego iniciado... próximamente misiones espaciales interactivas.</p>";
 }
 
-/* ================================================================ */
+
 /* FUNCIÓN: ACTUALIZAR MARCADOR DE PUNTOS                         */
-/* ================================================================ */
+
 /* 
  * Actualiza la visualización del puntaje actual del jugador
  * en la interfaz de usuario.
@@ -42,8 +42,8 @@ function actualizarPuntaje() {
   scoreDisplay.textContent = score;
 }
 
-/* ================================================================ */
+
 /* EVENT LISTENER: BOTÓN DE INICIAR JUEGO                         */
-/* ================================================================ */
+
 // Evento botón iniciar
 startBtn.addEventListener("click", iniciarJuego);

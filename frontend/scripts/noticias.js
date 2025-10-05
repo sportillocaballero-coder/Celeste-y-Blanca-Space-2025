@@ -1,23 +1,23 @@
-/* ================================================================ */
-/* SCRIPT PARA CARGAR NOTICIAS ASTRONÓMICAS EN TIEMPO REAL        */
-/* ================================================================ */
+
+/* SCRIPT PARA CARGAR NOTICIAS        */
+
 /* 
- * Este script obtiene información de APIs de NASA para mostrar:
+ * Este script obtiene información de APIs para mostrar:
  * - Imagen astronómica del día (APOD)
  * - Noticias recientes del feed RSS de NASA
  * - Manejo de errores si las APIs no responden
  */
 
 // Clave de API de NASA para acceder a sus servicios
-const API_KEY = "Ie3jrajsuZ1DfwEZdR91Se2lS5gazb1lvojY0NRe"; // ⚠️ poné tu API key real de api.nasa.gov
+const API_KEY = "Ie3jrajsuZ1DfwEZdR91Se2lS5gazb1lvojY0NRe"; // ⚠️WARNING: poné tu API key real de api.nasa.gov
 
 // Elementos del DOM donde se mostrarán las noticias
 const noticiaDia = document.getElementById("noticia-dia");
 const newsContainer = document.getElementById("news-container");
 
-/* ================================================================ */
+
 /* FUNCIÓN: CARGAR IMAGEN ASTRONÓMICA DEL DÍA                     */
-/* ================================================================ */
+
 /* 
  * Obtiene la imagen destacada del día desde la API APOD de NASA.
  * Puede ser una imagen o un video, y muestra la explicación científica.
@@ -58,9 +58,9 @@ async function cargarNoticiaDelDia() {
   }
 }
 
-/* ================================================================ */
+
 /* FUNCIÓN: CARGAR NOTICIAS RECIENTES DE NASA                     */
-/* ================================================================ */
+
 /* 
  * Obtiene las últimas 5 noticias del feed RSS oficial de NASA.
  * Usa un servicio intermediario (rss2json) para convertir RSS a JSON.
@@ -90,9 +90,9 @@ async function cargarNoticiasRecientes() {
   }
 }
 
-/* ================================================================ */
+
 /* INICIALIZACIÓN: EJECUTAR AMBAS FUNCIONES AL CARGAR LA PÁGINA   */
-/* ================================================================ */
+
 // Ejecutar ambas funciones
 cargarNoticiaDelDia();
 cargarNoticiasRecientes();
