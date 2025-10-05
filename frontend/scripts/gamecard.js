@@ -15,6 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameArea = document.querySelector(".game-screen");
   const scoreDisplay = document.getElementById("score");
 
+  // ==================== AUDIO DEL JUEGO ====================
+  let bgAudio = null;
+
+  const initAudio = () => {
+    bgAudio = new Audio("assets/audio/gamecard.mp3");
+    bgAudio.volume = 0.4;
+    bgAudio.loop = true;
+    bgAudio.play().catch(() => {
+      console.warn("El audio fue bloqueado por el navegador hasta que el usuario interactúe.");
+    });
+  };
+
+  const stopAudio = () => {
+    if (bgAudio) {
+      bgAudio.pause();
+      bgAudio.currentTime = 0;
+    }
+  };
+
   // ==================== CONFIGURACIÓN DEL JUEGO ====================
   const meteors = [
     { id: "apophis", name: "Apophis", size: "L", speed: 12.6, img: "assets/cards/CB_Card_front--Apophis.png", type: "Silicáceo" },
@@ -45,6 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ==================== FUNCIONES PRINCIPALES ====================
   const randomMeteor = () => meteors[Math.floor(Math.random() * meteors.length)];
+
+  // ==================== FUNCIÓN PARA ACTUALIZAR VIDAS ====================
+  const updateHPDisplay = () => {
+    const hpElement = document.getElementById("hp");
+    if (hpElement) {
+      hpElement.innerHTML = "❤".repeat(earthHP) + "♡".repeat(3 - earthHP);
+    }
+  };
 
   const renderBoard = () => {
     gameArea.innerHTML = `
@@ -128,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardEl.classList.add("selected");
   };
 
-  // ==================== LÓGICA DE RESULTADOS ====================
+  // ==================== LÓGICA DE RESULTADOS CORREGIDA ====================
   const effectiveSize = (baseSize, hasSurvey) => {
     if (!hasSurvey) return baseSize;
     const idx = sizeOrder.indexOf(baseSize);
@@ -156,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
       comboBonus = success;
     }
 
-    // Resultado
+    // Resultado - VALIDACIÓN CORREGIDA
     if (success) {
       resultText.textContent = "✅ ¡Defensa exitosa! La Tierra está a salvo.";
       wins++;
@@ -164,15 +191,20 @@ document.addEventListener("DOMContentLoaded", () => {
       animateSuccess();
     } else {
       resultText.textContent = "💥 Impacto fallido. La Tierra sufre daños.";
-      earthHP--;
-      score -= 50;
+      earthHP = Math.max(0, earthHP - 1); // Asegurar que no sea negativo
+      score = Math.max(0, score - 50); // Asegurar que no sea negativo
       animateFail();
     }
 
     updateScore();
+    updateHPDisplay(); // Actualizar display de vidas inmediatamente
     resolved = true;
     document.getElementById("resolve-btn").classList.add("disabled");
-    document.getElementById("next-btn").classList.remove("disabled");
+    
+    // Solo habilitar "Siguiente" si el juego no ha terminado
+    if (earthHP > 0 && wins < 5) {
+      document.getElementById("next-btn").classList.remove("disabled");
+    }
 
     checkGameOver();
   };
@@ -189,10 +221,14 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => meteorEl.classList.remove("shake"), 1000);
   };
 
-  // ==================== CONTROL DE FLUJO ====================
+  // ==================== CONTROL DE FLUJO CORREGIDO ====================
   const nextRound = () => {
     if (!resolved) return;
-    if (wins >= 5 || earthHP <= 0) return;
+    if (wins >= 5 || earthHP <= 0) {
+      checkGameOver();
+      return;
+    }
+    
     round++;
     selected = [];
     collabActive = false;
@@ -210,10 +246,12 @@ document.addEventListener("DOMContentLoaded", () => {
       resultText.textContent = "☠️ Fin del juego — La Tierra fue impactada.";
       nextBtn.classList.add("disabled");
       resetBtn.classList.remove("hidden");
+      stopAudio(); // Detener música al perder
     } else if (wins >= 5) {
       resultText.textContent = "🌎 ¡Victoria! Defendiste la Tierra 5 rondas.";
       nextBtn.classList.add("disabled");
       resetBtn.classList.remove("hidden");
+      stopAudio(); // Detener música al ganar
     }
   };
 
@@ -227,6 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
     resolved = false;
     meteor = randomMeteor();
     updateScore();
+    stopAudio(); // Detener música anterior
+    initAudio(); // Reiniciar música
     renderBoard();
   };
 
@@ -234,8 +274,12 @@ document.addEventListener("DOMContentLoaded", () => {
     scoreDisplay.textContent = score;
   };
 
-  // ==================== INICIO DEL JUEGO ====================
+  // ==================== INICIO DEL JUEGO CORREGIDO ====================
   startBtn.addEventListener("click", () => {
+    // Iniciar audio del juego
+    initAudio();
+    
+    // Iniciar la primera ronda
     meteor = randomMeteor();
     startBtn.style.display = "none";
     renderBoard();
